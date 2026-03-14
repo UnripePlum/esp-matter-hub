@@ -1,0 +1,59 @@
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbserial-0001 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x4003f3ae: [0;33mppRecycleRxPkt[0m[0m in [0;32mROM[0m
+[0m--- 0x400556d5: [0;33mstrlen[0m[0m in [0;32mROM[0m
+[0m--- 0x400556e5: [0;33mstrlen[0m[0m in [0;32mROM[0m
+[0m--- 0x4003f3ab: [0;33mppRecycleRxPkt[0m[0m in [0;32mROM[0m
+[0m--- 0x4003a27d: [0;33mic_ebuf_recycle_rx[0m[0m in [0;32mROM[0m
+[0m--- 0x420c63c7: [0;33mampdu_free_rx_ba_index[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420c6b09: [0;33mieee80211_ht_node_cleanup[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420d6a79: [0;33mcnx_sta_leave[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420d1091: [0;33mieee80211_sta_new_state[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420c97a1: [0;33mieee80211_sta_disconnect[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420c9824: [0;33mieee80211_sta_disconnect[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420ca294: [0;33mwifi_disconnect_process[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420d2426: [0;33mwifi_station_stop[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420c9405: [0;33m_do_wifi_stop[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420ca140: [0;33mwifi_stop_process[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x420c8f16: [0;33mieee80211_ioctl_process[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40388bc9: [0;33mppTask[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0m--- 0x40381a29: [0;33mvPortTaskWrapper[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m134[0m
+[0m--- 0x40375c10: [0;33mesp_restart_noos[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c[0m[0m:[1;31m159[0m
+[0m--- 0x42022299: [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m656[0m
+[0m--- (inlined by) [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m647[0m
+[0m--- 0x40056f5c: [0;33mmemcpy[0m[0m in [0;32mROM[0m
+[0m--- 0x40056f72: [0;33mmemcpy[0m[0m in [0;32mROM[0m
+[0m--- 0x42022296: [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m656[0m
+[0m--- (inlined by) [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m647[0m
+[0m--- 0x4201d9cc: [0;33mesp_matter::attribute::update(unsigned short, unsigned long, unsigned long, esp_matter_attr_val_t*)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model/esp_matter_attribute_utils.cpp[0m[0m:[1;31m643[0m
+[0m--- 0x4200a37c: [0;33msync_slot_node_label(unsigned char)[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m74[0m
+[0m--- 0x4200a49e: [0;33mrebuild_slot_view()[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m123[0m
+[0m--- 0x4200a781: [0;33mbridge_action_init(unsigned short const*, unsigned int)[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m251[0m
+[0m--- 0x4200a1d3: [0;33mapp_main[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/app_main.cpp[0m[0m:[1;31m390[0m
+[0m--- 0x42117e10: [0;33mmain_task[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m208[0m
+[0m--- 0x40381a29: [0;33mvPortTaskWrapper[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m134[0m
+[0m--- 0x40375c10: [0;33mesp_restart_noos[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c[0m[0m:[1;31m159[0m
+[0m--- 0x40375c8e: [0;33mpanic_abort[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m472[0m
+[0m--- 0x40380f95: [0;33mesp_system_abort[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/esp_system_chip.c[0m[0m:[1;31m93[0m
+[0m--- 0x40381d36: [0;33mvApplicationStackOverflowHook[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m553[0m
+[0m--- 0x4038325a: [0;33mvTaskSwitchContext[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/tasks.c[0m[0m:[1;31m3630[0m
+[0m--- 0x40381e6c: [0;33m_frxt_dispatch[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S[0m[0m:[1;31m451[0m
+[0m--- 0x40381e62: [0;33m_frxt_int_exit[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/portasm.S[0m[0m:[1;31m246[0m
+[0m--- 0x4037a7d1: [0;33m_xt_lowint1[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/xtensa/xtensa_vectors.S[0m[0m:[1;31m1233[0m
+[0m--- 0x40375c10: [0;33mesp_restart_noos[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c[0m[0m:[1;31m159[0m
+[0m--- 0x4037e0fa: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m145[0m
+[0m--- 0x42022299: [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m656[0m
+[0m--- (inlined by) [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m647[0m
+[0m--- 0x40056f5c: [0;33mmemcpy[0m[0m in [0;32mROM[0m
+[0m--- 0x40056f72: [0;33mmemcpy[0m[0m in [0;32mROM[0m
+[0m--- 0x42022296: [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m656[0m
+[0m--- (inlined by) [0;33mesp_matter::data_model::provider::Temporary_ReportAttributeChanged(chip::app::AttributePathParams const&)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model_provider/esp_matter_data_model_provider.cpp[0m[0m:[1;31m647[0m
+[0m--- 0x4201d9cc: [0;33mesp_matter::attribute::update(unsigned short, unsigned long, unsigned long, esp_matter_attr_val_t*)[0m[0m at [0;32m/Users/hanjunkim/esp/esp-matter/components/esp_matter/data_model/esp_matter_attribute_utils.cpp[0m[0m:[1;31m643[0m
+[0m--- 0x4200a37c: [0;33msync_slot_node_label(unsigned char)[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m74[0m
+[0m--- 0x4200a49e: [0;33mrebuild_slot_view()[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m123[0m
+[0m--- 0x4200a781: [0;33mbridge_action_init(unsigned short const*, unsigned int)[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/bridge_action.cpp[0m[0m:[1;31m251[0m
+[0m--- 0x4200a1d3: [0;33mapp_main[0m[0m at [0;32m/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/app_main.cpp[0m[0m:[1;31m390[0m
+[0m--- 0x42117e10: [0;33mmain_task[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/app_startup.c[0m[0m:[1;31m208[0m
+[0m--- 0x40381a29: [0;33mvPortTaskWrapper[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m134[0m
+[0m--- 0x40375c10: [0;33mesp_restart_noos[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/soc/esp32s3/system_internal.c[0m[0m:[1;31m159[0m
+[0m

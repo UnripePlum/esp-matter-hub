@@ -1,0 +1,3 @@
+-- IDF_TARGET is not set, guessed 'esp32s3' from sdkconfig '/Users/hanjunkim/IdeaProjects/esp-matter-hub/sdkconfig'
+-- Found Git: /usr/bin/git (found version "2.50.1 (Apple Git-155)")
+-- Configuring incomplete, errors occurred!

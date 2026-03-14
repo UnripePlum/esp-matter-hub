@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/CMakeFiles/bootloader
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/CMakeFiles/bootloader.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/CMakeFiles/bootloader-complete.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

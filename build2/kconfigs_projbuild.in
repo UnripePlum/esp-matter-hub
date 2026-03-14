@@ -1,0 +1,6 @@
+source "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/bootloader/Kconfig.projbuild"
+source "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_app_format/Kconfig.projbuild"
+source "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_rom/Kconfig.projbuild"
+source "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
+source "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/partition_table/Kconfig.projbuild"
+source "/Users/hanjunkim/IdeaProjects/esp-matter-hub/main/Kconfig.projbuild"

@@ -1,0 +1,37 @@
+#!/bin/bash
+
+set -euo pipefail
+
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+if [[ "$SCRIPT_PATH" != */* ]]; then
+    SCRIPT_PATH="$(command -v "$SCRIPT_PATH")"
+fi
+
+PORT="${1:-/dev/cu.usbserial-0001}"
+PROJECT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
+TERMINAL_REF_FILE="$PROJECT_DIR/.monitor.terminal_ref"
+
+CMD="source \"$HOME/esp/esp-idf/export.sh\" && source \"$HOME/esp/esp-matter/export.sh\" && export ESP_MATTER_DEVICE_PATH=\"\$ESP_MATTER_PATH/device_hal/device/esp32s3_devkit_c\" && cd \"$PROJECT_DIR\" && idf.py --build-dir build2 -p \"$PORT\" flash monitor"
+CMD="${CMD//\\/\\\\}"
+CMD="${CMD//\"/\\\"}"
+
+RESULT="$(osascript <<EOF
+tell application "Terminal"
+    activate
+    do script "$CMD"
+    set w to front window
+    set t to selected tab of w
+    set tabIndex to 1
+    repeat with i from 1 to count of tabs of w
+        if tab i of w is t then
+            set tabIndex to i
+            exit repeat
+        end if
+    end repeat
+    return "window_id=" & (id of w) & ",tab_index=" & tabIndex
+end tell
+EOF
+)"
+
+printf '%s\n' "$RESULT" > "$TERMINAL_REF_FILE"
+printf '%s\n' "$RESULT"

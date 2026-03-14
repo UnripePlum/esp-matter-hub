@@ -1,0 +1,233 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  5 2026 16:45:52[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (58) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (72) boot:  1 nvs              WiFi data        01 02 00010000 00100000[0m
+[0;32mI (80) boot:  2 nvs_keys         NVS keys         01 04 00110000 00001000[0m
+[0;32mI (87) boot:  3 otadata          OTA data         01 00 00111000 00002000[0m
+[0;32mI (95) boot:  4 phy_init         RF data          01 01 00113000 00001000[0m
+[0;32mI (102) boot:  5 ota_0            OTA app          00 10 00120000 00500000[0m
+[0;32mI (110) boot:  6 ota_1            OTA app          00 11 00620000 00500000[0m
+[0;32mI (117) boot:  7 storage          Unknown data     01 82 00b20000 004d0000[0m
+[0;32mI (125) boot:  8 fctry            WiFi data        01 02 00ff0000 00010000[0m
+[0;32mI (132) boot: End of partition table[0m
+[0;32mI (137) esp_image: segment 0: paddr=00120020 vaddr=3c120020 size=447e8h (280552) map[0m
+[0;32mI (195) esp_image: segment 1: paddr=00164810 vaddr=3fc9c300 size=06ca4h ( 27812) load[0m
+[0;32mI (201) esp_image: segment 2: paddr=0016b4bc vaddr=40374000 size=04b5ch ( 19292) load[0m
+[0;32mI (206) esp_image: segment 3: paddr=00170020 vaddr=42000020 size=1131e4h (1126884) map[0m
+[0;32mI (412) esp_image: segment 4: paddr=0028320c vaddr=40378b5c size=1371ch ( 79644) load[0m
+[0;32mI (440) boot: Loaded app from partition at offset 0x120000[0m
+[0;32mI (440) boot: Disabling RNG early entropy source...[0m
+[0;32mI (452) cpu_start: Multicore app[0m
+[0;32mI (452) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (452) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (455) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (461) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (466) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (471) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (476) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (482) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (488) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (494) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (500) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (505) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (510) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (515) esp_psram: Speed: 80MHz[0m
+[0;32mI (932) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (941) cpu_start: Pro cpu start user code[0m
+[0;32mI (941) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (941) cpu_start: Application information:[0m
+[0;32mI (944) cpu_start: Project name:     light[0m
+[0;32mI (949) cpu_start: App version:      1.0[0m
+[0;32mI (953) cpu_start: Compile time:     Mar  5 2026 16:45:43[0m
+[0;32mI (959) cpu_start: ELF file SHA256:  f6b1b25de...[0m
+[0;32mI (965) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (970) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (975) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (980) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (984) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (992) heap_init: At 3FCB5020 len 000346F0 (209 KiB): RAM[0m
+[0;32mI (998) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1004) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1010) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (1017) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1025) spi_flash: detected chip: generic[0m
+[0;32mI (1029) spi_flash: flash io: dio[0m
+[0;33mW (1033) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (1045) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1051) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1058) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (1063) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1069) main_task: Started on CPU0[0m
+[0;32mI (1079) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1079) main_task: Calling app_main()[0m
+[0;32mI (1499) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (1499) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1509) button: IoT Button Version: 4.1.6[0m
+[0;32mI (1519) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (1519) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (1529) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (1529) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (1539) bridge_action: Slot 0 binding loaded: onoff=0, level=0[0m
+[0;32mI (1539) bridge_action: Slot 1 binding loaded: onoff=2, level=2[0m
+[0;32mI (1549) bridge_action: Slot 2 binding loaded: onoff=0, level=0[0m
+[0;32mI (1559) bridge_action: Slot 3 binding loaded: onoff=0, level=0[0m
+[0;32mI (1559) bridge_action: Initialized 4 bridge slot actions[0m
+[0;32mI (1589) ir_engine: IR RMT initialized TX=4 RX={5,6}[0m
+[0;32mI (1589) ir_engine: IR engine initialized (signals=2, next_id=3)[0m
+[0;32mI (1599) pp: pp rom version: e7ae62f[0m
+[0;32mI (1599) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1609) wifi:wifi driver task: 3fccb674, prio:23, stack:6656, core=0[0m
+[0;32mI (1619) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (1619) wifi:wifi certification version: v7.0[0m
+[0;32mI (1619) wifi:config NVS flash: enabled[0m
+[0;32mI (1629) wifi:config nano formating: disabled[0m
+[0;32mI (1629) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1629) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1639) wifi:Init management short buffer num: 32[0m
+[0;32mI (1639) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1649) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1649) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1649) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1659) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1659) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1669) wifi_init: rx ba win: 6[0m
+[0;32mI (1669) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1669) wifi_init: udp mbox: 6[0m
+[0;32mI (1679) wifi_init: tcp mbox: 6[0m
+[0;32mI (1679) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1689) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1689) wifi_init: tcp mss: 1440[0m
+[0;32mI (1689) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1699) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1729) chip[DL]: NVS set: chip-counters/reboot-count = 5 (0x5)[0m
+[0;32mI (1729) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (1729) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (1729) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (1779) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1779) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (2279) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (2279) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (2279) wifi:enable tsf[0m
+[0;32mI (2279) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (2279) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (2289) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (2289) chip[DL]: [0;32mI (2299) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2WiFi station state change: NotConnected -> Connecting[0m
+[0;32mI (2309) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1[0m
+[0;32mI (2309) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2319) wifi:state: init -> auth (b0)[0m
+[0;32mI (2319) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (2329) wifi:state: auth -> assoc (0)[0;32mI (2329) chip[SVR]: [0m
+Initializing subscription resumption storage...[0m
+[0m
+[0;32mI (2339) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (2339) chip[SVR]: Server initializing...[0m
+[0;32mI (2359) chip[TS]: Last Known Good Time: 2026-03-05T07:51:55[0m
+[0;32mI (2359) wifi:state: assoc -> run (10)[0m
+[0;32mI (2369) chip[FP]: Fabric index 0x1 was retrieved from storage. Compressed FabricId 0xE33643B0965FE197, FabricId 0x000000006057FA6B, NodeId 0x0000000090B5494C, VendorId 0x1349[0m
+[0;32mI (2389) chip[FP]: Fabric index 0x2 was retrieved from storage. Compressed FabricId 0x7969C12744EC5819, FabricId 0x000000002B179B36, NodeId 0x0000000001CE08C7, VendorId 0x1384[0m
+[0;32mI (2399) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (2399) chip[DMG]: Examples::AccessControlDelegate::Init[0m
+[0;32mI (2409) chip[DMG]: AccessControl: setting[0m
+[0;32mI (2409) wifi:[0;32mI (2409) chip[DMG]: connected with SK_WiFiGIGADC40_2.4G, aid = 4, channel 2, BW20, bssid = 04:09:a5:51:dc:43DefaultAclStorage: initializing[0m
+[0m
+[0;32mI (2429) wifi:security: WPA2-PSK, phy: bgn, rssi: -64[0m
+[0;32mI (2429) chip[DMG]: DefaultAclStorage: 2 entries loaded[0m
+[0;32mI (2439) chip[SVR]: WARNING: mTestEventTriggerDelegate is null[0m
+[0;32mI (2449) wifi:pm start, type: 1[0m
+
+[0;32mI (2449) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (2459) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (2469) chip[DL]: [0;32mI (2469) chip[SVR]: Posting ESPSystemEvent: Wifi Event with eventId : 4Fabric already commissioned. Disabling BLE advertisement[0m
+[0m
+[0;32mI (2479) chip[IN]: CASE Server enabling CASE session setups[0m
+[0;32mI (2489) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (2489) chip[SVR]: Server Listening...[0m
+[0;32mI (2499) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (2509) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (2509) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (2519) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (2519) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (2529) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (2539) chip[DL]: WIFI_EVENT_STA_START[0m
+[0;32mI (2539) chip[SVR]: SetupQRCode: [MT:Y.K9042C00KA0648G00][0m
+[0;32mI (2539) chip[DL]: [0;32mI (2539) chip[SVR]: Done driving station state, nothing else to do...[0m
+Copy/paste the below URL in a browser to see the QR Code:[0m
+[0;32mI (2549) chip[DL]: [0;32mI (2559) chip[SVR]: WIFI_EVENT_STA_CONNECTEDhttps://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3AY.K9042C00KA0648G00[0m
+[0m
+[0;32mI (2569) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (2569) chip[SVR]: Manual pairing code: [34970112332][0m
+[0;32mI (2579) chip[DL]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+[0;32mI (2589) web_server: HTTP API started: GET /, GET /api/health, GET /api/slots, GET /api/signals, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status, POST /api/learn/commit, POST /api/commissioning/open[0m
+[0;32mI (2599) chip[DL]: WiFi station interface connected[0m
+[0;32mI (2619) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (2619) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2629) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (2629) chip[DL]: Updating advertising data[0m
+[0;32mI (2J��[5n[0;32mI (2659) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;32mI (2659) app_main: BLE deinitialized and memory reclaimed[0m
+[6n [999C [6n [79D[0;32m> [0m[0;32mI (3469) esp_netif_handlers: sta ip: 192.168.75.224, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (3469) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (3479) chip[DL]: IP_EVENT_STA_GOT_IP[0m
+[0;32mI (3479) chip[DL]: IPv4 address changed on WiFi station interface: 192.168.75.224/255.255.255.0 gateway 192.168.75.1[0m
+[0;32mI (3489) chip[DL]: IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (3489) app_main: Interface IP Address changed[0m
+[0;32mI (3509) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3509) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3519) chip[DIS]: Advertise operational node E33643B0965FE197-0000000090B5494C[0m
+[0;32mI (3519) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-0000000090B5494C.[0m
+[0;32mI (3539) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3539) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000001CE08C7[0m
+[0;32mI (3549) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000001CE08C7.[0m
+[0;32mI (3569) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3859) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:2192, winSize:64[0m
+[0;32mI (3879) wifi:<ba-add>idx:1 (ifx:0, 04:09:a5:51:dc:43), tid:4, ssn:43, winSize:64[0m
+[0;32mI (4589) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (4589) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (4589) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (4599) app_main: Interface IP Address changed[0m
+[0;32mI (4599) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (4619) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (4629) chip[DIS]: Advertise operational node E33643B0965FE197-0000000090B5494C[0m
+[0;32mI (4629) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-0000000090B5494C.[0m
+[0;32mI (4649) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4649) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000001CE08C7[0m
+[0;32mI (4659) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000001CE08C7.[0m
+[0;32mI (4669) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4669) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (4689) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (4699) chip[DIS]: Advertise operational node E33643B0965FE197-0000000090B5494C[0m
+[0;32mI (4699) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-0000000090B5494C.[0m
+[0;32mI (4719) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4719) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000001CE08C7[0m
+[0;32mI (4729) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000001CE08C7.[0m
+[0;32mI (4739) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4749) chip[SVR]: Server initialization complete[0m
+[0;32mI (4759) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (4759) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (4769) chip[IM]: Resuming 1 subscriptions in 0 seconds[0m
+[0;32mI (4769) chip[DIS]: Lookup started for E33643B0965FE197-000000002CA995E7[0m
+[0;32mI (4969) chip[DIS]: Checking node lookup status for E33643B0965FE197-000000002CA995E7 after 200 ms[0m
+[0;31mE (35769) chip[DIS]: Timeout waiting for mDNS resolution.[0m
+[0;32mI (49769) chip[DIS]: Checking node lookup status for E33643B0965FE197-000000002CA995E7 after 45000 ms[0m
+[0;31mE (49769) chip[DIS]: OperationalSessionSetup[1:000000002CA995E7]: operational discovery failed: 32[0m
+[0;31mE (49789) chip[DMG]: Failed to establish CASE for subscription-resumption with error '32'[0m
+[0;32mI (49799) chip[IM]: Schedule subscription resumption when failing to establish session, Retries: 1[0m

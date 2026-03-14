@@ -1,0 +1,1601 @@
+sion: e7ae62f[0m
+[0;32mI (747) net80211: net80211 rom versione7ae62f[0m
+[0;32mI (767) wifi:wifi driver task: 3fcc16fc, prio:23, stack:6656, core=0[0m
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  4 2026 19:07:13[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (48) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (57) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (72) boot:  1 nvs              WiFi data        01 02 00010000 0000c000[0m
+[0;32mI (80) boot:  2 nvs_keys         NVS keys         01 04 0001c000 00001000[0m
+[0;32mI (87) boot:  3 otadata          OTA data         01 00 0001d000 00002000[0m
+[0;32mI (95) boot:  4 phy_init         RF data          01 01 0001f000 00001000[0m
+[0;32mI (102) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (110) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (117) boot:  7 fctry            WiFi data        01 02 003e0000 00006000[0m
+[0;32mI (125) boot: End of partition table[0m
+[0;32mI (129) esp_image: segment 0: paddr=00020020 vaddr=3c120020 size=41ca8h (269480) map[0m
+[0;32mI (186) esp_image: segment 1: paddr=00061cd0 vaddr=3fc9b200 size=0506ch ( 20588) load[0m
+[0;32mI (190) esp_image: segment 2: paddr=00066d44 vaddr=40374000 size=092d4h ( 37588) load[0m
+[0;32mI (200) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=110eb4h (1117876) map[0m
+[0;32mI (401) esp_image: segment 4: paddr=00180edc vaddr=4037d2d4 size=0de68h ( 56936) load[0m
+[0;32mI (423) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (423) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (444) cpu_start: Pro cpu start user code[0m
+[0;32mI (444) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (444) cpu_start: Application information:[0m
+[0;32mI (447) cpu_start: Project name:     light[0m
+[0;32mI (452) cpu_start: App version:      1.0[0m
+[0;32mI (457) cpu_start: Compile time:     Mar  4 2026 19:06:56[0m
+[0;32mI (463) cpu_start: ELF file SHA256:  f8302eb82...[0m
+[0;32mI (468) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (473) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (478) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (483) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (488) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (495) heap_init: At 3FCB2158 len 000375B8 (221 KiB): RAM[0m
+[0;32mI (501) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (507) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (513) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (521) spi_flash: detected chip: generic[0m
+[0;32mI (524) spi_flash: flash io: dio[0m
+[0;33mW (528) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;33mW (542) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (553) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (559) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (566) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (571) coexist: coexist rom version e7ae62f[0m
+[0;32mI (577) main_task: Started on CPU0[0m
+[0;32mI (587) main_task: Calling app_main()[0m
+[0;32mI (667) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (667) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (667) button: IoT Button Version: 4.1.6[0m
+[0;32mI (677) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (687) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (687) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (697) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (697) bridge_action: Slot 0 binding loaded: onoff=0, level=0[0m
+[0;32mI (707) bridge_action: Slot 1 binding loaded: onoff=1, level=1[0m
+[0;32mI (717) bridge_action: Slot 2 binding loaded: onoff=0, level=0[0m
+[0;32mI (717) bridge_action: Slot 3 binding loaded: onoff=0, level=0[0m
+[0;32mI (727) bridge_action: Initialized 4 bridge slot actions[0m
+[0;32mI (727) ir_engine: IR engine initialized (stub mode)[0m
+[0;32mI (737) pp: pp rom version: e7ae62f[0m
+[0;32mI (737) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (757) wifi:wifi driver task: 3fcc16fc, prio:23, stack:6656, core=0[0m
+[0;32mI (777) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (777) wifi:wifi certification version: v7.0[0m
+[0;32mI (777) wifi:config NVS flash: enabled[0m
+[0;32mI (777) wifi:config nano formating: disabled[0m
+[0;32mI (787) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (787) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (797) wifi:Init management short buffer num: 32[0m
+[0;32mI (797) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (797) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (807) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (807) wifi:Init static rx buffer num: 10[0m
+[0;32mI (817) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (817) wifi_init: rx ba win: 6[0m
+[0;32mI (817) wifi_init: tcpip mbox: 32[0m
+[0;32mI (827) wifi_init: udp mbox: 6[0m
+[0;32mI (827) wifi_init: tcp mbox: 6[0m
+[0;32mI (837) wifi_init: tcp tx win: 5760[0m
+[0;32mI (837) wifi_init: tcp rx win: 5760[0m
+[0;32mI (837) wifi_init: tcp mss: 1440[0m
+[0;32mI (847) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (847) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (877) chip[DL]: NVS set: chip-counters/reboot-count = 2 (0x2)[0m
+[0;32mI (877) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (877) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (877) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (927) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (927) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (1427) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (1427) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (1427) wifi:enable tsf[0m
+[0;32mI (1427) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (1427) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (1437) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (1437) chip[DL]: [0;32mI (1447) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2WiFi station state change: NotConnected -> ConnectingI (1447) wifi:[0m
+new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1
+[0;32mI (1457) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1467) wifi:state: init -> auth (b0)[0m
+[0;32mI (1467) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (1477) wifi:state: auth -> assoc (0)[0;32mI (1477) chip[SVR]: [0m
+Initializing subscription resumption storage...[0m
+[0m
+[0;32mI (1487) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (1487) chip[SVR]: Server initializing...[0m
+[0;32mI (1507) chip[TS]: Last Known Good Time: 2026-03-04T11:46:19[0m
+[0;32mI (1507) wifi:state: assoc -> run (10)[0m
+[0;32mI (1517) chip[FP]: Fabric index 0x1 was retrieved from storage. Compressed FabricId 0x70E9033ACF3836FB, FabricId 0x0000000024229994, NodeId 0x00000000A6B1D767, VendorId 0x1349[0m
+[0;32mI (1537) chip[FP]: Fabric index 0x2 was retrieved from storage. Compressed FabricId 0x7969C12744EC5819, FabricId 0x000000002B179B36, NodeId 0x00000000BB5D94B0, VendorId 0x1384[0m
+[0;32mI (1547) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (1547) chip[DMG]: Examples::AccessControlDelegate::Init[0m
+[0;32mI (1557) wifi:[0;32mI (1557) chip[DMG]: connected with SK_WiFiGIGADC40_2.4G, aid = 9, channel 2, BW20, bssid = 04:09:a5:51:dc:43AccessControl: setting[0m
+[0m
+[0;32mI (1567) wifi:security: WPA2-PSK, phy: bgn, rssi: -59[0;32mI (1567) chip[DMG]: [0m
+DefaultAclStorage: initializing[0m
+[0;32mI (1587) wifi:pm start, type: 1[0m
+
+[0;32mI (1587) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (1587) chip[DMG]: DefaultAclStorage: 2 entries loadedI (1587) wifi:[0m
+set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000
+[0;32mI (1597) chip[SVR]: WARNING: mTestEventTriggerDelegate is null[0m
+[0;32mI (1607) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (1617) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 4[0m
+[0;32mI (1637) chip[SVR]: Fabric already commissioned. Disabling BLE advertisement[0m
+[0;32mI (1637) chip[IN]: CASE Server enabling CASE session setups[0m
+[0;32mI (1637) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (1647) chip[SVR]: Server Listening...[0m
+[0;32mI (1647) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (1657) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (1667) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (1667) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (1677) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (1687) chip[DL]: WIFI_EVENT_STA_START[0m
+[0;32mI (1687) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1697) chip[DL]: WIFI_EVENT_STA_CONNECTED[0m
+[0;32mI (1697) web_server: HTTP API started: GET /api/health, GET /api/slots, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status[0m
+[0;32mI (1697) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (1707) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (1717) chip[DL]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+[0;32mI (1727) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (1737) chip[DL]: WiFi station interface connected[0m
+[0;32mI ��[0;32mI (1757) chip[DL]: Updating advertising data[0m
+[5n[0;32mI (1757) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1767) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;32mI (1767) app_main: BLE deinitialized and memory reclaimed[0m
+[6n [999C [6n [159D[0;32m> [0m[0;32mI (2617) esp_netif_handlers: sta ip: 192.168.75.155, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (2617) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (2627) chip[DL]: IP_EVENT_STA_GOT_IP[0m
+[0;32mI (2627) chip[DL]: IPv4 address changed on WiFi station interface: 192.168.75.155/255.255.255.0 gateway 192.168.75.1[0m
+[0;32mI (2637) chip[DL]: IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (2637) app_main: Interface IP Address changed[0m
+[0;32mI (2657) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (2657) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (2667) chip[DIS]: Advertise operational node 70E9033ACF3836FB-00000000A6B1D767[0m
+[0;32mI (2667) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 70E9033ACF3836FB-00000000A6B1D767.[0m
+[0;32mI (2687) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (2687) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (2697) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (2717) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3737) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (3737) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (3737) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (3747) app_main: Interface IP Address changed[0m
+[0;32mI (3747) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3767) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3777) chip[DIS]: Advertise operational node 70E9033ACF3836FB-00000000A6B1D767[0m
+[0;32mI (3777) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 70E9033ACF3836FB-00000000A6B1D767.[0m
+[0;32mI (3797) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3797) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (3807) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (3817) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3817) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3827) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3847) chip[DIS]: Advertise operational node 70E9033ACF3836FB-00000000A6B1D767[0m
+[0;32mI (3847) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 70E9033ACF3836FB-00000000A6B1D767.[0m
+[0;32mI (3867) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3867) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (3877) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (3897) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3897) chip[SVR]: Server initialization complete[0m
+[0;32mI (3897) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (3907) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (3917) chip[IM]: Resuming 1 subscriptions in 0 seconds[0m
+[0;32mI (3927) chip[DIS]: Lookup started for 70E9033ACF3836FB-00000000984BB2F7[0m
+[0;32mI (4127) chip[DIS]: Checking node lookup status for 70E9033ACF3836FB-00000000984BB2F7 after 200 ms[0m
+[0;32mI (10257) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:117, winSize:64[0m
+[0;32mI (10267) chip[EM]: >>> [E:11478r S:0 M:219087524] (U) Msg RX from 0:B6A4A95D9CCBF55D [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (10277) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca4e18[0m
+[0;32mI (10287) chip[EM]: <<< [E:11478r S:0 M:151728059 (Ack:219087524)] (U) Msg TX from 0000000000000000 to 0:B6A4A95D9CCBF55D [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (10307) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (10327) chip[SC]: CASE matched destination ID: fabricIndex 1, NodeID 0x00000000A6B1D767[0m
+[0;32mI (10617) chip[EM]: <<< [E:11478r S:0 M:151728060 (Ack:219087524)] (U) Msg TX from 0000000000000000 to 0:B6A4A95D9CCBF55D [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:31 (SecureChannel:CASE_Sigma2) (B:529)[0m
+[0;32mI (10637) chip[EM]: ??1 [E:11478r S:0 M:151728060] (U) Msg Retransmission to 0:0000000000000000 scheduled for 355ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (10647) chip[SC]: Sent Sigma2 msg[0m
+[0;32mI (10687) chip[EM]: >>> [E:11478r S:0 M:219087525 (Ack:151728060)] (U) Msg RX from 0:B6A4A95D9CCBF55D [0000] to 0000000000000000 --- Type 0000:32 (SecureChannel:CASE_Sigma3) (B:380)[0m
+[0;32mI (10697) chip[EM]: <<< [E:11478r S:0 M:151728061 (Ack:219087525)] (U) Msg TX from 0000000000000000 to 0:B6A4A95D9CCBF55D [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (10717) chip[SC]: Received Sigma3 msg[0m
+[0;31mE (10737) chip[SC]: The device does not support GetClock_RealTimeMS() API: 6c.  Falling back to Last Known Good UTC Time[0m
+[0;32mI (11207) chip[EM]: <<< [E:11478r S:0 M:151728062 (Ack:219087525)] (U) Msg TX from 0000000000000000 to 0:B6A4A95D9CCBF55D [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (11227) chip[EM]: ??1 [E:11478r S:0 M:151728062] (U) Msg Retransmission to 0:0000000000000000 scheduled for 359ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11237) chip[SC]: SecureSession[0x3fca33b8, LSID:3500]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (11257) chip[IN]: CASE Session established to peer: <00000000984BB2F7, 1>[0m
+[0;32mI (11397) chip[EM]: >>> [E:11479r S:3500 M:182730382] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11407) chip[EM]: >>> [E:11478r S:0 M:219087526 (Ack:151728062)] (U) Msg RX from 0:B6A4A95D9CCBF55D [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (11427) chip[EM]: <<< [E:11479r S:3500 M:115929252 (Ack:182730382)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (11447) chip[EM]: ??1 [E:11479r S:3500 M:115929252] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 355ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11457) chip[IM]: Schedule subscription resumption when failing to establish session, Retries: 1[0m
+[0;32mI (11477) chip[EM]: >>> [E:11480r S:3500 M:182730383] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11487) chip[EM]: >>> [E:11479r S:3500 M:182730384 (Ack:115929252)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11507) chip[EM]: <<< [E:11480r S:3500 M:115929253 (Ack:182730383)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:69)[0m
+[0;32mI (11527) chip[EM]: ??1 [E:11480r S:3500 M:115929253] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 363ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11567) chip[EM]: >>> [E:11480r S:3500 M:182730385 (Ack:115929253)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11587) chip[EM]: >>> [E:11481r S:3500 M:182730386] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11597) chip[EM]: <<< [E:11481r S:3500 M:115929254 (Ack:182730386)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:69)[0m
+[0;32mI (11617) chip[EM]: ??1 [E:11481r S:3500 M:115929254] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 389ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0K[0;32m> [0m�[3C[0;32mI (11637) chip[EM]: >>> [E:11481r S:3500 M:182730387 (Ack:115929254)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11657) chip[EM]: >>> [E:11482r S:3500 M:182730388] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+��[0;32mI (11677) chip[EM]: <<< [E:11482r S:3500 M:115929255 (Ack:182730388)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (11687) chip[EM]: ??1 [E:11482r S:3500 M:115929255] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11707) chip[EM]: >>> [E:11482r S:3500 M:182730389 (Ack:115929255)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11717) chip[EM]: >>> [E:11483r S:3500 M:182730390] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11737) chip[EM]: <<< [E:11483r S:3500 M:115929256 (Ack:182730390)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:69)[0m
+[0;32mI (11757) chip[EM]: ??1 [E:11483r S:3500 M:115929256] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11767) chip[EM]: >>> [E:11483r S:3500 M:182730391 (Ack:115929256)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11787) chip[EM]: >>> [E:11484r S:3500 M:182730392] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11807) chip[EM]: <<< [E:11484r S:3500 M:115929257 (Ack:182730392)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:69)[0m
+[0;32mI (11817) chip[EM]: ??1 [E:11484r S:3500 M:115929257] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11837) chip[EM]: >>> [E:11484r S:3500 M:182730393 (Ack:115929257)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11857) chip[EM]: >>> [E:11485r S:3500 M:182730394] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11877) chip[EM]: <<< [E:11485r S:3500 M:115929258 (Ack:182730394)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (11897) chip[EM]: ??1 [E:11485r S:3500 M:115929258] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 332ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11907) chip[EM]: >>> [E:11485r S:3500 M:182730395 (Ack:115929258)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11927) chip[EM]: >>> [E:11486r S:3500 M:182730396] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (11947) chip[EM]: <<< [E:11486r S:3500 M:115929259 (Ack:182730396)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (11957) chip[EM]: ??1 [E:11486r S:3500 M:115929259] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 339ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (11977) chip[EM]: >>> [E:11486r S:3500 M:182730397 (Ack:115929259)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (11987) chip[EM]: >>> [E:11487r S:3500 M:182730398] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;31mE (12007) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0028, attributeId: 0x0000_000Ferr = 586[0m
+[0;32mI (12027) chip[EM]: <<< [E:11487r S:3500 M:115929260 (Ack:182730398)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:67)[0m
+[0;32mI (12037) chip[EM]: ??1 [E:11487r S:3500 M:115929260] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 366ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (12057) chip[EM]: >>> [E:11487r S:3500 M:182730399 (Ack:115929260)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (12077) chip[EM]: >>> [E:11488r S:3500 M:182730400] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:52)[0m
+[0;32mI (12097) chip[EM]: <<< [E:11488r S:3500 M:115929261 (Ack:182730400)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:118)[0m
+[0;32mI (12107) chip[EM]: ??1 [E:11488r S:3500 M:115929261] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 351ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (12127) chip[EM]: >>> [E:11488r S:3500 M:182730401 (Ack:115929261)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (12147) chip[EM]: >>> [E:11489r S:3500 M:182730402] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (12157) chip[EM]: <<< [E:11489r S:3500 M:115929262 (Ack:182730402)] (S) Msg TX from 00000000A6B1D767 to 1:00000000984BB2F7 [36FB] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (12177) chip[EM]: ??1 [E:11489r S:3500 M:115929262] (S) Msg Retransmission to 1:00000000984BB2F7 scheduled for 336ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (12197) chip[EM]: >>> [E:11489r S:3500 M:182730403 (Ack:115929262)] (S) Msg RX from 1:00000000984BB2F7 [36FB] to 00000000A6B1D767 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0K[0;32m> [0mㅡ�[6C��[0K[0;32m> [0mㅡ�[7C[0K[0;32m> [0mㅡ�[6C[0K[0;32m> [0mㅡ[5C[0K[0;32m> [0m�[4C[0K[0;32m> [0m�m[5CI (15537) wifi:<ba-add>idx:1 (ifx:0, 04:09:a5:51:dc:43), tid:4, ssn:15, winSize:64
+[0K[0;32m> [0m�[4C[0K[0;32m> [0m�[3C[0K[0;32m> [0m[2C[0K[0;32m> [0mm[3C[0K[0;32m> [0mma[4C[0K[0;32m> [0mmat[5C[0K[0;32m> [0mmatt[6C[0K[0;32m> [0mmatte[7C[0K[0;32m> [0mmatter[8C[0K[0;32m> [0mmatter [9C[0K[0;32m> [0mmatter s[10C[0K[0;32m> [0mmatter [9C[0K[0;32m> [0mmatter e[10C[0K[0;32m> [0mmatter es[11C[0K[0;32m> [0mmatter esp[12C[0K[0;32m> [0mmatter esp [13C[0K[0;32m> [0mmatter esp f[14C[0K[0;32m> [0mmatter esp fa[15C[0K[0;32m> [0mmatter esp fac[16C[0K[0;32m> [0mmatter esp fact[17C[0K[0;32m> [0mmatter esp facto[18C[0K[0;32m> [0mmatter esp factor[19C[0K[0;32m> [0mmatter esp factory[20C[0K[0;32m> [0mmatter esp factoryr[21C[0K[0;32m> [0mmatter esp factoryre[22C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryrese[24C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryre[22C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryrese[24C[0K[0;32m> [0mmatter esp factoryreset[25C
+
+Done
+[6n [0;32mI (25327) chip[TS]: Pending Last Known Good Time: 2026-03-04T11:46:19[0m
+[0;32mI (25337) chip[TS]: Previous Last Known Good Time: 2026-03-04T11:46:19[0m
+[0;32mI (25337) chip[TS]: Reverted Last Known Good Time to previous value[0m
+
+***ERROR*** A stack overflow in task console has been detected.
+
+
+Backtrace: 0x40375a6a:0x3fcb0bf0 0x4037fe69:0x3fcb0c10 0x40380c06:0x3fcb0c30 0x4038212a:0x3fcb0cb0 0x40380d3c:0x3fcb0ce0 0x40380d32:0x3fcb0d10 0x00060f1d:0xffff0069 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: f8302eb82
+
+Rebooting...
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759ec
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (31) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar  4 2026 19:07:13[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v0.2[0m
+[0;32mI (39) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (43) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs              WiFi data        01 02 00010000 0000c000[0m
+[0;32mI (84) boot:  2 nvs_keys         NVS keys         01 04 0001c000 00001000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 0001d000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 0001f000 00001000[0m
+[0;32mI (106) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (114) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 fctry            WiFi data        01 02 003e0000 00006000[0m
+[0;32mI (129) boot: End of partition table[0m
+[0;32mI (134) esp_image: segment 0: paddr=00020020 vaddr=3c120020 size=41ca8h (269480) map[0m
+[0;32mI (190) esp_image: segment 1: paddr=00061cd0 vaddr=3fc9b200 size=0506ch ( 20588) load[0m
+[0;32mI (195) esp_image: segment 2: paddr=00066d44 vaddr=40374000 size=092d4h ( 37588) load[0m
+[0;32mI (204) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=110eb4h (1117876) map[0m
+[0;32mI (405) esp_image: segment 4: paddr=00180edc vaddr=4037d2d4 size=0de68h ( 56936) load[0m
+[0;32mI (427) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (428) boot: Disabling RNG early entropy source...[0m
+[0;32mI (439) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (449) cpu_start: Application information:[0m
+[0;32mI (452) cpu_start: Project name:     light[0m
+[0;32mI (456) cpu_start: App version:      1.0[0m
+[0;32mI (461) cpu_start: Compile time:     Mar  4 2026 19:06:56[0m
+[0;32mI (467) cpu_start: ELF file SHA256:  f8302eb82...[0m
+[0;32mI (472) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (478) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (483) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (487) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (492) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (499) heap_init: At 3FCB2158 len 000375B8 (221 KiB): RAM[0m
+[0;32mI (505) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (512) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (518) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (525) spi_flash: detected chip: generic[0m
+[0;32mI (529) spi_flash: flash io: dio[0m
+[0;33mW (533) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;33mW (546) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (558) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (563) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (570) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (576) coexist: coexist rom version e7ae62f[0m
+[0;32mI (581) main_task: Started on CPU0[0m
+[0;32mI (591) main_task: Calling app_main()[0m
+[0;32mI (671) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (671) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (681) button: IoT Button Version: 4.1.6[0m
+[0;32mI (691) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (691) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (701) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (701) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (711) bridge_action: Slot 0 binding loaded: onoff=0, level=0[0m
+[0;32mI (711) bridge_action: Slot 1 binding loaded: onoff=1, level=1[0m
+[0;32mI (721) bridge_action: Slot 2 binding loaded: onoff=0, level=0[0m
+[0;32mI (721) bridge_action: Slot 3 binding loaded: onoff=0, level=0[0m
+[0;32mI (731) bridge_action: Initialized 4 bridge slot actions[0m
+[0;32mI (741) ir_engine: IR engine initialized (stub mode)[0m
+[0;32mI (741) pp: pp rom version: e7ae62f[0m
+[0;32mI (751) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (761) wifi:wifi driver task: 3fcc1678, prio:23, stack:6656, core=0[0m
+[0;32mI (781) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (781) wifi:wifi certification version: v7.0[0m
+[0;32mI (791) wifi:config NVS flash: enabled[0m
+[0;32mI (791) wifi:config nano formating: disabled[0m
+[0;32mI (791) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (791) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (801) wifi:Init management short buffer num: 32[0m
+[0;32mI (801) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (811) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (811) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (811) wifi:Init static rx buffer num: 10[0m
+[0;32mI (821) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (821) wifi_init: rx ba win: 6[0m
+[0;32mI (831) wifi_init: tcpip mbox: 32[0m
+[0;32mI (831) wifi_init: udp mbox: 6[0m
+[0;32mI (831) wifi_init: tcp mbox: 6[0m
+[0;32mI (841) wifi_init: tcp tx win: 5760[0m
+[0;32mI (841) wifi_init: tcp rx win: 5760[0m
+[0;32mI (851) wifi_init: tcp mss: 1440[0m
+[0;32mI (851) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (851) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (891) chip[DL]: NVS set: chip-counters/reboot-count = 3 (0x3)[0m
+[0;32mI (891) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (891) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (891) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (941) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (941) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (1441) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (1441) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (1441) wifi:enable tsf[0m
+[0;32mI (1441) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (1441) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (1451) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (1451) chip[DL]: [0;32mI (1461) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2WiFi station state change: NotConnected -> ConnectingI (1461) wifi:[0m
+new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1
+[0;32mI (1471) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1481) wifi:state: init -> auth (b0)[0m
+[0;32mI (1481) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (1491) wifi:state: auth -> assoc (0)[0;32mI (1491) chip[SVR]: [0m
+Initializing subscription resumption storage...[0m
+[0m
+[0;32mI (1501) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (1501) chip[SVR]: Server initializing...[0m
+[0;32mI (1521) wifi:[0;32mI (1521) chip[TS]: state: assoc -> run (10)Last Known Good Time: 2026-03-04T11:46:19[0m
+[0m
+[0;31mE (1531) chip[FP]: Failed to load Fabric (0x1): a0[0m
+[0;32mI (1541) chip[FP]: Fabric index 0x2 was retrieved from storage. Compressed FabricId 0x7969C12744EC5819, FabricId 0x000000002B179B36, NodeId 0x00000000BB5D94B0, VendorId 0x1384[0m
+[0;32mI (1551) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (1551) chip[DMG]: Examples::AccessControlDelegate::Init[0m
+[0;32mI (1561) chip[DMG]: AccessControl: setting[0m
+[0;32mI (1561) wifi:[0;32mI (1561) chip[DMG]: connected with SK_WiFiGIGADC40_2.4G, aid = 9, channel 2, BW20, bssid = 04:09:a5:51:dc:43DefaultAclStorage: initializing[0m
+[0m
+[0;32mI (1581) wifi:security: WPA2-PSK, phy: bgn, rssi: -62[0m
+[0;32mI (1581) chip[DMG]: DefaultAclStorage: 1 entries loaded[0m
+[0;32mI (1591) chip[SVR]: WARNING: mTestEventTriggerDelegate is null[0m
+[0;32mI (1601) wifi:pm start, type: 1[0m
+
+[0;32mI (1601) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (1601) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (1611) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (1621) chip[SVR]: Fabric already commissioned. Disabling BLE advertisement[0m
+[0;32mI (1621) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 4[0;32mI (1631) chip[IN]: [0m
+CASE Server enabling CASE session setups[0m
+[0;32mI (1641) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (1651) chip[SVR]: Server Listening...[0m
+[0;32mI (1651) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (1661) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (1671) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (1671) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (1681) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (1681) data_model: Cannot find minimum unused endpoint_id, try to find in the previous namespace[0m
+[0;32mI (1681) chip[DL]: [0;32mI (1691) data_model: Failed to open node namespace[0m
+WIFI_EVENT_STA_START[0m
+[0;32mI (1701) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1711) web_server: HTTP API started: GET /api/health, GET /api/slots, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status[0m
+[0;32mI (1711) chip[DL]: WIFI_EVENT_STA_CONNECTED[0m
+[0;32mI (1721) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (1731) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (1731) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (1741) chip[DL]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+[0;32mI )�[0;32mI (1771) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1771) chip[DL]: Updating advertising data[0m
+[0;32mI (1771) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1781) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;32mI (1791) app_main: BLE deinitialized and memory reclaimed[0m
+[6n [999C [6n [159D[0;32m> [0m[0;32mI (2621) esp_netif_handlers: sta ip: 192.168.75.155, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (2621) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (2631) chip[DL]: IP_EVENT_STA_GOT_IP[0m
+[0;32mI (2631) chip[DL]: IPv4 address changed on WiFi station interface: 192.168.75.155/255.255.255.0 gateway 192.168.75.1[0m
+[0;32mI (2641) chip[DL]: IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (2641) app_main: Interface IP Address changed[0m
+[0;32mI (2661) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (2661) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (2671) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (2671) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (2691) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3741) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (3741) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (3741) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (3751) app_main: Interface IP Address changed[0m
+[0;32mI (3751) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3771) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3781) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (3781) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (3801) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3801) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3801) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3821) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000BB5D94B0[0m
+[0;32mI (3821) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000BB5D94B0.[0m
+[0;32mI (3841) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3841) chip[SVR]: Server initialization complete[0m
+[0;32mI (3841) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (3851) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (3861) chip[IM]: Resuming 1 subscriptions in 0 seconds[0m
+[0;31mE (3861) chip[DMG]: Failed to establish CASE for subscription-resumption with error '71'[0m
+[0;32mI (3881) chip[IM]: Schedule subscription resumption when failing to establish session, Retries: 1[0m
+[0;32mI (9751) ROUTE_HOOK: Ignore invalid ICMP packet[0m
+[0;31mE (41191) chip[IN]: Data received on an unknown session (LSID=3500). Dropping it![0m
+[0;32mI (41191) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:144, winSize:64[0m
+[0;31mE (41811) chip[IN]: Data received on an unknown session (LSID=3500). Dropping it![0m
+[0;31mE (42431) chip[IN]: Data received on an unknown session (LSID=3500). Dropping it![0m
+[0;31mE (43371) chip[IN]: Data received on an unknown session (LSID=3500). Dropping it![0m
+[0;31mE (44821) chip[IN]: Data received on an unknown session (LSID=3500). Dropping it![0m
+[0;32mI (170381) wifi:<ba-add>idx:1 (ifx:0, 04:09:a5:51:dc:43), tid:4, ssn:20, winSize:64[0m
+[0;31mE (303881) chip[DMG]: Failed to establish CASE for subscription-resumption with error '71'[0m
+[0;32mI (303891) chip[IM]: Schedule subscription resumption when failing to establish session, Retries: 2[0m
+[0K[0;32m> [0m�[3C��[0K[0;32m> [0mㅡm[6C[0K[0;32m> [0mㅡ[5C[0K[0;32m> [0m�[4C[0K[0;32m> [0m�m[5C[0K[0;32m> [0m�ma[6C[0K[0;32m> [0m�mat[7C[0K[0;32m> [0m�matt[8C[0K[0;32m> [0m�matte[9C[0K[0;32m> [0m�matter[10C[0K[0;32m> [0m�matter [11C[0K[0;32m> [0m�matter -[12C[0K[0;32m> [0m�matter [11C[0K[0;32m> [0m�matter[10C[0K[0;32m> [0m�matte[9C[0K[0;32m> [0m�matt[8C[0K[0;32m> [0m�mat[7C[0K[0;32m> [0m�ma[6C[0K[0;32m> [0m�m[5C[0K[0;32m> [0m�[4C[0K[0;32m> [0m�[3C[0K[0;32m> [0m[2C[0K[0;32m> [0mm[3C[0K[0;32m> [0mma[4C[0K[0;32m> [0mmat[5C[0K[0;32m> [0mmatt[6C[0K[0;32m> [0mmatte[7C[0K[0;32m> [0mmatter[8C[0K[0;32m> [0mmatter [9C[0K[0;32m> [0mmatter s[10C[0K[0;32m> [0mmatter se[11C[0K[0;32m> [0mmatter s[10C[0K[0;32m> [0mmatter [9C[0K[0;32m> [0mmatter e[10C[0K[0;32m> [0mmatter es[11C[0K[0;32m> [0mmatter esp[12C[0K[0;32m> [0mmatter esp [13C[0K[0;32m> [0mmatter esp f[14C[0K[0;32m> [0mmatter esp fa[15C[0K[0;32m> [0mmatter esp fac[16C[0K[0;32m> [0mmatter esp fact[17C[0K[0;32m> [0mmatter esp facto[18C[0K[0;32m> [0mmatter esp factor[19C[0K[0;32m> [0mmatter esp factory[20C[0K[0;32m> [0mmatter esp factoryr[21C[0K[0;32m> [0mmatter esp factoryre[22C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryrest[24C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryre[22C[0K[0;32m> [0mmatter esp factoryree[23C[0K[0;32m> [0mmatter esp factoryre[22C[0K[0;32m> [0mmatter esp factoryres[23C[0K[0;32m> [0mmatter esp factoryrese[24C[0K[0;32m> [0mmatter esp factoryreset[25C
+
+Done
+[6n [0;32mI (334231) chip[TS]: Pending Last Known Good Time: 2026-03-04T11:46:19[0m
+[0;32mI (334231) chip[TS]: Previous Last Known Good Time: 2026-03-04T11:46:19[0m
+[0;32mI (334231) chip[TS]: Reverted Last Known Good Time to previous value[0m
+[999C [6n [0;32mI (334271) chip[FP]: Fabric (0x2) deleted.[0m
+[0;32mI (334271) chip[ZCL]: OpCreds: Fabric index 0x2 was removed[0m
+[0;32mI (334271) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (334281) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[159D[0;32m> [0m[0;32mI (334351) app_main: Fabric will be removed[0m
+[0;32mI (334351) app_main: Fabric removed successfully[0m
+[0;32mI (334361) chip[DIS]: Updating services using commissioning mode 1[0m
+[0;32mI (334361) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (334371) chip[DIS]: Advertise commission parameter vendorID=65521 productID=32768 discriminator=3840/15 cm=1 cp=0 jf=0[0m
+[0;32mI (334391) chip[DIS]: CHIP minimal mDNS configured as 'Commissionable node device'; instance name: 52B0299998B9C60A.[0m
+[0;32mI (334391) chip[DIS]: mDNS service published: _matterc._udp[0m
+[0;32mI (334401) chip[DL]: Performing factory reset[0m
+[0;32mI (334451) wifi:state: run -> init (0)[0m
+[0;32mI (334451) wifi:pm stop, total sleep time: 300264745 us / 332849641 us[0m
+
+[0;32mI (334451) wifi:<ba-del>idx:0, tid:0[0m
+[0;32mI (334451) wifi:<ba-del>idx:1, tid:4[0m
+[0;32mI (334461) wifi:new:<2,0>, old:<2,0>, ap:<255,255>, sta:<2,0>, prof:1[0m
+[0;32mI (334521) wifi:flush txq[0m
+[0;32mI (334521) wifi:stop sw txq[0m
+[0;32mI (334521) wifi:lmac stop hw txq[0m
+[0;32mI (334641) chip[DL]: System restarting[0m
+���ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0xc (RTC_SW_CPU_RST),boot:0x8 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403759ec
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (31) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Mar  4 2026 19:07:13[0m
+[0;32mI (31) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v0.2[0m
+[0;32mI (39) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (43) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (48) boot.esp32s3: SPI Flash Size : 4MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (58) boot: Partition Table:[0m
+[0;32mI (62) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (69) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (77) boot:  1 nvs              WiFi data        01 02 00010000 0000c000[0m
+[0;32mI (84) boot:  2 nvs_keys         NVS keys         01 04 0001c000 00001000[0m
+[0;32mI (92) boot:  3 otadata          OTA data         01 00 0001d000 00002000[0m
+[0;32mI (99) boot:  4 phy_init         RF data          01 01 0001f000 00001000[0m
+[0;32mI (106) boot:  5 ota_0            OTA app          00 10 00020000 001e0000[0m
+[0;32mI (114) boot:  6 ota_1            OTA app          00 11 00200000 001e0000[0m
+[0;32mI (122) boot:  7 fctry            WiFi data        01 02 003e0000 00006000[0m
+[0;32mI (129) boot: End of partition table[0m
+[0;32mI (134) esp_image: segment 0: paddr=00020020 vaddr=3c120020 size=41ca8h (269480) map[0m
+[0;32mI (190) esp_image: segment 1: paddr=00061cd0 vaddr=3fc9b200 size=0506ch ( 20588) load[0m
+[0;32mI (195) esp_image: segment 2: paddr=00066d44 vaddr=40374000 size=092d4h ( 37588) load[0m
+[0;32mI (204) esp_image: segment 3: paddr=00070020 vaddr=42000020 size=110eb4h (1117876) map[0m
+[0;32mI (405) esp_image: segment 4: paddr=00180edc vaddr=4037d2d4 size=0de68h ( 56936) load[0m
+[0;32mI (427) boot: Loaded app from partition at offset 0x20000[0m
+[0;32mI (428) boot: Disabling RNG early entropy source...[0m
+[0;32mI (439) cpu_start: Multicore app[0m
+[0;32mI (449) cpu_start: Pro cpu start user code[0m
+[0;32mI (449) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (449) cpu_start: Application information:[0m
+[0;32mI (452) cpu_start: Project name:     light[0m
+[0;32mI (456) cpu_start: App version:      1.0[0m
+[0;32mI (461) cpu_start: Compile time:     Mar  4 2026 19:06:56[0m
+[0;32mI (467) cpu_start: ELF file SHA256:  f8302eb82...[0m
+[0;32mI (472) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (478) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (483) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (487) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (492) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (499) heap_init: At 3FCB2158 len 000375B8 (221 KiB): RAM[0m
+[0;32mI (505) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (512) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (518) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (525) spi_flash: detected chip: generic[0m
+[0;32mI (529) spi_flash: flash io: dio[0m
+[0;33mW (533) spi_flash: Detected size(16384k) larger than the size in the binary image header(4096k). Using the size in the binary image header.[0m
+[0;33mW (546) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (558) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (563) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (570) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (576) coexist: coexist rom version e7ae62f[0m
+[0;32mI (581) main_task: Started on CPU0[0m
+[0;32mI (591) main_task: Calling app_main()[0m
+[0;32mI (631) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (641) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (641) button: IoT Button Version: 4.1.6[0m
+[0;32mI (651) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (651) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (661) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (661) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (671) bridge_action: Slot 0 binding loaded: onoff=0, level=0[0m
+[0;32mI (681) bridge_action: Slot 1 binding loaded: onoff=1, level=1[0m
+[0;32mI (681) bridge_action: Slot 2 binding loaded: onoff=0, level=0[0m
+[0;32mI (691) bridge_action: Slot 3 binding loaded: onoff=0, level=0[0m
+[0;32mI (691) bridge_action: Initialized 4 bridge slot actions[0m
+[0;32mI (701) ir_engine: IR engine initialized (stub mode)[0m
+[0;32mI (711) pp: pp rom version: e7ae62f[0m
+[0;32mI (711) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (731) wifi:wifi driver task: 3fcc1570, prio:23, stack:6656, core=0[0m
+[0;32mI (751) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (751) wifi:wifi certification version: v7.0[0m
+[0;32mI (751) wifi:config NVS flash: enabled[0m
+[0;32mI (751) wifi:config nano formating: disabled[0m
+[0;32mI (761) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (761) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (771) wifi:Init management short buffer num: 32[0m
+[0;32mI (771) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (771) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (781) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (781) wifi:Init static rx buffer num: 10[0m
+[0;32mI (791) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (791) wifi_init: rx ba win: 6[0m
+[0;32mI (791) wifi_init: tcpip mbox: 32[0m
+[0;32mI (801) wifi_init: udp mbox: 6[0m
+[0;32mI (801) wifi_init: tcp mbox: 6[0m
+[0;32mI (811) wifi_init: tcp tx win: 5760[0m
+[0;32mI (811) wifi_init: tcp rx win: 5760[0m
+[0;32mI (811) wifi_init: tcp mss: 1440[0m
+[0;32mI (821) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (821) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (851) chip[DL]: NVS set: chip-counters/reboot-count = 1 (0x1)[0m
+[0;32mI (851) chip[DL]: NVS set: chip-config/unique-id = "2F85B6201E5FA0A7"[0m
+[0;32mI (851) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (861) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (861) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (911) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (911) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (1411) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (1411) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (1411) wifi:enable tsf[0m
+[0;32mI (1411) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (1411) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (1421) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1421) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2[0m
+[0;33mW (1431) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (1441) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1441) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (1451) chip[SVR]: Initializing subscription resumption storage...[0m
+[0;32mI (1461) chip[SVR]: Server initializing...[0m
+[0;32mI (1461) chip[TS]: Last Known Good Time: [unknown][0m
+[0;32mI (1471) chip[TS]: Setting Last Known Good Time to firmware build time 2023-10-14T01:16:48[0m
+[0;32mI (1481) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (1481) chip[DMG]: Examples::AccessControlDelegate::Init[0m
+[0;32mI (1491) chip[DMG]: AccessControl: setting[0m
+[0;32mI (1491) chip[DMG]: DefaultAclStorage: initializing[0m
+[0;32mI (1501) chip[DMG]: DefaultAclStorage: 0 entries loaded[0m
+[0;32mI (1501) chip[SVR]: WARNING: mTestEventTriggerDelegate is null[0m
+[0;32mI (1521) chip[DIS]: Updating services using commissioning mode 1[0m
+[0;32mI (1521) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (1521) chip[DIS]: Advertise commission parameter vendorID=65521 productID=32768 discriminator=3840/15 cm=1 cp=0 jf=0[0m
+[0;32mI (1541) chip[DIS]: CHIP minimal mDNS configured as 'Commissionable node device'; instance name: 4DA3737A9AEE30AB.[0m
+[0;32mI (1551) chip[DIS]: mDNS service published: _matterc._udp[0m
+[0;32mI (1551) chip[IN]: CASE Server enabling CASE session setups[0m
+[0;32mI (1561) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (1561) chip[SVR]: Server Listening...[0m
+[0;32mI (1571) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (1581) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (1581) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (1591) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (1601) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (1601) chip[DL]: [0;32mI (1601) data_model: Cannot find minimum unused endpoint_id, try to find in the previous namespace[0m
+WIFI_EVENT_STA_START[0m
+[0;32mI (1611) data_model: Failed to open node namespace[0m
+[0;33mW (1611) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (1621) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (1631) chip[DL]: Configuring CHIPoBLE advertising (interval 25 ms, connectable)[0m
+[0;32mI (1631) web_server: HTTP API started: GET /api/health, GET /api/slots, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status[0m
+[0;32mI (1641) NimBLE: GAP procedure initiated: advertise; [0m
+[0;32mI (1651) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (1661) NimBLE: disc_mode=2[0m
+[0;32mI (1661) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (1671) NimBLE:  adv_channel_map=0 own_addr_type=1 adv_filter_policy=0 adv_itvl_min=40 adv_itvl_max=40[0m
+[0;32mI (1681)@*�[0;32mI (1701) chip[DL]: [5nCHIPoBLE advertising started[0m
+[0;32mI (1701) app_main: Commissioning window opened[0m
+[6n [999C [6n [159D[0;32m> [0m[0;32mI (28771) chip[DL]: BLE GAP connection established (con 1)[0m
+[0;32mI (28771) chip[DL]: CHIPoBLE advertising stopped[0m
+[0;32mI (29711) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (29711) chip[BLE]: local and remote recv window sizes = 5[0m
+[0;32mI (29721) chip[BLE]: selected BTP version 4[0m
+[0;32mI (29721) chip[BLE]: using BTP fragment sizes rx 244 / tx 244.[0m
+[0;32mI (29891) chip[DL]: Write request/command received for CHIPoBLE TX CCCD characteristic (con 1 ) indicate = 1[0m
+[0;32mI (29891) chip[DL]: CHIPoBLE subscribe received[0m
+[0;32mI (29891) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (29901) NimBLE: att_handle=18
+[0m
+[0;32mI (29951) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (29951) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (29961) chip[EM]: >>> [E:11491r S:0 M:219087527] (U) Msg RX from 0:B1E220997EDBD64E [0000] to 0000000000000000 --- Type 0000:20 (SecureChannel:PBKDFParamRequest) (B:98)[0m
+[0;32mI (29981) chip[EM]: <<< [E:11491r S:0 M:91034907] (U) Msg TX from 0000000000000000 to 0:B1E220997EDBD64E [0000] [BLE] --- Type 0000:21 (SecureChannel:PBKDFParamResponse) (B:154)[0m
+[0;32mI (29991) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (29991) NimBLE: att_handle=18
+[0m
+[0;32mI (30011) chip[SVR]: Commissioning session establishment step started[0m
+[0;32mI (30071) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (30071) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (30081) chip[EM]: >>> [E:11491r S:0 M:219087528] (U) Msg RX from 0:B1E220997EDBD64E [0000] to 0000000000000000 --- Type 0000:22 (SecureChannel:PASE_Pake1) (B:92)[0m
+[0;32mI (30801) chip[EM]: <<< [E:11491r S:0 M:91034908] (U) Msg TX from 0000000000000000 to 0:B1E220997EDBD64E [0000] [BLE] --- Type 0000:23 (SecureChannel:PASE_Pake2) (B:127)[0m
+[0;32mI (30821) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (30821) NimBLE: att_handle=18
+[0m
+[0;31mE (30821) chip[DL]: Long dispatch time: 737 ms, for event type 7[0m
+[0;32mI (30881) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (30881) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (30891) chip[EM]: >>> [E:11491r S:0 M:219087529] (U) Msg RX from 0:B1E220997EDBD64E [0000] to 0000000000000000 --- Type 0000:24 (SecureChannel:PASE_Pake3) (B:59)[0m
+[0;32mI (30911) chip[EM]: <<< [E:11491r S:0 M:91034909] (U) Msg TX from 0000000000000000 to 0:B1E220997EDBD64E [0000] [BLE] --- Type 0000:40 (SecureChannel:StatusReport) (B:30)[0m
+[0;32mI (30921) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (30921) NimBLE: att_handle=18
+[0m
+[0;32mI (30941) chip[SC]: SecureSession[0x3fca33b8, LSID:30843]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (30941) chip[SVR]: Commissioning completed session establishment step[0m
+[0;32mI (30951) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (30951) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (30971) chip[SVR]: Device completed Rendezvous process[0m
+[0;32mI (30971) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (30971) app_main: Commissioning session started[0m
+[0;32mI (30981) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (30981) app_main: Commissioning window closed[0m
+[0;32mI (31001) chip[EM]: >>> [E:11492r S:30843 M:236152417] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:02 (IM:ReadRequest) (B:136)[0m
+[0;31mE (31021) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0030, attributeId: 0x0000_000Cerr = 586[0m
+[0;32mI (31031) chip[DL]: NVS set: chip-config/reg-location = 0 (0x0)[0m
+[0;32mI (31041) chip[EM]: <<< [E:11492r S:30843 M:164984433] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:05 (IM:ReportData) (B:253)[0m
+[0;32mI (31051) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31051) NimBLE: att_handle=18
+[0m
+[0;32mI (31121) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31121) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31131) NimBLE: att_handle=18
+[0m
+[0;32mI (31181) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31181) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (31191) chip[EM]: >>> [E:11493r S:30843 M:236152418] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:02 (IM:ReadRequest) (B:128)[0m
+[0;31mE (31211) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31221) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0046, attributeId: 0x0000_0002err = 5c3[0m
+[0;31mE (31231) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31241) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0046, attributeId: 0x0000_0001err = 5c3[0m
+[0;31mE (31261) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31261) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0046, attributeId: 0x0000_0000err = 5c3[0m
+[0;31mE (31271) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31281) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0046, attributeId: 0x0000_0007err = 5c3[0m
+[0;31mE (31301) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31301) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0046, attributeId: 0x0000_0006err = 5c3[0m
+[0;32mI (31321) chip[EM]: <<< [E:11493r S:30843 M:164984434] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:05 (IM:ReportData) (B:528)[0m
+[0;32mI (31331) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31331) NimBLE: att_handle=18
+[0m
+[0;32mI (31391) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31391) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31401) NimBLE: att_handle=18
+[0m
+[0;32mI (31481) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31481) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31491) NimBLE: att_handle=18
+[0m
+[0;32mI (31541) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31541) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (31551) chip[EM]: >>> [E:11494r S:30843 M:236152419] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:02 (IM:ReadRequest) (B:73)[0m
+[0;31mE (31571) chip[DMG]: Read request on unknown cluster - no data version available[0m
+[0;31mE (31571) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x1349_FC00, attributeId: 0x0000_0001err = 5c3[0m
+[0;32mI (31591) chip[EM]: <<< [E:11494r S:30843 M:164984435] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:05 (IM:ReportData) (B:165)[0m
+[0;32mI (31601) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31601) NimBLE: att_handle=18
+[0m
+[0;32mI (31661) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31661) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (31671) chip[EM]: >>> [E:11495r S:30843 M:236152420] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:65)[0m
+[0;32mI (31691) chip[FS]: GeneralCommissioning: Received ArmFailSafe (60s)[0m
+[0;32mI (31691) chip[EM]: <<< [E:11495r S:30843 M:164984436] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (31711) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31721) NimBLE: att_handle=18
+[0m
+[0;32mI (31781) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31781) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (31791) chip[EM]: >>> [E:11496r S:30843 M:236152421] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (31811) chip[DL]: NVS set: chip-config/reg-location = 0 (0x0)[0m
+[0;32mI (31821) chip[DL]: NVS set: chip-config/country-code = "KR"[0m
+[0;32mI (31821) chip[EM]: <<< [E:11496r S:30843 M:164984437] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (31831) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31831) NimBLE: att_handle=18
+[0m
+[0;32mI (31901) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (31901) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (31911) chip[EM]: >>> [E:11497r S:30843 M:236152422] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:62)[0m
+[0;32mI (31931) chip[ZCL]: OpCreds: Certificate Chain request received for PAI[0m
+[0;32mI (31941) chip[EM]: <<< [E:11497r S:30843 M:164984438] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:527)[0m
+[0;32mI (31951) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (31951) NimBLE: att_handle=18
+[0m
+[0;32mI (32021) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32021) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32031) NimBLE: att_handle=18
+[0m
+[0;32mI (32081) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32081) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32091) NimBLE: att_handle=18
+[0m
+[0;32mI (32171) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32171) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (32181) chip[EM]: >>> [E:11498r S:30843 M:236152423] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:62)[0m
+[0;32mI (32201) chip[ZCL]: OpCreds: Certificate Chain request received for DAC[0m
+[0;32mI (32211) chip[EM]: <<< [E:11498r S:30843 M:164984439] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:557)[0m
+[0;32mI (32221) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32221) NimBLE: att_handle=18
+[0m
+[0;32mI (32321) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32321) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32331) NimBLE: att_handle=18
+[0m
+[0;32mI (32411) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32411) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32421) NimBLE: att_handle=18
+[0m
+[0;32mI (32471) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32471) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (32481) chip[EM]: >>> [E:11499r S:30843 M:236152424] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:94)[0m
+[0;32mI (32501) chip[ZCL]: OpCreds: Received an AttestationRequest command[0m
+[0;32mI (32571) chip[ZCL]: OpCreds: AttestationRequest successful.[0m
+[0;32mI (32571) chip[EM]: <<< [E:11499r S:30843 M:164984440] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:714)[0m
+[0;32mI (32591) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32591) NimBLE: att_handle=18
+[0m
+[0;32mI (32681) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32681) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32691) NimBLE: att_handle=18
+[0m
+[0;32mI (32741) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32741) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32751) NimBLE: att_handle=18
+[0m
+[0;32mI (32801) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (32801) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (32811) chip[EM]: >>> [E:11500r S:30843 M:236152425] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:65)[0m
+[0;32mI (32831) chip[FS]: GeneralCommissioning: Received ArmFailSafe (60s)[0m
+[0;32mI (32831) chip[EM]: <<< [E:11500r S:30843 M:164984441] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (32851) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (32861) NimBLE: att_handle=18
+[0m
+[0;32mI (32921) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (34151) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (34151) chip[EM]: >>> [E:11501r S:30843 M:236152426] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:94)[0m
+[0;32mI (34171) chip[ZCL]: OpCreds: Received a CSRRequest command[0m
+[0;32mI (34291) chip[ZCL]: OpCreds: AllocatePendingOperationalKey succeeded[0m
+[0;32mI (34361) chip[ZCL]: OpCreds: CSRRequest successful.[0m
+[0;32mI (34371) chip[EM]: <<< [E:11501r S:30843 M:164984442] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:373)[0m
+[0;32mI (34381) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (34381) NimBLE: att_handle=18
+[0m
+[0;32mI (34421) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (34421) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (34431) NimBLE: att_handle=18
+[0m
+[0;32mI (34481) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (34481) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (34541) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (34541) chip[EM]: >>> [E:11502r S:30843 M:236152427] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:308)[0m
+[0;32mI (34561) chip[ZCL]: OpCreds: Received an AddTrustedRootCertificate command[0m
+[0;32mI (34791) chip[ZCL]: OpCreds: AddTrustedRootCertificate successful.[0m
+[0;32mI (34791) chip[EM]: <<< [E:11502r S:30843 M:164984443] (S) Msg TX from 0000000000000000 to 0:FFFFFFFB00000000 [0000] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:63)[0m
+[0;32mI (34801) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (34811) NimBLE: att_handle=18
+[0m
+[0;32mI (34871) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (34871) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (34931) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (34931) chip[EM]: >>> [E:11503r S:30843 M:236152428] (S) Msg RX from 0:FFFFFFFB00000000 [0000] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:347)[0m
+[0;32mI (34951) chip[ZCL]: OpCreds: Received an AddNOC command[0m
+[0;32mI (34951) chip[FP]: Validating NOC chain[0m
+[0;32mI (35181) chip[FP]: NOC chain validation successful[0m
+[0;32mI (35181) chip[FP]: Added new fabric at index: 0x1[0m
+[0;32mI (35181) chip[FP]: Assigned compressed fabric ID: 0xD686D61C70130582, node ID: 0x000000004285CFAE[0m
+[0;32mI (35201) chip[TS]: Last Known Good Time: 2023-10-14T01:16:48[0m
+[0;32mI (35211) chip[TS]: New proposed Last Known Good Time: 2026-03-04T11:56:25[0m
+[0;32mI (35211) chip[TS]: Updating pending Last Known Good Time to 2026-03-04T11:56:25[0m
+[0;32mI (35231) chip[ZCL]: OpCreds: ACL entry created for Fabric index 0x1 CASE Admin Subject 0x000000008C28B760[0m
+[0;32mI (35241) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (35251) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (35261) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (35261) chip[ZCL]: OpCreds: successfully created fabric index 0x1 via AddNOC[0m
+[0;32mI (35281) chip[EM]: <<< [E:11503r S:30843 M:164984444] (S) Msg TX from 0000000000000000 to 1:FFFFFFFB00000000 [0582] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (35291) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (35291) NimBLE: att_handle=18
+[0m
+[0;32mI (35301) app_main: Fabric is updated[0m
+[0;32mI (35351) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (35381) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (35381) chip[EM]: >>> [E:11504r S:30843 M:236152429] (S) Msg RX from 1:FFFFFFFB00000000 [0582] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:98)[0m
+[0;32mI (35401) chip[EM]: <<< [E:11504r S:30843 M:164984445] (S) Msg TX from 0000000000000000 to 1:FFFFFFFB00000000 [0582] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (35421) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (35421) NimBLE: att_handle=18
+[0m
+[0;32mI (35471) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (35471) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (35481) chip[EM]: >>> [E:11505r S:30843 M:236152430] (S) Msg RX from 1:FFFFFFFB00000000 [0582] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:65)[0m
+[0;32mI (35501) chip[FS]: GeneralCommissioning: Received ArmFailSafe (73s)[0m
+[0;32mI (35501) chip[EM]: <<< [E:11505r S:30843 M:164984446] (S) Msg TX from 0000000000000000 to 1:FFFFFFFB00000000 [0582] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:66)[0m
+[0;32mI (35521) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (35531) NimBLE: att_handle=18
+[0m
+[0;32mI (35591) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (35591) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (35601) chip[EM]: >>> [E:11506r S:30843 M:236152431] (S) Msg RX from 1:FFFFFFFB00000000 [0582] to 0000000000000000 --- Type 0001:08 (IM:InvokeCommandRequest) (B:85)[0m
+[0;32mI (35621) chip[NP]: ESP NetworkCommissioningDelegate: SSID: SK_WiFiGIGADC40_2.4G[0m
+[0;33mW (35621) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (35631) chip[DL]: WiFi station mode change: Enabled -> Disabled[0m
+[0;32mI (35681) chip[DL]: WiFi station mode change: Disabled -> Enabled[0m
+[0;33mW (35681) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (35681) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (35701) chip[DL]: WiFi station state change: NotConnected -> Connecting[0m
+[0;33mW (35701) wifi:Haven't to connect to a suitable AP now![0m
+[0;31mE (35711) chip[DL]: Failed to get configured network when updating network status: Error ESP32:0x0500300F[0m
+[0;32mI (35711) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;33mW (35731) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (35731) chip[DL]: Attempting to connect WiFi station interface[0m
+[1;31mE (35741) wifi:sta is connecting, return error[0m
+[0;31mE (35741) chip[DL]: esp_wifi_connect() failed: ESP_ERR_WIFI_CONN[0m
+[0;32mI (35951) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1[0m
+[0;32mI (36431) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (36471) wifi:state: init -> auth (b0)[0m
+[0;32mI (36491) wifi:state: auth -> assoc (0)[0m
+[0;32mI (36511) wifi:state: assoc -> run (10)[0m
+[0;32mI (36571) wifi:connected with SK_WiFiGIGADC40_2.4G, aid = 9, channel 2, BW20, bssid = 04:09:a5:51:dc:43[0m
+[0;32mI (36571) wifi:security: WPA2-PSK, phy: bgn, rssi: -56[0m
+[0;32mI (36591) wifi:pm start, type: 1[0m
+
+[0;32mI (36591) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (36591) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (36611) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (36611) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 4[0m
+[0;32mI (36621) chip[DL]: WIFI_EVENT_STA_CONNECTED[0m
+[0;32mI (36621) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (36641) chip[DL]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+[0;32mI (36641) chip[DL]: WiFi station interface connected[0m
+[0;32mI (36651) chip[EM]: <<< [E:11506r S:30843 M:164984447] (S) Msg TX from 0000000000000000 to 1:FFFFFFFB00000000 [0582] [BLE] --- Type 0001:09 (IM:InvokeCommandResponse) (B:65)[0m
+[0;32mI (36671) NimBLE: GATT procedure initiated: indicate; [0m
+[0;32mI (36671) NimBLE: att_handle=18
+[0m
+[0;32mI (36671) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (36681) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (36691) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (36701) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (36711) chip[SVR]: Operational advertising enabled[0m
+[0;32mI (36711) chip[DL]: Updating advertising data[0m
+[0;32mI (36761) chip[DL]: Confirm received for CHIPoBLE TX characteristic indication (con 1) status= 14 [0m
+[0;32mI (37611) esp_netif_handlers: sta ip: 192.168.75.155, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (37611) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (37621) chip[DL]: IP_EVENT_STA_GOT_IP[0m
+[0;32mI (37621) chip[DL]: IPv4 address changed on WiFi station interface: 192.168.75.155/255.255.255.0 gateway 192.168.75.1[0m
+[0;32mI (37631) chip[DL]: IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (37631) app_main: Interface IP Address changed[0m
+[0;32mI (37651) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (37651) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (37671) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (37671) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (37681) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (37711) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (37711) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (37711) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (37721) app_main: Interface IP Address changed[0m
+[0;32mI (37721) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (37741) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (37751) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (37751) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (37771) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (37741) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:1, winSize:64[0m
+[0;32mI (37771) chip[EM]: >>> [E:11507r S:0 M:219087530] (U) Msg RX from 0:9D68237D6B14D4DA [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (37791) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca4e18[0m
+[0;32mI (37801) chip[EM]: <<< [E:11507r S:0 M:91034910 (Ack:219087530)] (U) Msg TX from 0000000000000000 to 0:9D68237D6B14D4DA [0000] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (37821) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (37831) chip[SC]: CASE matched destination ID: fabricIndex 1, NodeID 0x000000004285CFAE[0m
+[0;32mI (38011) wifi:<ba-add>idx:1 (ifx:0, 04:09:a5:51:dc:43), tid:4, ssn:5, winSize:64[0m
+[0;32mI (38121) chip[EM]: <<< [E:11507r S:0 M:91034911 (Ack:219087530)] (U) Msg TX from 0000000000000000 to 0:9D68237D6B14D4DA [0000] [UDP:192.168.75.107:60397] --- Type 0000:31 (SecureChannel:CASE_Sigma2) (B:529)[0m
+[0;32mI (38141) chip[EM]: ??1 [E:11507r S:0 M:91034911] (U) Msg Retransmission to 0:0000000000000000 scheduled for 391ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (38151) chip[SC]: Sent Sigma2 msg[0m
+[0;32mI (38151) chip[SVR]: Server initialization complete[0m
+[0;32mI (38161) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (38171) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (38181) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (38181) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (38201) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (38201) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (38211) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (38211) chip[IM]: No subscriptions to resume[0m
+[0;32mI (38531) chip[EM]: <<1 [E:11507r S:0 M:91034911] (U) Msg Retransmission to 0:0000000000000000[0m
+[0;32mI (38531) chip[EM]: ??2 [E:11507r S:0 M:91034911] (U) Msg Retransmission to 0:0000000000000000 scheduled for 342ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (38551) chip[EM]: >>> [E:11507r S:0 M:219087531 (Ack:91034911)] (U) Msg RX from 0:9D68237D6B14D4DA [0000] to 0000000000000000 --- Type 0000:32 (SecureChannel:CASE_Sigma3) (B:380)[0m
+[0;32mI (38561) chip[EM]: <<< [E:11507r S:0 M:91034912 (Ack:219087531)] (U) Msg TX from 0000000000000000 to 0:9D68237D6B14D4DA [0000] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (38591) chip[SC]: Received Sigma3 msg[0m
+[0;31mE (38591) chip[SC]: The device does not support GetClock_RealTimeMS() API: 6c.  Falling back to Last Known Good UTC Time[0m
+[0;32mI (39061) chip[EM]: >>> [E:11507r S:0 M:219087532 (Ack:91034911)] (U) Msg RX from 0:9D68237D6B14D4DA [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (39081) chip[EM]: <<< [E:11507r S:0 M:91034913 (Ack:219087531)] (U) Msg TX from 0000000000000000 to 0:9D68237D6B14D4DA [0000] [UDP:192.168.75.107:60397] --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (39101) chip[EM]: ??1 [E:11507r S:0 M:91034913] (U) Msg Retransmission to 0:0000000000000000 scheduled for 344ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (39121) chip[SC]: SecureSession[0x3fca3490, LSID:30844]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (39131) chip[IN]: CASE Session established to peer: <000000008C28B760, 1>[0m
+[0;32mI (39251) CHIP[DL]: Write request received for CHIPoBLE RX characteristic con 1 16[0m
+[0;32mI (39371) chip[EM]: >>> [E:11508r S:30844 M:204845225] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (39391) chip[FS]: GeneralCommissioning: Received CommissioningComplete[0m
+[0;32mI (39391) chip[FP]: Metadata for Fabric 0x1 persisted to storage.[0m
+[0;32mI (39401) chip[TS]: Committing Last Known Good Time to storage: 2026-03-04T11:56:25[0m
+[0;32mI (39421) chip[ZCL]: OpCreds: Fabric index 0x1 was committed to storage. Compressed Fabric Id 0xD686D61C70130582, FabricId 00000000B67F3CC2, NodeId 000000004285CFAE, VendorId 0x1349[0m
+[0;32mI (39431) chip[FS]: GeneralCommissioning: Successfully committed pending fabric data[0m
+[0;32mI (39431) chip[FS]: Fail-safe cleanly disarmed[0m
+[0;32mI (39451) chip[EM]: <<< [E:11508r S:30844 M:61315242 (Ack:204845225)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (39461) chip[EM]: ??1 [E:11508r S:30844 M:61315242] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 359ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (39481) chip[EM]: >>> [E:11507r S:0 M:219087533 (Ack:91034913)] (U) Msg RX from 0:9D68237D6B14D4DA [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (39491) app_main: Fabric is committed[0m
+[0;32mI (39491) chip[SWU]: Device commissioned, schedule a default provider query[0m
+[0;32mI (39501) chip[SVR]: Commissioning completed successfully[0m
+[0;32mI (39521) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (39521) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (39531) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (39531) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (39551) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (39551) chip[SC]: SecureSession[0x3fca33b8, LSID:30843]: State change 'kActive' --> 'kPendingEviction'[0m
+[0;32mI (39561) chip[BLE]: Releasing end point's BLE connection back to application.[0m
+[0;32mI (39571) chip[DL]: Closing BLE GATT connection (con 1)[0m
+[0;32mI (39571) NimBLE: GAP procedure initiated: terminate connection; conn_handle=1 hci_reason=19
+[0m
+[0;32mI (39601) app_main: Commissioning complete[0m
+[0;32mI (39601) esp_matter_core: Commissioning Complete[0m
+[0;32mI (39601) app_main: Commissioning window closed[0m
+[0;32mI (39611) chip[DL]: Write request/command received for CHIPoBLE TX CCCD characteristic (con 1 ) indicate = 0[0m
+[0;32mI (39611) chip[DL]: CHIPoBLE unsubscribe received[0m
+[0;32mI (39611) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (39631) chip[DL]: BLE GAP connection terminated (con 1 reason 0x216)[0m
+[0;31mE (41631) NimBLE: ble_hs_stop_terminate_timeout_cb,255 connection(s) still up 
+[0m
+[0;32mI (41631) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;31mE (41631) chip[DL]: Long dispatch time: 2019 ms, for event type 2[0m
+[0;32mI (41641) esp_matter_core: BLE Disconnected[0m
+[0;32mI (41651) chip[EM]: >>> [E:11508r S:30844 M:204845226 (Ack:61315242)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (41661) chip[EM]: >>> [E:11509r S:30844 M:204845227] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:06 (IM:WriteRequest) (B:88)[0m
+[0;32mI (41691) chip[EM]: <<< [E:11509r S:30844 M:61315243 (Ack:204845227)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:07 (IM:WriteResponse) (B:62)[0m
+[0;32mI (41711) chip[EM]: ??1 [E:11509r S:30844 M:61315243] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 388ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (41721) chip[EM]: >>> [E:11509r S:30844 M:204845227] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:06 (IM:WriteRequest) (B:88)[0m
+[0;32mI (41741) chip[EM]: <<< [E:11509r S:30844 M:61315244 (Ack:204845227)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (41751) chip[EM]: >>> [E:11509r S:30844 M:204845227] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:06 (IM:WriteRequest) (B:88)[0m
+[0;32mI (41771) chip[EM]: <<< [E:11509r S:30844 M:61315245 (Ack:204845227)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (41791) chip[EM]: >>> [E:11509r S:30844 M:204845227] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:06 (IM:WriteRequest) (B:88)[0m
+[0;32mI (41801) chip[EM]: <<< [E:11509r S:30844 M:61315246 (Ack:204845227)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (41831) app_main: BLE deinitialized and memory reclaimed[0m
+[0;32mI (41831) chip[EM]: >>> [E:11509r S:30844 M:204845228 (Ack:61315243)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (41851) chip[EM]: >>> [E:11510r S:30844 M:204845229] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:03 (IM:SubscribeRequest) (B:58)[0m
+[0;32mI (41861) chip[DMG]: Final negotiated min/max parameters: Min = 0s, Max = 600s[0m
+[0;32mI (41881) chip[EM]: >>> [E:11511r S:30844 M:204845230] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (41921) chip[EM]: <<< [E:11510r S:30844 M:61315247 (Ack:204845229)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1189)[0m
+[0;32mI (41931) chip[EM]: ??1 [E:11510r S:30844 M:61315247] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 356ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (41951) chip[EM]: <<< [E:11511r S:30844 M:61315248 (Ack:204845230)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:162)[0m
+[0;32mI (41971) chip[EM]: ??1 [E:11511r S:30844 M:61315248] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 351ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (41991) chip[EM]: >>> [E:11510r S:30844 M:204845231 (Ack:61315247)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42001) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42011) chip[EM]: >>> [E:11511r S:30844 M:204845232 (Ack:61315248)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (42041) chip[EM]: <<< [E:11510r S:30844 M:61315249 (Ack:204845231)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1202)[0m
+[0;32mI (42061) chip[EM]: ??1 [E:11510r S:30844 M:61315249] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 350ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42071) chip[EM]: >>> [E:11510r S:30844 M:204845233 (Ack:61315249)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42091) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42111) chip[EM]: <<< [E:11510r S:30844 M:61315250 (Ack:204845233)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1209)[0m
+[0;32mI (42131) chip[EM]: ??1 [E:11510r S:30844 M:61315250] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 375ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42141) chip[EM]: >>> [E:11510r S:30844 M:204845234 (Ack:61315250)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42151) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42181) chip[EM]: <<< [E:11510r S:30844 M:61315251 (Ack:204845234)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1198)[0m
+[0;32mI (42201) chip[EM]: ??1 [E:11510r S:30844 M:61315251] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 347ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42211) chip[EM]: >>> [E:11510r S:30844 M:204845235 (Ack:61315251)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42231) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42251) chip[EM]: <<< [E:11510r S:30844 M:61315252 (Ack:204845235)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1187)[0m
+[0;32mI (42261) chip[EM]: ??1 [E:11510r S:30844 M:61315252] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 409ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42281) chip[EM]: >>> [E:11510r S:30844 M:204845236 (Ack:61315252)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42291) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42311) chip[EM]: <<< [E:11510r S:30844 M:61315253 (Ack:204845236)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1204)[0m
+[0;32mI (42331) chip[EM]: ??1 [E:11510r S:30844 M:61315253] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 358ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42361) chip[EM]: >>> [E:11510r S:30844 M:204845237 (Ack:61315253)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42371) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42391) chip[EM]: <<< [E:11510r S:30844 M:61315254 (Ack:204845237)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1204)[0m
+[0;32mI (42411) chip[EM]: ??1 [E:11510r S:30844 M:61315254] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 332ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42431) chip[EM]: >>> [E:11510r S:30844 M:204845238 (Ack:61315254)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42441) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42461) chip[EM]: <<< [E:11510r S:30844 M:61315255 (Ack:204845238)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1209)[0m
+[0;32mI (42481) chip[EM]: ??1 [E:11510r S:30844 M:61315255] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 344ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42511) chip[EM]: >>> [E:11510r S:30844 M:204845239 (Ack:61315255)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42521) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42541) chip[EM]: <<< [E:11510r S:30844 M:61315256 (Ack:204845239)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:1099)[0m
+[0;32mI (42551) chip[EM]: ??1 [E:11510r S:30844 M:61315256] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 384ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42581) chip[EM]: >>> [E:11510r S:30844 M:204845240 (Ack:61315256)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (42591) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (42591) chip[EM]: <<< [E:11510r S:30844 M:61315257 (Ack:204845240)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:04 (IM:SubscribeResponse) (B:49)[0m
+[0;32mI (42611) chip[EM]: ??1 [E:11510r S:30844 M:61315257] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 380ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42631) chip[DMG]: Registered a ReadHandler that will schedule a report between system Timestamp: 0x000000000000A68A and system Timestamp 0x000000000009CE4A.[0m
+[0;32mI (42651) chip[EM]: >>> [E:11510r S:30844 M:204845241 (Ack:61315257)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (42681) chip[EM]: >>> [E:11512r S:30844 M:204845242] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (42701) chip[EM]: <<< [E:11512r S:30844 M:61315258 (Ack:204845242)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:162)[0m
+[0;32mI (42711) chip[EM]: ??1 [E:11512r S:30844 M:61315258] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 401ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42731) chip[EM]: >>> [E:11512r S:30844 M:204845243 (Ack:61315258)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (42751) chip[EM]: >>> [E:11513r S:30844 M:204845244] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:65)[0m
+[0;32mI (42761) chip[FS]: GeneralCommissioning: Received ArmFailSafe (30s)[0m
+[0;32mI (42771) chip[EM]: <<< [E:11513r S:30844 M:61315259 (Ack:204845244)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (42781) chip[EM]: ??1 [E:11513r S:30844 M:61315259] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 351ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42801) chip[EM]: >>> [E:11513r S:30844 M:204845245 (Ack:61315259)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (42821) chip[EM]: >>> [E:11514r S:30844 M:204845246] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:94)[0m
+[0;32mI (42841) chip[ZCL]: OpCreds: Received a CSRRequest command[0m
+[0;32mI (42961) chip[ZCL]: OpCreds: AllocatePendingOperationalKey succeeded[0m
+[0;32mI (43031) chip[ZCL]: OpCreds: CSRRequest successful.[0m
+[0;32mI (43041) chip[EM]: <<< [E:11514r S:30844 M:61315260 (Ack:204845246)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:09 (IM:InvokeCommandResponse) (B:376)[0m
+[0;32mI (43051) chip[EM]: ??1 [E:11514r S:30844 M:61315260] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 334ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (43201) chip[EM]: >>> [E:11514r S:30844 M:204845246] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:94)[0m
+[0;32mI (43211) chip[EM]: <<< [E:11514r S:30844 M:61315261 (Ack:204845246)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (43231) chip[EM]: >>> [E:11514r S:30844 M:204845247 (Ack:61315260)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (43251) chip[EM]: >>> [E:11515r S:30844 M:204845248] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:316)[0m
+[0;32mI (43261) chip[ZCL]: OpCreds: Received an AddTrustedRootCertificate command[0m
+[0;32mI (43491) chip[ZCL]: OpCreds: AddTrustedRootCertificate successful.[0m
+[0;32mI (43491) chip[EM]: <<< [E:11515r S:30844 M:61315262 (Ack:204845248)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (43511) chip[EM]: ??1 [E:11515r S:30844 M:61315262] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 410ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (43611) chip[EM]: >>> [E:11515r S:30844 M:204845248] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:316)[0m
+[0;32mI (43621) chip[EM]: <<< [E:11515r S:30844 M:61315263 (Ack:204845248)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (43641) chip[EM]: >>> [E:11515r S:30844 M:204845249 (Ack:61315262)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (43671) chip[EM]: >>> [E:11516r S:30844 M:204845250] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:349)[0m
+[0;32mI (43691) chip[ZCL]: OpCreds: Received an AddNOC command[0m
+[0;32mI (43691) chip[FP]: Validating NOC chain[0m
+[0;32mI (43921) chip[FP]: NOC chain validation successful[0m
+[0;32mI (43921) chip[FP]: Added new fabric at index: 0x2[0m
+[0;32mI (43921) chip[FP]: Assigned compressed fabric ID: 0x7969C12744EC5819, node ID: 0x00000000F6028C5A[0m
+[0;32mI (43931) chip[TS]: Last Known Good Time: 2026-03-04T11:56:25[0m
+[0;32mI (43951) chip[TS]: New proposed Last Known Good Time: 2026-03-04T11:56:35[0m
+[0;32mI (43951) chip[TS]: Updating pending Last Known Good Time to 2026-03-04T11:56:35[0m
+[0;32mI (43981) chip[ZCL]: OpCreds: ACL entry created for Fabric index 0x2 CASE Admin Subject 0x0000000056FFD81E[0m
+[0;32mI (43981) chip[DIS]: Advertise operational node D686D61C70130582-000000004285CFAE[0m
+[0;32mI (43991) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: D686D61C70130582-000000004285CFAE.[0m
+[0;32mI (44011) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (44011) chip[DIS]: Advertise operational node 7969C12744EC5819-00000000F6028C5A[0m
+[0;32mI (44021) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-00000000F6028C5A.[0m
+[0;32mI (44031) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (44031) chip[ZCL]: OpCreds: successfully created fabric index 0x2 via AddNOC[0m
+[0;32mI (44051) chip[EM]: <<< [E:11516r S:30844 M:61315264 (Ack:204845250)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (44061) chip[EM]: ??1 [E:11516r S:30844 M:61315264] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 356ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (44091) chip[EM]: <<< [E:16186i S:30844 M:61315265] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0001:05 (IM:ReportData) (B:333)[0m
+[0;32mI (44101) chip[EM]: ??1 [E:16186i S:30844 M:61315265] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 387ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (44121) app_main: Fabric is updated[0m
+[0;32mI (44121) chip[EM]: >>> [E:11516r S:30844 M:204845250] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:349)[0m
+[0;32mI (44141) chip[EM]: <<< [E:11516r S:30844 M:61315266 (Ack:204845250)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (44151) chip[EM]: >>> [E:11516r S:30844 M:204845251 (Ack:61315264)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (44171) chip[EM]: >>> [E:16186i S:30844 M:204845252 (Ack:61315265)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (44181) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (44201) chip[EM]: <<< [E:16186i S:30844 M:61315267 (Ack:204845252)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:192.168.75.107:60397] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (44351) chip[EM]: >>> [E:11517r S:0 M:219087534] (U) Msg RX from 0:E7C42DEE755C3E66 [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (44361) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca4e18[0m
+[0;32mI (44361) chip[EM]: <<< [E:11517r S:0 M:91034914 (Ack:219087534)] (U) Msg TX from 0000000000000000 to 0:E7C42DEE755C3E66 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (44391) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (44401) chip[SC]: CASE matched destination ID: fabricIndex 2, NodeID 0x00000000F6028C5A[0m
+[0;32mI (44691) chip[EM]: <<< [E:11517r S:0 M:91034915 (Ack:219087534)] (U) Msg TX from 0000000000000000 to 0:E7C42DEE755C3E66 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:31 (SecureChannel:CASE_Sigma2) (B:534)[0m
+[0;32mI (44701) chip[EM]: ??1 [E:11517r S:0 M:91034915] (U) Msg Retransmission to 0:0000000000000000 scheduled for 402ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (44721) chip[SC]: Sent Sigma2 msg[0m
+[0;32mI (44761) chip[EM]: >>> [E:11517r S:0 M:219087535 (Ack:91034915)] (U) Msg RX from 0:E7C42DEE755C3E66 [0000] to 0000000000000000 --- Type 0000:32 (SecureChannel:CASE_Sigma3) (B:378)[0m
+[0;32mI (44771) chip[EM]: <<< [E:11517r S:0 M:91034916 (Ack:219087535)] (U) Msg TX from 0000000000000000 to 0:E7C42DEE755C3E66 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (44791) chip[SC]: Received Sigma3 msg[0m
+[0;31mE (44801) chip[SC]: The device does not support GetClock_RealTimeMS() API: 6c.  Falling back to Last Known Good UTC Time[0m
+[0;32mI (45301) chip[EM]: <<< [E:11517r S:0 M:91034917 (Ack:219087535)] (U) Msg TX from 0000000000000000 to 0:E7C42DEE755C3E66 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (45321) chip[EM]: ??1 [E:11517r S:0 M:91034917] (U) Msg Retransmission to 0:0000000000000000 scheduled for 385ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (45331) chip[SC]: SecureSession[0x3fca3568, LSID:30845]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (45341) chip[IN]: CASE Session established to peer: <0000000056FFD81E, 2>[0m
+[0;32mI (45351) chip[EM]: >>> [E:11518r S:30845 M:32604449] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (45361) chip[EM]: >>> [E:11517r S:0 M:219087536 (Ack:91034917)] (U) Msg RX from 0:E7C42DEE755C3E66 [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (45381) chip[EM]: <<< [E:11518r S:30845 M:59400325 (Ack:32604449)] (S) Msg TX from 00000000F6028C5A to 2:0000000056FFD81E [5819] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (45401) chip[EM]: ??1 [E:11518r S:30845 M:59400325] (S) Msg Retransmission to 2:0000000056FFD81E scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (45421) chip[EM]: >>> [E:11519r S:30845 M:32604450] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (45431) chip[FS]: GeneralCommissioning: Received CommissioningComplete[0m
+[0;32mI (45441) chip[FP]: Metadata for Fabric 0x2 persisted to storage.[0m
+[0;32mI (45461) chip[TS]: Committing Last Known Good Time to storage: 2026-03-04T11:56:35[0m
+[0;32mI (45471) chip[ZCL]: OpCreds: Fabric index 0x2 was committed to storage. Compressed Fabric Id 0x7969C12744EC5819, FabricId 000000002B179B36, NodeId 00000000F6028C5A, VendorId 0x1384[0m
+[0;32mI (45491) chip[FS]: GeneralCommissioning: Successfully committed pending fabric data[0m
+[0;32mI (45491) chip[FS]: Fail-safe cleanly disarmed[0m
+[0;32mI (45501) chip[EM]: <<< [E:11519r S:30845 M:59400326 (Ack:32604450)] (S) Msg TX from 00000000F6028C5A to 2:0000000056FFD81E [5819] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (45521) chip[EM]: ??1 [E:11519r S:30845 M:59400326] (S) Msg Retransmission to 2:0000000056FFD81E scheduled for 396ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (45531) chip[EM]: >>> [E:11518r S:30845 M:32604451 (Ack:59400325)] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (45551) app_main: Fabric is committed[0m
+[0;32mI (45561) chip[SWU]: Device commissioned, schedule a default provider query[0m
+[0;32mI (45561) app_main: Commissioning complete[0m
+[0;32mI (45561) esp_matter_core: Commissioning Complete[0m
+[0;32mI (45571) chip[EM]: >>> [E:11519r S:30845 M:32604452 (Ack:59400326)] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (45591) chip[EM]: >>> [E:11520r S:30845 M:32604453] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (45601) chip[DL]: Ble already deinitialized, returning from ShutDown flow[0m
+[0;31mE (45611) chip[DMG]: Fail to retrieve data, roll back and encode status on clusterId: 0x0000_0028, attributeId: 0x0000_000Ferr = 586[0m
+[0;32mI (45621) chip[EM]: <<< [E:11520r S:30845 M:59400327 (Ack:32604453)] (S) Msg TX from 00000000F6028C5A to 2:0000000056FFD81E [5819] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:67)[0m
+[0;32mI (45651) chip[EM]: ??1 [E:11520r S:30845 M:59400327] (S) Msg Retransmission to 2:0000000056FFD81E scheduled for 349ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (45691) chip[EM]: >>> [E:11520r S:30845 M:32604454 (Ack:59400327)] (S) Msg RX from 2:0000000056FFD81E [5819] to 00000000F6028C5A --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (46301) chip[EM]: >>> [E:11521r S:0 M:219087537] (U) Msg RX from 0:1E73FDDF319E6BE6 [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:234)[0m
+[0;32mI (46311) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca4e18[0m
+[0;32mI (46311) chip[EM]: <<< [E:11521r S:0 M:91034918 (Ack:219087537)] (U) Msg TX from 0000000000000000 to 0:1E73FDDF319E6BE6 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (46341) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (46341) chip[EM]: <<< [E:11521r S:0 M:91034919 (Ack:219087537)] (U) Msg TX from 0000000000000000 to 0:1E73FDDF319E6BE6 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:33 (SecureChannel:CASE_Sigma2Resume) (B:100)[0m
+[0;32mI (46361) chip[EM]: ??1 [E:11521r S:0 M:91034919] (U) Msg Retransmission to 0:0000000000000000 scheduled for 368ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (46371) chip[SC]: Sent Sigma2Resume msg[0m
+[0;32mI (46611) chip[EM]: >>> [E:11521r S:0 M:219087538 (Ack:91034919)] (U) Msg RX from 0:1E73FDDF319E6BE6 [0000] to 0000000000000000 --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (46621) chip[SC]: Success status report received. Session was established[0m
+[0;32mI (46641) chip[SC]: SecureSession[0x3fca33b8, LSID:30846]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (46651) chip[IN]: CASE Session established to peer: <000000008C28B760, 1>[0m
+[0;32mI (46661) chip[EM]: <<< [E:11521r S:0 M:91034920 (Ack:219087538)] (U) Msg TX from 0000000000000000 to 0:1E73FDDF319E6BE6 [0000] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (46681) chip[EM]: >>> [E:11522r S:30846 M:223718777] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:03 (IM:SubscribeRequest) (B:630)[0m
+[0;32mI (46701) chip[DMG]: Final negotiated min/max parameters: Min = 0s, Max = 600s[0m
+[0;32mI (46721) chip[EM]: >>> [E:11523r S:30846 M:223718778] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:72)[0m
+[0;32mI (46731) chip[ZCL]: OpCreds: Received an UpdateFabricLabel command[0m
+[0;32mI (46751) chip[FP]: Metadata for Fabric 0x1 persisted to storage.[0m
+[0;32mI (46751) chip[EM]: <<< [E:11523r S:30846 M:86380511 (Ack:223718778)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (46771) chip[EM]: ??1 [E:11523r S:30846 M:86380511] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 359ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (46791) chip[EM]: <<< [E:16187i S:30846 M:86380512] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:264)[0m
+[0;32mI (46811) chip[EM]: ??1 [E:16187i S:30846 M:86380512] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 335ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (46861) chip[EM]: <<< [E:11522r S:30846 M:86380513 (Ack:223718777)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:1153)[0m
+[0;32mI (46871) chip[EM]: ??1 [E:11522r S:30846 M:86380513] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 355ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (46891) chip[EM]: >>> [E:11523r S:30846 M:223718779 (Ack:86380511)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (47021) chip[EM]: >>> [E:16187i S:30846 M:223718780 (Ack:86380512)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (47031) chip[IM]: Received status response, status is 0x7d[0m
+[0;32mI (47051) chip[DMG]: Subscription id 0x1de26f55 from node <000000008C28B760, 1> torn down[0m
+[0;32mI (47061) chip[EM]: <<< [E:16187i S:30846 M:86380514 (Ack:223718780)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (47081) chip[EM]: >>> [E:11522r S:30846 M:223718777] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:03 (IM:SubscribeRequest) (B:630)[0m
+[0;32mI (47091) chip[EM]: <<< [E:11522r S:30846 M:86380515 (Ack:223718777)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (47111) chip[EM]: >>> [E:11522r S:30846 M:223718781 (Ack:86380513)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (47131) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (47171) chip[EM]: <<< [E:11522r S:30846 M:86380516 (Ack:223718781)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:548)[0m
+[0;32mI (47181) chip[EM]: ??1 [E:11522r S:30846 M:86380516] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 381ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (47331) chip[EM]: >>> [E:11522r S:30846 M:223718782 (Ack:86380516)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (47351) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (47351) chip[EM]: <<< [E:11522r S:30846 M:86380517 (Ack:223718782)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:04 (IM:SubscribeResponse) (B:49)[0m
+[0;32mI (47381) chip[EM]: ??1 [E:11522r S:30846 M:86380517] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 404ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (47391) chip[DMG]: Registered a ReadHandler that will schedule a report between system Timestamp: 0x000000000000B920 and system Timestamp 0x000000000009E0E0.[0m
+[0;32mI (47411) chip[EM]: >>> [E:11522r S:30846 M:223718783 (Ack:86380517)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (55091) chip[EM]: >>> [E:2788r S:0 M:246393571] (U) Msg RX from 0:4DA394664F5EFB94 [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (55101) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca4e18[0m
+[0;32mI (55111) chip[EM]: <<< [E:2788r S:0 M:91034921 (Ack:246393571)] (U) Msg TX from 0000000000000000 to 0:4DA394664F5EFB94 [0000] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (55131) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (55141) chip[SC]: CASE matched destination ID: fabricIndex 1, NodeID 0x000000004285CFAE[0m
+[0;32mI (55431) chip[EM]: <<< [E:2788r S:0 M:91034922 (Ack:246393571)] (U) Msg TX from 0000000000000000 to 0:4DA394664F5EFB94 [0000] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:31 (SecureChannel:CASE_Sigma2) (B:529)[0m
+[0;32mI (55451) chip[EM]: ??1 [E:2788r S:0 M:91034922] (U) Msg Retransmission to 0:0000000000000000 scheduled for 2317ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (55461) chip[SC]: Sent Sigma2 msg[0m
+[0;32mI (55461) chip[EM]: >>> [E:21880r S:0 M:89847950] (U) Msg RX from 0:2C66B6ACA86E8BA3 [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (55491) chip[IN]: Already in the middle of CASE handshake, sending busy status report[0m
+[0;32mI (55491) chip[IN]: Sending status report, exchange 21880r[0m
+[0;32mI (55501) chip[EM]: <<< [E:21880r S:0 M:91034923 (Ack:89847950)] (U) Msg TX from 0000000000000000 to 0:2C66B6ACA86E8BA3 [0000] [UDP:[FE80::1891:26F:E812:80C5%st1]:51128] --- Type 0000:40 (SecureChannel:StatusReport) (B:36)[0m
+[0;32mI (55521) chip[EM]: ??1 [E:21880r S:0 M:91034923] (U) Msg Retransmission to 0:0000000000000000 scheduled for 337ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (55541) chip[EM]: >>> [E:21881r S:0 M:89847951] (U) Msg RX from 0:4CE4CD427431FE9E [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:196)[0m
+[0;32mI (55551) chip[IN]: Already in the middle of CASE handshake, sending busy status report[0m
+[0;32mI (55561) chip[IN]: Sending status report, exchange 21881r[0m
+[0;32mI (55571) chip[EM]: <<< [E:21881r S:0 M:91034924 (Ack:89847951)] (U) Msg TX from 0000000000000000 to 0:4CE4CD427431FE9E [0000] [UDP:192.168.75.222:64547] --- Type 0000:40 (SecureChannel:StatusReport) (B:36)[0m
+[0;32mI (55581) chip[EM]: ??1 [E:21881r S:0 M:91034924] (U) Msg Retransmission to 0:0000000000000000 scheduled for 331ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (55601) chip[EM]: >>> [E:21880r S:0 M:89847952 (Ack:91034923)] (U) Msg RX from 0:2C66B6ACA86E8BA3 [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (55611) chip[EM]: >>> [E:21881r S:0 M:89847953 (Ack:91034924)] (U) Msg RX from 0:4CE4CD427431FE9E [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (55811) chip[EM]: >>> [E:2788r S:0 M:246393572 (Ack:91034922)] (U) Msg RX from 0:4DA394664F5EFB94 [0000] to 0000000000000000 --- Type 0000:32 (SecureChannel:CASE_Sigma3) (B:380)[0m
+[0;32mI (55821) chip[EM]: <<< [E:2788r S:0 M:91034925 (Ack:246393572)] (U) Msg TX from 0000000000000000 to 0:4DA394664F5EFB94 [0000] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (55841) chip[SC]: Received Sigma3 msg[0m
+[0;31mE (55861) chip[SC]: The device does not support GetClock_RealTimeMS() API: 6c.  Falling back to Last Known Good UTC Time[0m
+[0;32mI (56331) chip[EM]: <<< [E:2788r S:0 M:91034926 (Ack:246393572)] (U) Msg TX from 0000000000000000 to 0:4DA394664F5EFB94 [0000] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (56351) chip[EM]: ??1 [E:2788r S:0 M:91034926] (U) Msg Retransmission to 0:0000000000000000 scheduled for 2495ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (56361) chip[SC]: SecureSession[0x3fca3640, LSID:30847]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (56381) chip[IN]: CASE Session established to peer: <000000009CCD975C, 1>[0m
+[0;32mI (56641) chip[EM]: >>> [E:2789r S:30847 M:233976841] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:02 (IM:ReadRequest) (B:51)[0m
+[0;32mI (56661) chip[EM]: >>> [E:2788r S:0 M:246393573 (Ack:91034926)] (U) Msg RX from 0:4DA394664F5EFB94 [0000] to 0000000000000000 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (56671) chip[EM]: <<< [E:2789r S:30847 M:158016077 (Ack:233976841)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:70)[0m
+[0;32mI (56691) chip[EM]: ??1 [E:2789r S:30847 M:158016077] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2441ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (56731) chip[EM]: >>> [E:2790r S:30847 M:233976842] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:03 (IM:SubscribeRequest) (B:58)[0m
+[0;32mI (56751) chip[DMG]: Final negotiated min/max parameters: Min = 0s, Max = 600s[0m
+[0;32mI (56771) chip[EM]: >>> [E:2789r S:30847 M:233976843 (Ack:158016077)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (56811) chip[EM]: <<< [E:2790r S:30847 M:158016078 (Ack:233976842)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1194)[0m
+[0;32mI (56821) chip[EM]: ??1 [E:2790r S:30847 M:158016078] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2544ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (56861) chip[EM]: >>> [E:2790r S:30847 M:233976844 (Ack:158016078)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (56881) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (56901) chip[EM]: <<< [E:2790r S:30847 M:158016079 (Ack:233976844)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1202)[0m
+[0;32mI (56911) chip[EM]: ??1 [E:2790r S:30847 M:158016079] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2428ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (56931) chip[EM]: >>> [E:2790r S:30847 M:233976845 (Ack:158016079)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (56941) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (56981) chip[EM]: <<< [E:2790r S:30847 M:158016080 (Ack:233976845)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1196)[0m
+[0;32mI (57001) chip[EM]: ??1 [E:2790r S:30847 M:158016080] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2430ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57041) chip[EM]: >>> [E:2790r S:30847 M:233976846 (Ack:158016080)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57061) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57081) chip[EM]: <<< [E:2790r S:30847 M:158016081 (Ack:233976846)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1208)[0m
+[0;32mI (57101) chip[EM]: ??1 [E:2790r S:30847 M:158016081] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2585ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57121) chip[EM]: >>> [E:2790r S:30847 M:233976847 (Ack:158016081)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57131) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57161) chip[EM]: <<< [E:2790r S:30847 M:158016082 (Ack:233976847)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1190)[0m
+[0;32mI (57181) chip[EM]: ??1 [E:2790r S:30847 M:158016082] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2220ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57371) chip[EM]: >>> [E:2790r S:30847 M:233976848 (Ack:158016082)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57381) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57401) chip[EM]: <<< [E:2790r S:30847 M:158016083 (Ack:233976848)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1207)[0m
+[0;32mI (57421) chip[EM]: ??1 [E:2790r S:30847 M:158016083] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2241ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57441) chip[EM]: >>> [E:2790r S:30847 M:233976849 (Ack:158016083)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57451) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57471) chip[EM]: <<< [E:2790r S:30847 M:158016084 (Ack:233976849)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1182)[0m
+[0;32mI (57491) chip[EM]: ??1 [E:2790r S:30847 M:158016084] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2491ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57511) chip[EM]: >>> [E:2790r S:30847 M:233976850 (Ack:158016084)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57521) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57551) chip[EM]: <<< [E:2790r S:30847 M:158016085 (Ack:233976850)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1202)[0m
+[0;32mI (57561) chip[EM]: ??1 [E:2790r S:30847 M:158016085] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2467ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57581) chip[EM]: >>> [E:2790r S:30847 M:233976851 (Ack:158016085)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57591) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57611) chip[EM]: <<< [E:2790r S:30847 M:158016086 (Ack:233976851)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:1203)[0m
+[0;32mI (57631) chip[EM]: ??1 [E:2790r S:30847 M:158016086] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2676ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57651) chip[EM]: >>> [E:2790r S:30847 M:233976852 (Ack:158016086)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57661) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57681) chip[EM]: <<< [E:2790r S:30847 M:158016087 (Ack:233976852)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:540)[0m
+[0;32mI (57701) chip[EM]: ??1 [E:2790r S:30847 M:158016087] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2493ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57711) chip[EM]: >>> [E:2790r S:30847 M:233976853 (Ack:158016087)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (57731) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (57741) chip[EM]: <<< [E:2790r S:30847 M:158016088 (Ack:233976853)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:04 (IM:SubscribeResponse) (B:49)[0m
+[0;32mI (57761) chip[EM]: ??1 [E:2790r S:30847 M:158016088] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2201ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57771) chip[DMG]: Registered a ReadHandler that will schedule a report between system Timestamp: 0x000000000000E1AB and system Timestamp 0x00000000000A096B.[0m
+[0;32mI (57801) chip[EM]: >>> [E:2790r S:30847 M:233976854 (Ack:158016088)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (57901) chip[EM]: >>> [E:2791r S:30847 M:233976855] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:72)[0m
+[0;32mI (57921) chip[ZCL]: OpCreds: Received an UpdateFabricLabel command[0m
+[0;32mI (57921) chip[FP]: Metadata for Fabric 0x1 persisted to storage.[0m
+[0;32mI (57931) chip[EM]: <<< [E:2791r S:30847 M:158016089 (Ack:233976855)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:09 (IM:InvokeCommandResponse) (B:70)[0m
+[0;32mI (57951) chip[EM]: ??1 [E:2791r S:30847 M:158016089] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2592ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (57981) chip[EM]: <<< [E:16188i S:30847 M:158016090] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:264)[0m
+[0;32mI (57991) chip[EM]: ??1 [E:16188i S:30847 M:158016090] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2254ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (58021) chip[EM]: <<< [E:16189i S:30846 M:86380518] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:264)[0m
+[0;32mI (58031) chip[EM]: ??1 [E:16189i S:30846 M:86380518] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 612ms from now [State:Idle II:500 AI:300 AT:4000][0m
+[0;32mI (58051) chip[EM]: >>> [E:2791r S:30847 M:233976856 (Ack:158016089)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (58211) chip[EM]: >>> [E:16188i S:30847 M:233976857 (Ack:158016090)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (58221) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (58231) chip[EM]: <<< [E:16188i S:30847 M:158016091 (Ack:233976857)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (58251) chip[EM]: >>> [E:16189i S:30846 M:223718784 (Ack:86380518)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (58271) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (58271) chip[EM]: <<< [E:16189i S:30846 M:86380519 (Ack:223718784)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (59951) chip[EM]: >>> [E:11524r S:30846 M:223718785] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (59971) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (59971) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 36 null 0 0[0m
+[0;32mI (59991) chip[EM]: <<< [E:11524r S:30846 M:86380520 (Ack:223718785)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (60001) chip[EM]: ??1 [E:11524r S:30846 M:86380520] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 392ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60021) chip[EM]: <<< [E:16190i S:30847 M:158016092] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60041) chip[EM]: ??1 [E:16190i S:30847 M:158016092] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2501ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (60061) chip[EM]: <<< [E:16191i S:30846 M:86380521] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60081) chip[EM]: ??1 [E:16191i S:30846 M:86380521] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 367ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60091) chip[EM]: >>> [E:11524r S:30846 M:223718786 (Ack:86380520)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60111) chip[EM]: >>> [E:16190i S:30847 M:233976858 (Ack:158016092)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60121) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60141) chip[EM]: <<< [E:16190i S:30847 M:158016093 (Ack:233976858)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60151) chip[EM]: >>> [E:16191i S:30846 M:223718787 (Ack:86380521)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60171) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60171) chip[EM]: <<< [E:16191i S:30846 M:86380522 (Ack:223718787)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60201) chip[EM]: >>> [E:11525r S:30846 M:223718788] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (60211) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (60221) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 6 null 0 0[0m
+[0;32mI (60231) chip[EM]: <<< [E:11525r S:30846 M:86380523 (Ack:223718788)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (60251) chip[EM]: ??1 [E:11525r S:30846 M:86380523] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 372ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60271) chip[EM]: <<< [E:16192i S:30847 M:158016094] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60291) chip[EM]: ??1 [E:16192i S:30847 M:158016094] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2557ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (60311) chip[EM]: <<< [E:16193i S:30846 M:86380524] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60321) chip[EM]: ??1 [E:16193i S:30846 M:86380524] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 347ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60341) chip[EM]: >>> [E:11525r S:30846 M:223718789 (Ack:86380523)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60361) chip[EM]: >>> [E:16192i S:30847 M:233976859 (Ack:158016094)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60371) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60381) chip[EM]: <<< [E:16192i S:30847 M:158016095 (Ack:233976859)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60401) chip[EM]: >>> [E:16193i S:30846 M:223718790 (Ack:86380524)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60421) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60421) chip[EM]: <<< [E:16193i S:30846 M:86380525 (Ack:223718790)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60451) chip[EM]: >>> [E:11526r S:30846 M:223718791] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (60461) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (60461) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 1 null 0 0[0m
+[0;32mI (60481) chip[EM]: <<< [E:11526r S:30846 M:86380526 (Ack:223718791)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (60501) chip[EM]: ??1 [E:11526r S:30846 M:86380526] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 366ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60521) chip[EM]: <<< [E:16194i S:30847 M:158016096] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60541) chip[EM]: ??1 [E:16194i S:30847 M:158016096] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2243ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (60561) chip[EM]: <<< [E:16195i S:30846 M:86380527] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60571) chip[EM]: ??1 [E:16195i S:30846 M:86380527] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 391ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60591) chip[EM]: >>> [E:11526r S:30846 M:223718792 (Ack:86380526)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60601) chip[EM]: >>> [E:11527r S:30846 M:223718793] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (60621) esp_matter_command: Received command 0x00000000 for endpoint 0x0001's cluster 0x00000006[0m
+[0;32mI (60631) chip[ZCL]: Toggle ep1 on/off from state 1 to 0[0m
+[0;32mI (60641) chip[EM]: <<< [E:11527r S:30846 M:86380528 (Ack:223718793)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (60661) chip[EM]: ??1 [E:11527r S:30846 M:86380528] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 405ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60671) chip[EM]: >>> [E:16194i S:30847 M:233976860 (Ack:158016096)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60691) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60701) chip[EM]: <<< [E:16194i S:30847 M:158016097 (Ack:233976860)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60721) chip[EM]: >>> [E:16195i S:30846 M:223718794 (Ack:86380527)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60731) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60741) chip[EM]: <<< [E:16195i S:30846 M:86380529 (Ack:223718794)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60771) chip[EM]: >>> [E:11527r S:30846 M:223718795 (Ack:86380528)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60791) chip[EM]: <<< [E:16196i S:30847 M:158016098] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60801) chip[EM]: ??1 [E:16196i S:30847 M:158016098] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2261ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (60821) chip[EM]: <<< [E:16197i S:30846 M:86380530] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (60841) chip[EM]: ??1 [E:16197i S:30846 M:86380530] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (60861) chip[EM]: >>> [E:16196i S:30847 M:233976861 (Ack:158016098)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60871) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60871) chip[EM]: <<< [E:16196i S:30847 M:158016099 (Ack:233976861)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60901) chip[EM]: >>> [E:16197i S:30846 M:223718796 (Ack:86380530)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (60921) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (60921) chip[EM]: <<< [E:16197i S:30846 M:86380531 (Ack:223718796)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (60941) app_driver: Slot 0 action: level=1[0m
+[0;32mI (60951) bridge_action: Slot 0 mapped level signal_id=0, value=1[0m
+[0;33mW (60961) ir_engine: No signal mapped for slot 0 cluster=0x0008 attr=0x0000[0m
+[0;32mI (60961) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (60971) chip[ZCL]: Setting on/off to OFF due to level change[0m
+[0;32mI (60971) chip[ZCL]: Toggle ep1 on/off from state 1 to 0[0m
+[0;32mI (60971) app_driver: Slot 0 action: onoff=0[0m
+[0;32mI (60981) bridge_action: Slot 0 mapped on/off signal_id=0, value=0[0m
+[0;33mW (60991) ir_engine: No signal mapped for slot 0 cluster=0x0006 attr=0x0000[0m
+[0;32mI (61001) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (61011) chip[ZCL]: Off completed. reset OnTime to  0[0m
+[0;32mI (61021) chip[EM]: <<< [E:16198i S:30847 M:158016100] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:151)[0m
+[0;32mI (61041) chip[EM]: ??1 [E:16198i S:30847 M:158016100] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2463ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (61061) chip[EM]: <<< [E:16199i S:30846 M:86380532] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:151)[0m
+[0;32mI (61071) chip[EM]: ??1 [E:16199i S:30846 M:86380532] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 339ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (61091) chip[EM]: >>> [E:16198i S:30847 M:233976862 (Ack:158016100)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (61101) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (61111) chip[EM]: <<< [E:16198i S:30847 M:158016101 (Ack:233976862)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (61131) chip[EM]: >>> [E:16199i S:30846 M:223718797 (Ack:86380532)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (61151) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (61151) chip[EM]: <<< [E:16199i S:30846 M:86380533 (Ack:223718797)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (61601) chip[EM]: >>> [E:11528r S:30846 M:223718798] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (61621) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (61621) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF b null 0 0[0m
+[0;32mI (61631) chip[ZCL]: Setting on/off to ON due to level change[0m
+[0;32mI (61641) chip[ZCL]: Toggle ep1 on/off from state 0 to 1[0m
+[0;32mI (61651) chip[ZCL]: On Command - OffWaitTime :  0[0m
+[0;32mI (61651) chip[ZCL]: On/Toggle Command - Stop Timer[0m
+[0;32mI (61661) app_driver: Slot 0 action: onoff=1[0m
+[0;32mI (61661) bridge_action: Slot 0 mapped on/off signal_id=0, value=1[0m
+[0;33mW (61671) ir_engine: No signal mapped for slot 0 cluster=0x0006 attr=0x0000[0m
+[0;32mI (61671) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (61711) chip[EM]: <<< [E:11528r S:30846 M:86380534 (Ack:223718798)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (61721) chip[EM]: ??1 [E:11528r S:30846 M:86380534] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 385ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (61751) chip[EM]: <<< [E:16200i S:30847 M:158016102] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (61761) chip[EM]: ??1 [E:16200i S:30847 M:158016102] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2516ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (61781) chip[EM]: <<< [E:16201i S:30846 M:86380535] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (61801) chip[EM]: ??1 [E:16201i S:30846 M:86380535] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 369ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (61811) chip[EM]: >>> [E:16200i S:30847 M:233976863 (Ack:158016102)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (61831) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (61831) chip[EM]: <<< [E:16200i S:30847 M:158016103 (Ack:233976863)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (61861) chip[EM]: >>> [E:11528r S:30846 M:223718799 (Ack:86380534)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (61871) chip[EM]: >>> [E:16201i S:30846 M:223718800 (Ack:86380535)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (61891) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (61891) chip[EM]: <<< [E:16201i S:30846 M:86380536 (Ack:223718800)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (61921) chip[EM]: >>> [E:11529r S:30846 M:223718801] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (61931) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (61941) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 27 null 0 0[0m
+[0;32mI (61951) chip[ZCL]: Setting on/off to ON due to level change[0m
+[0;32mI (61951) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (61971) chip[EM]: <<< [E:11529r S:30846 M:86380537 (Ack:223718801)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (61981) chip[EM]: ??1 [E:11529r S:30846 M:86380537] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 363ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62011) chip[EM]: <<< [E:16202i S:30847 M:158016104] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (62021) chip[EM]: ??1 [E:16202i S:30847 M:158016104] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2304ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (62041) chip[EM]: <<< [E:16203i S:30846 M:86380538] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (62061) chip[EM]: ??1 [E:16203i S:30846 M:86380538] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 382ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62071) chip[EM]: >>> [E:11529r S:30846 M:223718802 (Ack:86380537)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62091) chip[EM]: >>> [E:11530r S:30846 M:223718803] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (62101) esp_matter_command: Received command 0x00000001 for endpoint 0x0001's cluster 0x00000006[0m
+[0;32mI (62121) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (62121) chip[EM]: <<< [E:11530r S:30846 M:86380539 (Ack:223718803)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (62151) chip[EM]: ??1 [E:11530r S:30846 M:86380539] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 359ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62161) chip[EM]: >>> [E:16202i S:30847 M:233976864 (Ack:158016104)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62181) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62181) chip[EM]: <<< [E:16202i S:30847 M:158016105 (Ack:233976864)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62211) chip[EM]: >>> [E:16203i S:30846 M:223718804 (Ack:86380538)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62221) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62231) chip[EM]: <<< [E:16203i S:30846 M:86380540 (Ack:223718804)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62251) chip[EM]: >>> [E:11530r S:30846 M:223718805 (Ack:86380539)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62271) chip[EM]: >>> [E:11531r S:30846 M:223718806] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (62281) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (62291) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 2f null 0 0[0m
+[0;32mI (62301) chip[ZCL]: Setting on/off to ON due to level change[0m
+[0;32mI (62301) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (62321) chip[EM]: <<< [E:11531r S:30846 M:86380541 (Ack:223718806)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (62331) chip[EM]: ??1 [E:11531r S:30846 M:86380541] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 394ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62351) chip[EM]: <<< [E:16204i S:30847 M:158016106] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (62371) chip[EM]: ??1 [E:16204i S:30847 M:158016106] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2624ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (62391) chip[EM]: <<< [E:16205i S:30846 M:86380542] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:100)[0m
+[0;32mI (62411) chip[EM]: ??1 [E:16205i S:30846 M:86380542] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 369ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62421) chip[EM]: >>> [E:11531r S:30846 M:223718807 (Ack:86380541)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62441) chip[EM]: >>> [E:11532r S:30846 M:223718808] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (62451) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (62471) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 22 null 0 0[0m
+[0;32mI (62471) chip[ZCL]: Setting on/off to ON due to level change[0m
+[0;32mI (62481) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (62491) chip[EM]: <<< [E:11532r S:30846 M:86380543 (Ack:223718808)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (62501) chip[EM]: ??1 [E:11532r S:30846 M:86380543] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 351ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62521) chip[EM]: >>> [E:16204i S:30847 M:233976865 (Ack:158016106)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62531) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62551) chip[EM]: <<< [E:16204i S:30847 M:158016107 (Ack:233976865)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62561) chip[EM]: >>> [E:16205i S:30846 M:223718809 (Ack:86380542)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62581) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62591) chip[EM]: <<< [E:16205i S:30846 M:86380544 (Ack:223718809)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62611) chip[EM]: >>> [E:11532r S:30846 M:223718810 (Ack:86380543)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62621) chip[EM]: >>> [E:11533r S:30846 M:223718811] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:70)[0m
+[0;32mI (62641) esp_matter_command: Received command 0x00000004 for endpoint 0x0001's cluster 0x00000008[0m
+[0;32mI (62651) chip[ZCL]: RX level-control: MOVE_TO_LEVEL_WITH_ON_OFF 1 null 0 0[0m
+[0;32mI (62651) chip[ZCL]: Setting on/off to OFF due to level change[0m
+[0;32mI (62661) chip[ZCL]: Toggle ep1 on/off from state 1 to 0[0m
+[0;32mI (62671) app_driver: Slot 0 action: onoff=0[0m
+[0;32mI (62681) bridge_action: Slot 0 mapped on/off signal_id=0, value=0[0m
+[0;33mW (62681) ir_engine: No signal mapped for slot 0 cluster=0x0006 attr=0x0000[0m
+[0;32mI (62691) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (62701) chip[ZCL]: Off completed. reset OnTime to  0[0m
+[0;32mI (62701) chip[EM]: <<< [E:11533r S:30846 M:86380545 (Ack:223718811)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (62721) chip[EM]: ??1 [E:11533r S:30846 M:86380545] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 366ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62741) chip[EM]: <<< [E:16206i S:30847 M:158016108] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (62761) chip[EM]: ??1 [E:16206i S:30847 M:158016108] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2233ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (62781) chip[EM]: <<< [E:16207i S:30846 M:86380546] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (62801) chip[EM]: ??1 [E:16207i S:30846 M:86380546] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 363ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62811) chip[EM]: >>> [E:11533r S:30846 M:223718812 (Ack:86380545)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62831) chip[EM]: >>> [E:11534r S:30846 M:223718813] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (62841) esp_matter_command: Received command 0x00000000 for endpoint 0x0001's cluster 0x00000006[0m
+[0;32mI (62851) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (62861) chip[EM]: <<< [E:11534r S:30846 M:86380547 (Ack:223718813)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (62871) chip[EM]: ??1 [E:11534r S:30846 M:86380547] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 343ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (62901) chip[EM]: >>> [E:16206i S:30847 M:233976866 (Ack:158016108)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62911) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62921) chip[EM]: <<< [E:16206i S:30847 M:158016109 (Ack:233976866)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62951) chip[EM]: >>> [E:16207i S:30846 M:223718814 (Ack:86380546)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (62961) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (62961) chip[EM]: <<< [E:16207i S:30846 M:86380548 (Ack:223718814)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (62991) chip[EM]: >>> [E:11534r S:30846 M:223718815 (Ack:86380547)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (63971) data_model: Store the deferred attribute 0x0 of cluster 0x8 on endpoint 0x1[0m
+[0;32mI (65021) chip[EM]: >>> [E:11535r S:30846 M:223718816] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (65031) esp_matter_command: Received command 0x00000001 for endpoint 0x0004's cluster 0x00000006[0m
+[0;32mI (65031) chip[ZCL]: Toggle ep4 on/off from state 0 to 1[0m
+[0;32mI (65041) chip[ZCL]: On Command - OffWaitTime :  0[0m
+[0;32mI (65051) chip[ZCL]: On/Toggle Command - Stop Timer[0m
+[0;32mI (65061) app_driver: Slot 3 action: onoff=1[0m
+[0;32mI (65061) bridge_action: Slot 3 mapped on/off signal_id=0, value=1[0m
+[0;33mW (65071) ir_engine: No signal mapped for slot 3 cluster=0x0006 attr=0x0000[0m
+[0;32mI (65081) chip[EM]: <<< [E:11535r S:30846 M:86380549 (Ack:223718816)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (65091) chip[EM]: ??1 [E:11535r S:30846 M:86380549] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 402ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (65121) chip[EM]: <<< [E:16208i S:30847 M:158016110] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (65131) chip[EM]: ??1 [E:16208i S:30847 M:158016110] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2379ms from now [State:Idle II:2000 AI:2000 AT:2000][0m
+[0;32mI (65151) chip[EM]: <<< [E:16209i S:30846 M:86380550] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (65171) chip[EM]: ??1 [E:16209i S:30846 M:86380550] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 343ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (65191) chip[EM]: >>> [E:11535r S:30846 M:223718817 (Ack:86380549)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (65201) chip[EM]: >>> [E:16209i S:30846 M:223718818 (Ack:86380550)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (65221) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (65221) chip[EM]: <<< [E:16209i S:30846 M:86380551 (Ack:223718818)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (65251) chip[EM]: >>> [E:16208i S:30847 M:233976867 (Ack:158016110)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (65261) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (65261) chip[EM]: <<< [E:16208i S:30847 M:158016111 (Ack:233976867)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (66461) chip[EM]: >>> [E:11536r S:30846 M:223718819] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (66481) esp_matter_command: Received command 0x00000000 for endpoint 0x0004's cluster 0x00000006[0m
+[0;32mI (66481) chip[ZCL]: Toggle ep4 on/off from state 1 to 0[0m
+[0;32mI (66491) app_driver: Slot 3 action: onoff=0[0m
+[0;32mI (66491) bridge_action: Slot 3 mapped on/off signal_id=0, value=0[0m
+[0;33mW (66511) ir_engine: No signal mapped for slot 3 cluster=0x0006 attr=0x0000[0m
+[0;32mI (66521) chip[ZCL]: Off completed. reset OnTime to  0[0m
+[0;32mI (66521) chip[EM]: <<< [E:11536r S:30846 M:86380552 (Ack:223718819)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (66541) chip[EM]: ??1 [E:11536r S:30846 M:86380552] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 407ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (66561) chip[EM]: <<< [E:16210i S:30847 M:158016112] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (66581) chip[EM]: ??1 [E:16210i S:30847 M:158016112] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2291ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (66601) chip[EM]: <<< [E:16211i S:30846 M:86380553] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (66621) chip[EM]: ??1 [E:16211i S:30846 M:86380553] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 381ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (66631) chip[EM]: >>> [E:11536r S:30846 M:223718820 (Ack:86380552)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (66651) chip[EM]: >>> [E:16211i S:30846 M:223718821 (Ack:86380553)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (66661) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (66671) chip[EM]: <<< [E:16211i S:30846 M:86380554 (Ack:223718821)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (66901) chip[EM]: >>> [E:16210i S:30847 M:233976868 (Ack:158016112)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (66911) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (66921) chip[EM]: <<< [E:16210i S:30847 M:158016113 (Ack:233976868)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (67911) chip[EM]: >>> [E:11537r S:30846 M:223718822] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (67931) esp_matter_command: Received command 0x00000001 for endpoint 0x0002's cluster 0x00000006[0m
+[0;32mI (67931) chip[ZCL]: Toggle ep2 on/off from state 0 to 1[0m
+[0;32mI (67941) chip[ZCL]: On Command - OffWaitTime :  0[0m
+[0;32mI (67941) chip[ZCL]: On/Toggle Command - Stop Timer[0m
+[0;32mI (67951) app_driver: Slot 1 action: onoff=1[0m
+[0;32mI (67961) bridge_action: Slot 1 mapped on/off signal_id=1, value=1[0m
+[0;32mI (67961) ir_engine: TX signal_id=1 slot=1 cluster=0x0006 attr=0x0000 (stub)[0m
+[0;32mI (67981) chip[EM]: <<< [E:11537r S:30846 M:86380555 (Ack:223718822)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (67991) chip[EM]: ??1 [E:11537r S:30846 M:86380555] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 383ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (68011) chip[EM]: <<< [E:16212i S:30847 M:158016114] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (68031) chip[EM]: ??1 [E:16212i S:30847 M:158016114] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2473ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (68051) chip[EM]: <<< [E:16213i S:30846 M:86380556] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (68071) chip[EM]: ??1 [E:16213i S:30846 M:86380556] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 377ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (68081) chip[EM]: >>> [E:11537r S:30846 M:223718823 (Ack:86380555)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (68101) chip[EM]: >>> [E:16213i S:30846 M:223718824 (Ack:86380556)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (68111) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (68131) chip[EM]: <<< [E:16213i S:30846 M:86380557 (Ack:223718824)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (68331) chip[EM]: >>> [E:11538r S:30846 M:223718825] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (68341) esp_matter_command: Received command 0x00000000 for endpoint 0x0002's cluster 0x00000006[0m
+[0;32mI (68341) chip[ZCL]: Toggle ep2 on/off from state 1 to 0[0m
+[0;32mI (68351) app_driver: Slot 1 action: onoff=0[0m
+[0;32mI (68361) bridge_action: Slot 1 mapped on/off signal_id=1, value=0[0m
+[0;32mI (68371) ir_engine: TX signal_id=1 slot=1 cluster=0x0006 attr=0x0000 (stub)[0m
+[0;32mI (68381) chip[ZCL]: Off completed. reset OnTime to  0[0m
+[0;32mI (68381) chip[EM]: <<< [E:11538r S:30846 M:86380558 (Ack:223718825)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (68401) chip[EM]: ??1 [E:11538r S:30846 M:86380558] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 398ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (68421) chip[EM]: <<< [E:16214i S:30846 M:86380559] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (68441) chip[EM]: ??1 [E:16214i S:30846 M:86380559] (S) Msg Retransmission to 1:000000008C28B760 scheduled for 393ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (68451) chip[EM]: >>> [E:11538r S:30846 M:223718826 (Ack:86380558)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (68471) chip[EM]: >>> [E:16214i S:30846 M:223718827 (Ack:86380559)] (S) Msg RX from 1:000000008C28B760 [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (68481) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (68501) chip[EM]: <<< [E:16214i S:30846 M:86380560 (Ack:223718827)] (S) Msg TX from 000000004285CFAE to 1:000000008C28B760 [0582] [UDP:[FE80::10A9:74A2:D514:1C2%st1]:50133] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (68741) chip[EM]: >>> [E:16212i S:30847 M:233976869 (Ack:158016114)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (68761) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (68761) chip[EM]: <<< [E:16212i S:30847 M:158016115 (Ack:233976869)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (68791) chip[EM]: <<< [E:16215i S:30847 M:158016116] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0001:05 (IM:ReportData) (B:125)[0m
+[0;32mI (68811) chip[EM]: ??1 [E:16215i S:30847 M:158016116] (S) Msg Retransmission to 1:000000009CCD975C scheduled for 2665ms from now [State:Active II:2000 AI:2000 AT:2000][0m
+[0;32mI (68821) chip[EM]: >>> [E:16215i S:30847 M:233976870 (Ack:158016116)] (S) Msg RX from 1:000000009CCD975C [0582] to 000000004285CFAE --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (68841) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (68841) chip[EM]: <<< [E:16215i S:30847 M:158016117 (Ack:233976870)] (S) Msg TX from 000000004285CFAE to 1:000000009CCD975C [0582] [UDP:[FE80::C5B:F561:3300:FCCB%st1]:58733] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;31mE (75561) chip[SWU]: No suitable OTA Provider candidate found[0m
+[0;32mI (75561) chip[SWU]: No provider available[0m
+[0;32mI (157061) ROUTE_HOOK: Ignore invalid ICMP packet[0m
+[0;32mI (161091) ROUTE_HOOK: Ignore invalid ICMP packet[0m
+[0;32mI (165131) ROUTE_HOOK: Ignore invalid ICMP packet[0m

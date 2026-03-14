@@ -1,0 +1,265 @@
+[1/176] Performing build step for 'bootloader'
+[1/1] cd /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader/esp-idf/esptool_py && /Users/hanjunkim/.espressif/python_env/idf5.2_py3.9_env/bin/python /Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/partition_table/check_sizes.py --offset 0xc000 bootloader 0x0 /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader/bootloader.bin
+Bootloader binary size 0x5250 bytes. 0x6db0 bytes (57%) free.
+[2/176] No install step for 'bootloader'
+[3/176] Completed 'bootloader'
+[4/176] Performing build step for 'chip_gn'
+[1/68] ar attribute-access.a
+[2/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.PendingResponseTrackerImpl.cpp.o
+[3/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.CASEClient.cpp.o
+[4/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.DeviceProxy.cpp.o
+[5/68] c++ obj/third_party/connectedhomeip/src/app/global-attributes.GlobalAttributes.cpp.o
+[6/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.CommandSender.cpp.o
+[7/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.CASESessionManager.cpp.o
+[8/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.InteractionModelDelegatePointers.cpp.o
+[9/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.TimedHandler.cpp.o
+[10/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.OperationalSessionSetup.cpp.o
+[11/68] c++ obj/third_party/connectedhomeip/src/app/command-handler-impl.CommandHandlerImpl.cpp.o
+[12/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.TimedRequest.cpp.o
+[13/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.InteractionModelEngine.cpp.o
+[14/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.WriteClient.cpp.o
+[15/68] c++ obj/third_party/connectedhomeip/src/app/reporting/interaction-model.ReportSchedulerImpl.cpp.o
+[16/68] c++ obj/third_party/connectedhomeip/src/app/reporting/interaction-model.SynchronizedReportSchedulerImpl.cpp.o
+[17/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.SimpleSubscriptionResumptionStorage.cpp.o
+[18/68] c++ obj/third_party/connectedhomeip/src/app/reporting/interaction-model.reporting.cpp.o
+[19/68] c++ obj/third_party/connectedhomeip/src/app/path-expansion.AttributePathExpandIterator.cpp.o
+[20/68] ar address_resolve.a
+[21/68] c++ obj/third_party/connectedhomeip/src/app/data-model-provider/data-model-provider.ActionReturnStatus.cpp.o
+[22/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.SubscriptionResumptionSessionEstablisher.cpp.o
+[23/68] c++ obj/third_party/connectedhomeip/src/app/status-response.StatusResponse.cpp.o
+[24/68] c++ obj/third_party/connectedhomeip/src/app/data-model-provider/data-model-provider.EventsGenerator.cpp.o
+[25/68] c++ obj/third_party/connectedhomeip/src/app/data-model-provider/data-model-provider.MetadataLookup.cpp.o
+[26/68] c++ obj/third_party/connectedhomeip/src/app/reporting/interaction-model.Engine.cpp.o
+[27/68] c++ obj/third_party/connectedhomeip/src/app/data-model-provider/data-model-provider.ProviderMetadataTree.cpp.o
+[28/68] c++ obj/third_party/connectedhomeip/src/app/util/callbacks.MatterCallbacks.cpp.o
+[29/68] c++ obj/third_party/connectedhomeip/src/app/interaction-model.ReadClient.cpp.o
+[30/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.StatusCode.cpp.o
+[31/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.AsyncTransferFacilitator.cpp.o
+[32/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.BdxTransferProxyDiagnosticLog.cpp.o
+[33/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.BdxTransferDiagnosticLog.cpp.o
+[34/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.BdxTransferServer.cpp.o
+[35/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.BdxTransferSession.cpp.o
+[36/68] ar interaction-model.a
+[37/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.ChunkedWriteCallback.cpp.o
+[38/68] c++ obj/third_party/connectedhomeip/src/protocols/bdx/libBdx.TransferFacilitator.cpp.o
+[39/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.FailSafeContext.cpp.o
+[40/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.CommandResponseSender.cpp.o
+[41/68] c++ obj/third_party/connectedhomeip/src/credentials/attestation_verifier/libDefaultAttestationVerifier.DacOnlyPartialAttestationVerifier.cpp.o
+[42/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.EventManagement.cpp.o
+[43/68] c++ obj/third_party/connectedhomeip/src/lib/shell/libCHIPShell.streamer_esp32.cpp.o
+[44/68] c++ obj/third_party/connectedhomeip/src/credentials/attestation_verifier/libDefaultAttestationVerifier.DefaultDeviceAttestationVerifier.cpp.o
+[45/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.Help.cpp.o
+[46/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.WriteHandler.cpp.o
+[47/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.BufferedReadCallback.cpp.o
+[48/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.ReadHandler.cpp.o
+[49/68] c++ obj/third_party/connectedhomeip/src/lib/shell/shell_core.Engine.cpp.o
+[50/68] c++ obj/third_party/connectedhomeip/src/app/libCHIPDataModel.ClusterStateCache.cpp.o
+[51/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.Config.cpp.o
+[52/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.Device.cpp.o
+[53/68] ar libBdx.a
+[54/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.OnboardingCodes.cpp.o
+[55/68] ar libDefaultAttestationVerifier.a
+[56/68] ar libCHIPDataModel.a
+[57/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.WiFi.cpp.o
+[58/68] c++ obj/third_party/connectedhomeip/src/lib/support/arg_parser.CHIPArgParser.cpp.o
+[59/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.BLE.cpp.o
+[60/68] c++ obj/third_party/connectedhomeip/src/platform/ESP32/logging.Logging.cpp.o
+[61/68] c++ obj/third_party/connectedhomeip/src/protocols/echo/libChipProtocols.EchoClient.cpp.o
+[62/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.Ota.cpp.o
+[63/68] c++ obj/third_party/connectedhomeip/src/protocols/echo/libChipProtocols.EchoServer.cpp.o
+[64/68] c++ obj/third_party/connectedhomeip/src/protocols/secure_channel/libChipProtocols.MessageCounterManager.cpp.o
+[65/68] ar libChipProtocols.a
+[66/68] c++ obj/third_party/connectedhomeip/src/lib/shell/commands/commands.Stat.cpp.o
+[67/68] ar libCHIPShell.a
+[68/68] ar libCHIP.a
+[5/176] No install step for 'chip_gn'
+[6/176] Completed 'chip_gn'
+[7/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/utils/esp_matter_mem.cpp.obj
+[8/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/utils/json_to_tlv.cpp.obj
+[9/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_providers.cpp.obj
+[10/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/weak_functions.cpp.obj
+[11/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/AclStorage.cpp.obj
+[12/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_identify.cpp.obj
+[13/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/DefaultTermsAndConditionsProvider.cpp.obj
+[14/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_test_event_trigger.cpp.obj
+[15/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_icd_configuration.cpp.obj
+[16/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_ota.cpp.obj
+[17/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_core.cpp.obj
+[18/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/TermsAndConditionsManager.cpp.obj
+[19/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/esp_matter_client.cpp.obj
+[20/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/EchoHandler.cpp.obj
+[21/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/Dnssd.cpp.obj
+[22/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/DefaultAclStorage.cpp.obj
+[23/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/reporting/ReportSchedulerImpl.cpp.obj
+[24/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/persistence/AttributePersistence.cpp.obj
+[25/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/reporting/SynchronizedReportSchedulerImpl.cpp.obj
+[26/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/persistence/AttributePersistenceProviderInstance.cpp.obj
+[27/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/JointFabricAdministrator.cpp.obj
+[28/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/persistence/DefaultAttributePersistenceProvider.cpp.obj
+[29/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/persistence/String.cpp.obj
+[30/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/reporting/reporting.cpp.obj
+[31/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/CommissioningWindowManager.cpp.obj
+[32/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/persistence/DeferredAttributePersistenceProvider.cpp.obj
+[33/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/AttributeListBuilder.cpp.obj
+[34/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/DefaultServerCluster.cpp.obj
+[35/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/ServerClusterInterface.cpp.obj
+[36/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/ServerClusterExtension.cpp.obj
+[37/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/ServerClusterInterfaceRegistry.cpp.obj
+[38/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server-cluster/SingleEndpointServerClusterRegistry.cpp.obj
+[39/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/JointFabricDatastore.cpp.obj
+[40/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/reporting/Engine.cpp.obj
+[41/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/server/Server.cpp.obj
+[42/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/bindings/PendingNotificationMap.cpp.obj
+[43/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/bindings/binding-table.cpp.obj
+[44/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/access-control-server/ArlEncoder.cpp.obj
+[45/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/basic-information/BasicInformationCluster.cpp.obj
+[46/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/actions-server/actions-server.cpp.obj
+[47/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/access-control-server/access-control-cluster.cpp.obj
+[48/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/administrator-commissioning-server/AdministratorCommissioningCluster.cpp.obj
+[49/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/administrator-commissioning-server/AdministratorCommissioningLogic.cpp.obj
+[50/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/zzz_generated/app-common/app-common/zap-generated/attributes/Accessors.cpp.obj
+[51/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/descriptor/DescriptorCluster.cpp.obj
+[52/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/bindings/BindingManager.cpp.obj
+[53/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/bindings/BindingCluster.cpp.obj
+[54/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/boolean-state-server/BooleanStateCluster.cpp.obj
+[55/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/color-control-server/color-control-server.cpp.obj
+/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/color-control-server/color-control-server.cpp: In member function 'chip::Protocols::InteractionModel::Status ColorControlServer::moveToHueCommand(chip::EndpointId, uint16_t, DirectionEnum, uint16_t, chip::BitMask<chip::app::Clusters::ColorControl::OptionsBitmap>, chip::BitMask<chip::app::Clusters::ColorControl::OptionsBitmap>, bool)':
+/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/color-control-server/color-control-server.cpp:1591:58: warning: 'direction' may be used uninitialized [-Wmaybe-uninitialized]
+ 1591 |     colorHueTransitionState->up             = (direction == DirectionEnum::kUp);
+      |                                               ~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/color-control-server/color-control-server.cpp:1514:19: note: 'direction' was declared here
+ 1514 |     DirectionEnum direction;
+      |                   ^~~~~~~~~
+[56/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ethernet-network-diagnostics-server/EthernetDiagnosticsCluster.cpp.obj
+[57/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/general-diagnostics-server/GenericFaultTestEventTriggerHandler.cpp.obj
+[58/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/groups-server/groups-server.cpp.obj
+[59/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/general-commissioning-server/GeneralCommissioningCluster.cpp.obj
+[60/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/camera-av-stream-management-server/CameraAVStreamManagementCluster.cpp.obj
+[61/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/identify-server/IdentifyCluster.cpp.obj
+[62/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/general-diagnostics-server/GeneralDiagnosticsCluster.cpp.obj
+[63/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/joint-fabric-datastore-server/joint-fabric-datastore-server.cpp.obj
+[64/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/network-commissioning/ThreadScanResponse.cpp.obj
+[65/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/group-key-mgmt-server/GroupKeyManagementCluster.cpp.obj
+[66/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/network-commissioning/WifiScanResponse.cpp.obj
+[67/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-provider/OTAProviderCluster.cpp.obj
+[68/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/joint-fabric-administrator-server/joint-fabric-administrator-server.cpp.obj
+[69/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/joint-fabric-administrator-server/JCMCommissionee.cpp.obj
+[70/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/DefaultOTARequestorStorage.cpp.obj
+[71/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/BDXDownloader.cpp.obj
+[72/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/DefaultOTARequestorDriver.cpp.obj
+[73/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/scenes-server/ExtensionFieldSetsImpl.cpp.obj
+[74/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/OTATestEventTriggerHandler.cpp.obj
+[75/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/network-commissioning/NetworkCommissioningCluster.cpp.obj
+[76/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/ExtendedOTARequestorDriver.cpp.obj
+[77/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/operational-credentials-server/OperationalCredentialsCluster.cpp.obj
+[78/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/DefaultOTARequestor.cpp.obj
+[79/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/ota-requestor/ota-requestor-server.cpp.obj
+[80/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/scenes-server/SceneHandlerImpl.cpp.obj
+[81/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/soil-measurement-server/SoilMeasurementCluster.cpp.obj
+[82/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/webrtc-transport-requestor-server/WebRTCTransportRequestorCluster.cpp.obj
+[83/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/on-off-server/codegen/mode-base-integration.cpp.obj
+[84/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/on-off-server/codegen/mode-select-integration.cpp.obj
+[85/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/scenes-server/ScenesManagementCluster.cpp.obj
+[86/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/scenes-server/SceneTableImpl.cpp.obj
+[87/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/tls-certificate-management-server/TlsCertificateManagementCluster.cpp.obj
+[88/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/tls-client-management-server/TlsClientManagementCluster.cpp.obj
+[89/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/tls-certificate-management-server/CertificateTableImpl.cpp.obj
+[90/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/webrtc-transport-provider-server/WebRTCTransportProviderCluster.cpp.obj
+[91/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/wifi-network-diagnostics-server/WiFiNetworkDiagnosticsCluster.cpp.obj
+[92/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/on-off-server/codegen/level-control-integration.cpp.obj
+[93/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/on-off-server/codegen/scenes-integration.cpp.obj
+[94/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/on-off-server/codegen/on-off-server.cpp.obj
+[95/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/zone-management-server/zone-management-server.cpp.obj
+[96/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/clusters/level-control/codegen/level-control.cpp.obj
+[97/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/access_control/integration.cpp.obj
+[98/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/administrator_commissioning/integration.cpp.obj
+[99/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/basic_information/integration.cpp.obj
+[100/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/boolean_state/integration.cpp.obj
+[101/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/binding/integration.cpp.obj
+[102/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/boolean_state_configuration/integration.cpp.obj
+[103/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/chime/integration.cpp.obj
+[104/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/descriptor/integration.cpp.obj
+[105/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/device_energy_management/integration.cpp.obj
+[106/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/diagnostic_logs/integration.cpp.obj
+[107/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/electrical_energy_measurement/integration.cpp.obj
+[108/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/ethernet_network_diagnostics/integration.cpp.obj
+[109/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/electrical_power_measurement/integration.cpp.obj
+[110/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/general_commissioning/integration.cpp.obj
+[111/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/fixed_label/integration.cpp.obj
+[112/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/general_diagnostics/integration.cpp.obj
+[113/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/group_key_management/integration.cpp.obj
+[114/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/groupcast/integration.cpp.obj
+[115/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/icd_management/integration.cpp.obj
+[116/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/identify/integration.cpp.obj
+[117/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/localization_configuration/integration.cpp.obj
+[118/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/network_commissioning/integration.cpp.obj
+[119/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/occupancy_sensing/integration.cpp.obj
+[120/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/ota_software_update_provider/integration.cpp.obj
+[121/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/operational_credentials/integration.cpp.obj
+[122/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/power_topology/integration.cpp.obj
+[123/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/push_av_stream_transport/integration.cpp.obj
+[124/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/unit_localization/integration.cpp.obj
+[125/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/scenes_management/attribute_value_pair_validator.cpp.obj
+[126/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/resource_monitor/integration.cpp.obj
+[127/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/webrtc_transport_provider/integration.cpp.obj
+[128/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/scenes_management/integration.cpp.obj
+[129/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/software_diagnostics/integration.cpp.obj
+[130/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/time_format_localization/integration.cpp.obj
+[131/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/soil_measurement/integration.cpp.obj
+[132/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/time_synchronization/integration.cpp.obj
+[133/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/user_label/integration.cpp.obj
+[134/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_attribute_bounds.cpp.obj
+[135/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/clusters/wifi_network_diagnostic/integration.cpp.obj
+[136/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_attribute_utils.cpp.obj
+[137/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_attribute.cpp.obj
+[138/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_cluster.cpp.obj
+[139/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_command.cpp.obj
+[140/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_data_model.cpp.obj
+[141/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/StorageDelegateWrapper.cpp.obj
+[142/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/private/esp_matter_nvs.cpp.obj
+[143/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/src/app/SafeAttributePersistenceProvider.cpp.obj
+[144/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console.cpp.obj
+[145/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_diagnostics.cpp.obj
+[146/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_otcli.cpp.obj
+[147/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_event.cpp.obj
+[148/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_wifi.cpp.obj
+[149/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/esp_matter_attr_data_buffer.cpp.obj
+[150/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_endpoint.cpp.obj
+[151/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_udc.cpp.obj
+[152/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_delegate_callbacks.cpp.obj
+[153/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model/esp_matter_feature.cpp.obj
+[154/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/esp_matter_data_model_provider.cpp.obj
+[155/176] Building CXX object esp-idf/esp_matter/CMakeFiles/__idf_esp_matter.dir/data_model_provider/esp_matter_ember_stubs.cpp.obj
+[156/176] Linking C static library esp-idf/esp_matter/libesp_matter.a
+[157/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_attribute.cpp.obj
+[158/176] Building CXX object esp-idf/esp_matter_console/CMakeFiles/__idf_esp_matter_console.dir/esp_matter_console_factory_reset.cpp.obj
+[159/176] Linking C static library esp-idf/esp_matter_console/libesp_matter_console.a
+[160/176] Building CXX object esp-idf/esp_matter_bridge/CMakeFiles/__idf_esp_matter_bridge.dir/esp_matter_console_bridge.cpp.obj
+[161/176] Building CXX object esp-idf/esp_matter_bridge/CMakeFiles/__idf_esp_matter_bridge.dir/esp_matter_bridge.cpp.obj
+[162/176] Linking C static library esp-idf/esp_matter_bridge/libesp_matter_bridge.a
+[163/176] Building CXX object esp-idf/app_bridge/CMakeFiles/__idf_app_bridge.dir/app_bridged_device.cpp.obj
+[164/176] Linking C static library esp-idf/app_bridge/libapp_bridge.a
+[165/176] Building CXX object esp-idf/app_reset/CMakeFiles/__idf_app_reset.dir/app_reset.cpp.obj
+[166/176] Linking C static library esp-idf/app_reset/libapp_reset.a
+[167/176] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/app_driver.cpp.obj
+[168/176] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/app_main.cpp.obj
+[169/176] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/bridge_action.cpp.obj
+[170/176] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/ir_engine.cpp.obj
+In file included from /Users/hanjunkim/IdeaProjects/esp-matter-hub/main/ir_engine.cpp:5:
+/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/driver/deprecated/driver/rmt.h:18:2: warning: #warning "The legacy RMT driver is deprecated, please use driver/rmt_tx.h and/or driver/rmt_rx.h" [-Wcpp]
+   18 | #warning "The legacy RMT driver is deprecated, please use driver/rmt_tx.h and/or driver/rmt_rx.h"
+      |  ^~~~~~~
+[171/176] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/web_server.cpp.obj
+[172/176] Linking C static library esp-idf/main/libmain.a
+[173/176] Generating ld/sections.ld
+warning: default on the choice symbol SEC_CERT_DAC_PROVIDER (defined at /Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/config/esp32/components/chip/Kconfig:851, /Users/hanjunkim/esp/esp-matter/components/esp_matter/Kconfig:48) will have no effect, as defaults do not affect choice symbols
+warning: the choice symbol SEC_CERT_DAC_PROVIDER (defined at /Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/config/esp32/components/chip/Kconfig:851, /Users/hanjunkim/esp/esp-matter/components/esp_matter/Kconfig:48) is defined with a prompt outside the choice
+[174/176] Linking CXX executable light.elf
+[175/176] Generating binary image from built executable
+esptool.py v4.11.0
+Creating esp32s3 image...
+Merged 2 ELF sections
+Successfully created esp32s3 image.
+Generated /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/light.bin
+[176/176] cd /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/esp-idf/esptool_py && /Users/hanjunkim/.espressif/python_env/idf5.2_py3.9_env/bin/python /Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/partition_table/check_sizes.py --offset 0xc000 partition --type app /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/partition_table/partition-table.bin /Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/light.bin
+light.bin binary size 0x176960 bytes. Smallest app partition is 0x1e0000 bytes. 0x696a0 bytes (22%) free.

@@ -1,0 +1,945 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  5 2026 16:45:52[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (58) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (72) boot:  1 nvs              WiFi data        01 02 00010000 00100000[0m
+[0;32mI (80) boot:  2 nvs_keys         NVS keys         01 04 00110000 00001000[0m
+[0;32mI (87) boot:  3 otadata          OTA data         01 00 00111000 00002000[0m
+[0;32mI (95) boot:  4 phy_init         RF data          01 01 00113000 00001000[0m
+[0;32mI (102) boot:  5 ota_0            OTA app          00 10 00120000 00500000[0m
+[0;32mI (110) boot:  6 ota_1            OTA app          00 11 00620000 00500000[0m
+[0;32mI (117) boot:  7 storage          Unknown data     01 82 00b20000 004d0000[0m
+[0;32mI (125) boot:  8 fctry            WiFi data        01 02 00ff0000 00010000[0m
+[0;32mI (132) boot: End of partition table[0m
+[0;32mI (137) esp_image: segment 0: paddr=00120020 vaddr=3c120020 size=46c04h (289796) map[0m
+[0;32mI (197) esp_image: segment 1: paddr=00166c2c vaddr=3fc9c300 size=071f4h ( 29172) load[0m
+[0;32mI (203) esp_image: segment 2: paddr=0016de28 vaddr=40374000 size=021f0h (  8688) load[0m
+[0;32mI (206) esp_image: segment 3: paddr=00170020 vaddr=42000020 size=1189b8h (1149368) map[0m
+[0;32mI (418) esp_image: segment 4: paddr=002889e0 vaddr=403761f0 size=160e8h ( 90344) load[0m
+[0;32mI (448) boot: Loaded app from partition at offset 0x120000[0m
+[0;32mI (448) boot: Disabling RNG early entropy source...[0m
+[0;32mI (460) cpu_start: Multicore app[0m
+[0;32mI (460) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (461) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (463) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (469) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (474) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (479) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (484) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (490) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (496) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (502) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (508) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (514) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (518) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (523) esp_psram: Speed: 80MHz[0m
+[0;32mI (940) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (949) cpu_start: Pro cpu start user code[0m
+[0;32mI (949) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (949) cpu_start: Application information:[0m
+[0;32mI (952) cpu_start: Project name:     light[0m
+[0;32mI (957) cpu_start: App version:      1.0[0m
+[0;32mI (961) cpu_start: Compile time:     Mar  9 2026 19:33:06[0m
+[0;32mI (967) cpu_start: ELF file SHA256:  d608843cb...[0m
+[0;32mI (973) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (978) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (983) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (988) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (993) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1000) heap_init: At 3FCB58A8 len 00033E68 (207 KiB): RAM[0m
+[0;32mI (1006) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1012) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1018) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (1025) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1033) spi_flash: detected chip: generic[0m
+[0;32mI (1037) spi_flash: flash io: dio[0m
+[0;33mW (1041) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (1053) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1059) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1066) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (1071) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1077) main_task: Started on CPU0[0m
+[0;32mI (1087) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1087) main_task: Calling app_main()[0m
+[0;32mI (1487) gpio: GPIO[15]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1487) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1497) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1507) status_led: Status LED ready (R=15 G=16 B=17, common cathode)[0m
+[0;32mI (1517) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (1517) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1527) button: IoT Button Version: 4.1.6[0m
+[0;32mI (1537) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (1547) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (1557) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (1557) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (1567) app_main: Bridge slot 4 created with endpoint_id 5[0m
+[0;32mI (1577) app_main: Bridge slot 5 created with endpoint_id 6[0m
+[0;32mI (1577) app_main: Bridge slot 6 created with endpoint_id 7[0m
+[0;32mI (1587) app_main: Bridge slot 7 created with endpoint_id 8[0m
+[0;32mI (1597) esp_matter_attribute: ********** W : Endpoint 0x0001's Cluster 0x00000039's Attribute 0x00000005 is brightness **********[0m
+[0;32mI (1597) bridge_action: NodeLabel sync slot=0 endpoint=1 cluster=0x0039 name='brightness' result=ESP_OK[0m
+[0;32mI (1607) esp_matter_attribute: ********** W : Endpoint 0x0002's Cluster 0x00000039's Attribute 0x00000005 is color **********[0m
+[0;32mI (1617) bridge_action: NodeLabel sync slot=1 endpoint=2 cluster=0x0039 name='color' result=ESP_OK[0m
+[0;32mI (1627) esp_matter_attribute: ********** W : Endpoint 0x0003's Cluster 0x00000039's Attribute 0x00000005 is Slot 2 **********[0m
+[0;32mI (1637) bridge_action: NodeLabel sync slot=2 endpoint=3 cluster=0x0039 name='Slot 2' result=ESP_OK[0m
+[0;32mI (1647) esp_matter_attribute: ********** W : Endpoint 0x0004's Cluster 0x00000039's Attribute 0x00000005 is Slot 3 **********[0m
+[0;32mI (1667) bridge_action: NodeLabel sync slot=3 endpoint=4 cluster=0x0039 name='Slot 3' result=ESP_OK[0m
+[0;32mI (1677) esp_matter_attribute: ********** W : Endpoint 0x0005's Cluster 0x00000039's Attribute 0x00000005 is Slot 4 **********[0m
+[0;32mI (1687) bridge_action: NodeLabel sync slot=4 endpoint=5 cluster=0x0039 name='Slot 4' result=ESP_OK[0m
+[0;32mI (1697) esp_matter_attribute: ********** W : Endpoint 0x0006's Cluster 0x00000039's Attribute 0x00000005 is Slot 5 **********[0m
+[0;32mI (1707) bridge_action: NodeLabel sync slot=5 endpoint=6 cluster=0x0039 name='Slot 5' result=ESP_OK[0m
+[0;32mI (1717) esp_matter_attribute: ********** W : Endpoint 0x0007's Cluster 0x00000039's Attribute 0x00000005 is Slot 6 **********[0m
+[0;32mI (1727) bridge_action: NodeLabel sync slot=6 endpoint=7 cluster=0x0039 name='Slot 6' result=ESP_OK[0m
+[0;32mI (1737) esp_matter_attribute: ********** W : Endpoint 0x0008's Cluster 0x00000039's Attribute 0x00000005 is Slot 7 **********[0m
+[0;32mI (1747) bridge_action: NodeLabel sync slot=7 endpoint=8 cluster=0x0039 name='Slot 7' result=ESP_OK[0m
+[0;32mI (1757) bridge_action: Initialized bridge actions: slots=8 devices=3[0m
+[0;32mI (1787) ir_engine: IR RMT initialized TX=4 RX={5,6}[0m
+[0;32mI (1787) ir_engine: IR engine initialized (signals=4, next_id=7)[0m
+[0;32mI (1797) pp: pp rom version: e7ae62f[0m
+[0;32mI (1797) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1817) wifi:wifi driver task: 3fcccf90, prio:23, stack:6656, core=0[0m
+[0;32mI (1847) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (1847) wifi:wifi certification version: v7.0[0m
+[0;32mI (1847) wifi:config NVS flash: enabled[0m
+[0;32mI (1847) wifi:config nano formating: disabled[0m
+[0;32mI (1857) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1857) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1857) wifi:Init management short buffer num: 32[0m
+[0;32mI (1867) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1867) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1877) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1877) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1877) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1887) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1887) wifi_init: rx ba win: 6[0m
+[0;32mI (1897) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1897) wifi_init: udp mbox: 6[0m
+[0;32mI (1897) wifi_init: tcp mbox: 6[0m
+[0;32mI (1907) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1907) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1917) wifi_init: tcp mss: 1440[0m
+[0;32mI (1917) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1927) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1967) chip[DL]: NVS set: chip-counters/reboot-count = 5 (0x5)[0m
+[0;32mI (1967) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (1967) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (1967) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (2017) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (2027) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (2527) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (2527) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (2527) wifi:enable tsf[0m
+[0;32mI (2527) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (2527) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (2537) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (2537) chip[DL]: [0;32mI (2547) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2WiFi station state change: NotConnected -> ConnectingI (2547) wifi:[0m
+new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1
+[0;32mI (2557) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2567) wifi:state: init -> auth (b0)[0m
+[0;32mI (2567) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (2577) wifi:state: auth -> assoc (0)[0;32mI (2577) chip[SVR]: [0m
+Initializing subscription resumption storage...[0m
+[0m
+[0;32mI (2587) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (2597) chip[SVR]: Server initializing...[0m
+[0;32mI (2607) wifi:state: assoc -> run (10)[0m
+[0;32mI (2607) chip[TS]: Last Known Good Time: 2026-03-11T02:49:31[0m
+[0;32mI (2627) chip[FP]: Fabric index 0x1 was retrieved from storage. Compressed FabricId 0xE33643B0965FE197, FabricId 0x000000006057FA6B, NodeId 0x00000000CFE7D8E3, VendorId 0x1349[0m
+[0;32mI (2637) chip[FP]: Fabric index 0x2 was retrieved from storage. Compressed FabricId 0x7969C12744EC5819, FabricId 0x000000002B179B36, NodeId 0x000000001446E9FB, VendorId 0x1384[0m
+[0;32mI (2647) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (2647) wifi:[0;32mI (2647) chip[DMG]: connected with SK_WiFiGIGADC40_2.4G, aid = 7, channel 2, BW20, bssid = 04:09:a5:51:dc:43Examples::AccessControlDelegate::Init[0m
+[0m
+[0;32mI (2667) wifi:security: WPA2-PSK, phy: bgn, rssi: -61[0;32mI (2667) chip[DMG]: [0m
+AccessControl: setting[0m
+[0;32mI (2677) chip[DMG]: DefaultAclStorage: initializing[0m
+[0;32mI (2687) wifi:pm start, type: 1[0m
+
+[0;32mI (2687) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (2687) chip[DMG]: DefaultAclStorage: 2 entries loadedI (2687) wifi:[0m
+set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000
+[0;32mI (2697) chip[SVR]: WARNING: mTestEventTriggerDelegate is null[0m
+[0;32mI (2707) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 4[0m
+[0;32mI (2727) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (2737) chip[SVR]: Fabric already commissioned. Disabling BLE advertisement[0m
+[0;32mI (2737) chip[IN]: CASE Server enabling CASE session setups[0m
+[0;32mI (2747) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (2747) chip[SVR]: Server initialization complete[0m
+[0;32mI (2757) chip[SVR]: Server Listening...[0m
+[0;32mI (2757) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (2767) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (2777) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (2777) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (2787) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (2797) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (2807) chip[ZCL]: Endpoint 5 On/off already set to new value[0m
+[0;32mI (2817) chip[ZCL]: Endpoint 6 On/off already set to new value[0m
+[0;32mI (2817) chip[ZCL]: Endpoint 7 On/off already set to new value[0m
+[0;32mI (2827) chip[ZCL]: Endpoint 8 On/off already set to new value[0m
+[0;32mI (2837) chip[DL]: WIFI_EVENT_STA_START[0m
+[0;32mI (2837) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2837) chip[DL]: WIFI_EVENT_STA_CONNECTED[0m
+[0;32mI (2837) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (2847) chip[DL]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+[0;32mI (2857) chip[DL]: WiFi station interface connected[0m
+[0;32mI (2867) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2877) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (2877) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (2897) chip[IM]: Resuming 4 subscriptions in 0 seconds[0m
+[0;32mI (2897) esp_matter_attribute: ********** W : Endpoint 0x0001's Cluster 0x00000039's Attribute 0x00000005 is brightness **********[0m
+[0;32mI (2907) bridge_action: NodeLabel sync slot=0 endpoint=1 cluster=0x0039 name='brightness' result=ESP_OK[0m
+[0;32mI (2907) chip[DL]: Updating advertising data[0m
+[0;32mI (2927) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (2927) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;32mI (2937) esp_matter_attribute: ********** W : Endpoint 0x0002's Cluster 0x00000039's Attribute 0x00000005 is color **********[0m
+[0;32mI (2947) bridge_action: NodeLabel sync slot=1 endpoint=2 cluster=0x0039 name='color' result=ESP_OK[0m
+[0;32mI (2947) app_main: BLE deinitialized and memory reclaimed[0m
+[0;32mI (2967) chip[DIS]: Resolving E33643B0965FE197:000000002CA995E7 ...[0m
+[0;32mI (2967) chip[DIS]: Lookup started for E33643B0965FE197-000000002CA995E7[0m
+[0;32mI (2977) chip[DIS]: Resolving E33643B0965FE197:00000000C8378842 ...[0m
+[0;32mI (2987) chip[DIS]: Lookup started for E33643B0965FE197-00000000C8378842[0m
+[0;32mI (2997) chip[DIS]: Resolving E33643B0965FE197:00000000034DA4AE ...[0m
+[0;32mI (2997) chip[DIS]: Lookup started for E33643B0965FE197-00000000034DA4AE[0m
+[0;32mI (3017) esp_matter_attribute: ********** W : Endpoint 0x0003's Cluster 0x00000039's Attribute 0x00000005 is Slot 2 **********[0m
+[0;32mI (3017) bridge_action: NodeLabel sync slot=2 endpoint=3 cluster=0x0039 name='Slot 2' result=ESP_OK[0m
+[0;32mI (3027) esp_matter_attribute: ********** W : Endpoint 0x0004's Cluster 0x00000039's Attribute 0x00000005 is Slot 3 **********[0m
+[0;32mI (3037) bridge_action: NodeLabel sync slot=3 endpoint=4 cluster=0x0039 name='Slot 3' result=ESP_OK[0m
+[0;32mI (3047) esp_matter_attribute: ********** W : Endpoint 0x0005's Cluster 0x00000039's Attribute 0x00000005 is Slot 4 **********[0m
+[0;32mI (3057) bridge_action: NodeLabel sync slot=4 endpoint=5 cluster=0x0039 name='Slot 4' result=ESP_OK[0m
+[0;32mI (3067) esp_matter_attribute: ********** W : Endpoint 0x0006's Cluster 0x00000039's Attribute 0x00000005 is Slot 5 **********[0m
+[0;32mI (3087) bridge_action: NodeLabel sync slot=5 endpoint=6 cluster=0x0039 name='Slot 5' result=ESP_OK[0m
+[0;32mI (3097) esp_matter_attribute: ********** W : Endpoint 0x0007's Cluster 0x00000039's Attribute 0x00000005 is Slot 6 **********[0m
+[0;32mI (3107) bridge_action: NodeLabel sync slot=6 endpoint=7 cluster=0x0039 name='Slot 6' result=ESP_OK[0m
+[0;32mI (3117) esp_matter_attribute: ********** W : Endpoint 0x0008's Cluster 0x00000039's Attribute 0x00000005 is Slot 7 **********[0m
+[0;32mI (3127) bridge_action: NodeLabel sync slot=7 endpoint=8 cluster=0x0039 name='Slot 7' result=ESP_OK[0m
+[0;32mI (3137) chip[SVR]: SetupQRCode: [MT:Y.K9042C00KA0648G00][0m
+[0;32mI (3147) chip[SVR]: Copy/paste the below URL in a browser to see the QR Code:[0m
+[0;32mI (3147) chip[SVR]: https://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3AY.K9042C00KA0648G00[0m
+[0;32mI (3157) chip[SVR]: Manual pairing code: [34970112332][0m
+[0;32mI (3167) chip[DIS]: Checking node lookup status for E33643B0965FE197-000000002CA995E7 after 200 ms[0m
+[0;32mI (3167) web_server: HTTP API started: GET /, GET /api/health, GET /api/slots, GET /api/signals, DELETE /api/signals/{id}, GET /api/devices, GET /api/export/nvs, POST /api/devices/register, POST /api/devices/{id}/rename, POST /api/endpoints/{slot}/assign, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status, POST /api/learn/commit, POST /api/commissioning/open[0m
+[0;32mI (3177) chip[DIS]: Checking node lookup status for E33643B0965FE197-00000000C8378842 after 196 ms[0m
+[0;32mI (3207) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (3217) chip[DIS]: Keeping DNSSD lookup active[0m
+[0;32mI (3227) led_driver_ws2812: led set r:63, g:63, b:63[0m
+[0;32mI (3227) chip[DIS]: Checking node lookup status for E33643B0965FE197-00000000034DA4AE after 236 ms[0m
+[5n[6n [999C [6n [79D[0;32m> [0m[0;32mI (3707) esp_netif_handlers: sta ip: 192.168.75.15, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (3707) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (3717) app_main: Web UI ready (IP): http://192.168.75.15[0m
+[0;32mI (3717) chip[DL]: IP_EVENT_STA_GOT_IP[0m
+[0;32mI (3717) chip[DL]: [0;33mW (3717) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+IPv4 address changed on WiFi station interface: 192.168.75.15/255.255.255.0 gateway 192.168.75.1[0;33mW (3737) app_main: mDNS start deferred (IP_EVENT_STA_GOT_IP): ESP_ERR_INVALID_STATE[0m
+[0m
+[0;32mI (3757) app_main: Scheduled mDNS registration retry (ip_event_sta_got_ip)[0m
+[0;32mI (3757) chip[DL]: [0;33mW (3757) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (3767) app_main: Interface IP Address changed[0m
+[0;33mW (3787) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (3787) app_main: mDNS registration deferred (interface event): ESP_ERR_INVALID_STATE[0m
+[0;32mI (3797) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3807) chip[DIS]: Advertise operational node E33643B0965FE197-00000000CFE7D8E3[0m
+[0;32mI (3817) chip[DIS]: Advertise operational node 7969C12744EC5819-000000001446E9FB[0m
+[0;32mI (4267) local_discovery: mDNS alias-only host: esp-matter-hub-659824 (local host hidden for HTTP)[0m
+[0;32mI (4267) local_discovery: mDNS ready: http://esp-matter-hub-659824.local[0m
+[0;32mI (4277) app_main: mDNS registration completed after 2 attempt(s)[0m
+[0;32mI (4797) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (4797) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (4797) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (4807) app_main: Interface IP Address changed[0m
+[0;32mI (4817) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (4827) chip[DIS]: Advertise operational node E33643B0965FE197-00000000CFE7D8E3[0m
+[0;32mI (4827) chip[DIS]: Advertise operational node 7969C12744EC5819-000000001446E9FB[0m
+[0;32mI (4957) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:66, winSize:64[0m
+[0;31mE (5577) chip[IN]: Data received on an unknown session (LSID=61952). Dropping it![0m
+[0;31mE (6047) chip[IN]: Data received on an unknown session (LSID=61952). Dropping it![0m
+[0;31mE (6717) chip[IN]: Data received on an unknown session (LSID=61952). Dropping it![0m
+[0;31mE (7747) chip[IN]: Data received on an unknown session (LSID=61952). Dropping it![0m
+[0;31mE (9297) chip[IN]: Data received on an unknown session (LSID=61952). Dropping it![0m
+[0;32mI (19027) chip[EM]: >>> [E:34933r S:0 M:254650449] (U) Msg RX from 0:394EB08AF0F1B5BD [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:234)[0m
+[0;32mI (19037) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca8dd8[0m
+[0;32mI (19037) chip[EM]: <<< [E:34933r S:0 M:136439581 (Ack:254650449)] (U) Msg TX from 0000000000000000 to 0:394EB08AF0F1B5BD [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (19067) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (19077) chip[EM]: <<< [E:34933r S:0 M:136439582 (Ack:254650449)] (U) Msg TX from 0000000000000000 to 0:394EB08AF0F1B5BD [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:33 (SecureChannel:CASE_Sigma2Resume) (B:100)[0m
+[0;32mI (19097) chip[EM]: ??1 [E:34933r S:0 M:136439582] (U) Msg Retransmission to 0:0000000000000000 scheduled for 358ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (19107) chip[SC]: Sent Sigma2Resume msg[0m
+[0;32mI (19437) chip[EM]: >>> [E:34933r S:0 M:254650450 (Ack:136439582)] (U) Msg RX from 0:394EB08AF0F1B5BD [0000] to 0000000000000000 --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (19447) chip[SC]: Success status report received. Session was established[0m
+[0;32mI (19477) chip[SC]: SecureSession[0x3fca7378, LSID:40164]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (19477) chip[IN]: CASE Session established to peer: <000000002CA995E7, 1>[0m
+[0;32mI (19487) chip[EM]: <<< [E:34933r S:0 M:136439583 (Ack:254650450)] (U) Msg TX from 0000000000000000 to 0:394EB08AF0F1B5BD [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (19517) chip[EM]: >>> [E:34934r S:40164 M:99986834] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:03 (IM:SubscribeRequest) (B:1194)[0m
+[0;32mI (19537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19607) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19667) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19667) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19667) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19707) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19707) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19707) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19747) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19747) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19797) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19797) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19867) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19867) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19867) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19907) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19907) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19997) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19997) chip[DMG]: AccessControl: denied[0m
+[0;32mI (19997) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20027) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20027) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20067) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20067) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20077) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20077) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20117) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20117) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20117) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20157) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20157) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20157) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20237) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20237) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20237) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20277) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20277) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20327) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20327) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20357) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20357) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20357) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20497) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20497) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20607) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20607) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20667) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20667) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20707) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20707) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20747) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20747) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20747) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20857) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20857) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20857) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20867) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20867) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20907) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20907) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20907) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20947) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (20987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21017) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21017) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21027) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21027) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21027) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21067) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21067) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21077) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21117) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21157) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21157) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21237) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21237) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21257) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21257) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21257) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21277) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21277) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21277) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21357) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21357) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21467) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21467) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21467) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21487) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21507) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21507) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21567) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21597) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21607) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21607) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21617) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21627) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21637) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21647) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21657) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21677) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21687) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21697) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21717) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21727) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21737) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21757) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21767) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21777) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21787) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21797) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21797) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21807) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21817) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21827) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21837) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21847) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21857) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21857) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21877) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21887) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21897) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21917) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21927) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21937) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21957) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21967) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21977) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21987) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21997) chip[DMG]: AccessControl: denied[0m
+[0;32mI (21997) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22007) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22017) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22017) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22017) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22037) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22047) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22057) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22067) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22077) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22087) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22097) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22107) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22117) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22127) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22137) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22147) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22167) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22177) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22187) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22197) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22207) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22217) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22227) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22247) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22257) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22257) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22267) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22287) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22297) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22307) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22317) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22327) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22327) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22337) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22347) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22367) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22377) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22387) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22397) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22407) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22417) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22427) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22437) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22447) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22457) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22467) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22467) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22477) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22497) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22497) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22497) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22507) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22507) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22507) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22517) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22527) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22537) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22547) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22557) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22577) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22587) chip[DMG]: AccessControl: denied[0m
+[0;32mI (22587) chip[DMG]: AccessControl: denied[0m
+[0;31mE (22597) chip[IM]: Subscription from [1:000000002CA995E7] has no access at all. Rejecting request.[0m
+[0;32mI (22597) chip[EM]: <<< [E:34934r S:40164 M:241729736 (Ack:99986834)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (22627) chip[EM]: ??1 [E:34934r S:40164 M:241729736] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 374ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;31mE (22637) chip[DL]: Long dispatch time: 3137 ms, for event type 3[0m
+[0;32mI (22647) chip[EM]: >>> [E:34934r S:40164 M:99986834] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:03 (IM:SubscribeRequest) (B:1194)[0m
+[0;32mI (22667) chip[EM]: <<< [E:34934r S:40164 M:241729737 (Ack:99986834)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (22687) chip[EM]: >>> [E:34934r S:40164 M:99986834] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:03 (IM:SubscribeRequest) (B:1194)[0m
+[0;32mI (22707) chip[EM]: <<< [E:34934r S:40164 M:241729738 (Ack:99986834)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (22727) chip[EM]: >>> [E:34934r S:40164 M:99986834] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:03 (IM:SubscribeRequest) (B:1194)[0m
+[0;32mI (22747) chip[EM]: <<< [E:34934r S:40164 M:241729739 (Ack:99986834)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (22767) chip[EM]: >>> [E:34934r S:40164 M:99986834] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:03 (IM:SubscribeRequest) (B:1194)[0m
+[0;32mI (22787) chip[EM]: <<< [E:34934r S:40164 M:241729740 (Ack:99986834)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (22797) chip[EM]: >>> [E:34934r S:40164 M:99986835 (Ack:241729736)] (S) Msg RX from 1:000000002CA995E7 [E197] to 00000000CFE7D8E3 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (22817) chip[EM]: <<< [E:34934r S:40164 M:241729741 (Ack:99986835)] (S) Msg TX from 00000000CFE7D8E3 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:62165] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;31mE (22847) chip[EM]: Dropping unexpected message of type 0x1 with protocolId (0, 1) and MessageCounter:99986835 on exchange 34934r[0m

@@ -1,0 +1,19 @@
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbserial-0001 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x4037ff7c: [0;33mprvNotifyQueueSetContainer[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c[0m[0m:[1;31m3362[0m
+[0m--- 0x40056f08: [0;33m__memcpy_aux[0m[0m in [0;32mROM[0m
+[0m--- 0x40056f12: [0;33m__memcpy_aux[0m[0m in [0;32mROM[0m
+[0m--- 0x4037ff79: [0;33mprvNotifyQueueSetContainer[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c[0m[0m:[1;31m3362[0m
+[0m--- 0x403802db: [0;33mxQueueGenericSend[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c[0m[0m:[1;31m975[0m
+[0m--- 0x403768ad: [0;33mlock_release_generic[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/newlib/locks.c[0m[0m:[1;31m192[0m
+[0m--- 0x40376939: [0;33m_lock_release[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/newlib/locks.c[0m[0m:[1;31m198[0m
+[0m--- 0x40376a9e: [0;33mget_adjusted_boot_time[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/newlib/time.c[0m[0m:[1;31m92[0m
+[0m--- (inlined by) [0;33m_gettimeofday_r[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/newlib/time.c[0m[0m:[1;31m167[0m
+[0m--- 0x420fd70d: [0;33mgettimeofday[0m[0m at [0;32m/Users/brnomac003/.gitlab-runner/builds/qR2TxTby/0/idf/crosstool-NG/.build/xtensa-esp-elf/src/newlib/newlib/libc/syscalls/sysgettod.c[0m[0m:[1;31m11[0m
+[0m--- 0x42090f75: [0;33mgetMillis[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/console/linenoise/linenoise.c[0m[0m:[1;31m803[0m
+[0m--- 0x42091238: [0;33mlinenoiseEdit[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/console/linenoise/linenoise.c[0m[0m:[1;31m883[0m
+[0m--- (inlined by) [0;33mlinenoiseRaw[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/console/linenoise/linenoise.c[0m[0m:[1;31m1104[0m
+[0m--- (inlined by) [0;33mlinenoise[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/console/linenoise/linenoise.c[0m[0m:[1;31m1159[0m
+[0m--- 0x4037dde2: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m145[0m
+[0m--- 0x4037dde2: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m145[0m
+[0m

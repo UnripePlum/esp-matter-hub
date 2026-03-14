@@ -1,0 +1,391 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x1 (POWERON),boot:0x8 (SPI_FAST_FLASH_BOOT)
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce3810,len:0x178c
+load:0x403c9700,len:0x4
+load:0x403c9704,len:0xcbc
+load:0x403cc700,len:0x2da0
+entry 0x403c9914
+[0;32mI (27) boot: ESP-IDF v5.2.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Mar  5 2026 16:45:52[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (30) boot: chip revision: v0.2[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (39) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (44) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (49) boot: Enabling RNG early entropy source...[0m
+[0;32mI (54) boot: Partition Table:[0m
+[0;32mI (58) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (65) boot:  0 esp_secure_cert  unknown          3f 06 0000d000 00002000[0m
+[0;32mI (72) boot:  1 nvs              WiFi data        01 02 00010000 00100000[0m
+[0;32mI (80) boot:  2 nvs_keys         NVS keys         01 04 00110000 00001000[0m
+[0;32mI (87) boot:  3 otadata          OTA data         01 00 00111000 00002000[0m
+[0;32mI (95) boot:  4 phy_init         RF data          01 01 00113000 00001000[0m
+[0;32mI (102) boot:  5 ota_0            OTA app          00 10 00120000 00500000[0m
+[0;32mI (110) boot:  6 ota_1            OTA app          00 11 00620000 00500000[0m
+[0;32mI (117) boot:  7 storage          Unknown data     01 82 00b20000 004d0000[0m
+[0;32mI (125) boot:  8 fctry            WiFi data        01 02 00ff0000 00010000[0m
+[0;32mI (132) boot: End of partition table[0m
+[0;32mI (137) esp_image: segment 0: paddr=00120020 vaddr=3c120020 size=45358h (283480) map[0m
+[0;32mI (196) esp_image: segment 1: paddr=00165380 vaddr=3fc9c300 size=06ce4h ( 27876) load[0m
+[0;32mI (202) esp_image: segment 2: paddr=0016c06c vaddr=40374000 size=03fach ( 16300) load[0m
+[0;32mI (206) esp_image: segment 3: paddr=00170020 vaddr=42000020 size=115e24h (1138212) map[0m
+[0;32mI (415) esp_image: segment 4: paddr=00285e4c vaddr=40377fac size=142cch ( 82636) load[0m
+[0;32mI (443) boot: Loaded app from partition at offset 0x120000[0m
+[0;32mI (443) boot: Disabling RNG early entropy source...[0m
+[0;32mI (455) cpu_start: Multicore app[0m
+[0;32mI (456) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (456) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (459) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (464) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (469) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (475) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (480) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (485) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (491) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (497) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (503) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (509) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (513) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (518) esp_psram: Speed: 80MHz[0m
+[0;32mI (935) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (944) cpu_start: Pro cpu start user code[0m
+[0;32mI (944) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (944) cpu_start: Application information:[0m
+[0;32mI (947) cpu_start: Project name:     light[0m
+[0;32mI (952) cpu_start: App version:      1.0[0m
+[0;32mI (957) cpu_start: Compile time:     Mar  5 2026 16:45:43[0m
+[0;32mI (963) cpu_start: ELF file SHA256:  01aa30ddf...[0m
+[0;32mI (968) cpu_start: ESP-IDF:          v5.2.1-dirty[0m
+[0;32mI (973) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (978) cpu_start: Max chip rev:     v0.99 [0m
+[0;32mI (983) cpu_start: Chip rev:         v0.2[0m
+[0;32mI (988) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (995) heap_init: At 3FCB5770 len 00033FA0 (207 KiB): RAM[0m
+[0;32mI (1001) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1007) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (1013) heap_init: At 600FE010 len 00001FD8 (7 KiB): RTCRAM[0m
+[0;32mI (1020) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1028) spi_flash: detected chip: generic[0m
+[0;32mI (1032) spi_flash: flash io: dio[0m
+[0;33mW (1036) rmt(legacy): legacy driver is deprecated, please migrate to `driver/rmt_tx.h` and/or `driver/rmt_rx.h`[0m
+[0;32mI (1048) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1054) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1061) coexist: coex firmware version: 77cd7f8[0m
+[0;32mI (1066) coexist: coexist rom version e7ae62f[0m
+[0;32mI (1072) main_task: Started on CPU0[0m
+[0;32mI (1082) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1082) main_task: Calling app_main()[0m
+[0;32mI (1522) gpio: GPIO[15]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1522) gpio: GPIO[16]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1522) gpio: GPIO[17]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (1532) status_led: Status LED ready (R=15 G=16 B=17, common cathode)[0m
+[0;32mI (1542) led_driver_ws2812: Initializing light driver[0m
+[0;32mI (1552) gpio: GPIO[0]| InputEn: 1| OutputEn: 0| OpenDrain: 0| Pullup: 1| Pulldown: 0| Intr:0 [0m
+[0;32mI (1562) button: IoT Button Version: 4.1.6[0m
+[0;32mI (1572) app_main: Bridge slot 0 created with endpoint_id 1[0m
+[0;32mI (1572) app_main: Bridge slot 1 created with endpoint_id 2[0m
+[0;32mI (1582) app_main: Bridge slot 2 created with endpoint_id 3[0m
+[0;32mI (1582) app_main: Bridge slot 3 created with endpoint_id 4[0m
+[0;32mI (1592) bridge_action: Slot 0 binding loaded: onoff=0, level=0[0m
+[0;32mI (1592) bridge_action: Slot 1 binding loaded: onoff=2, level=2[0m
+[0;32mI (1602) bridge_action: Slot 2 binding loaded: onoff=1, level=1[0m
+[0;32mI (1612) bridge_action: Slot 3 binding loaded: onoff=0, level=0[0m
+[0;32mI (1612) bridge_action: Initialized 4 bridge slot actions[0m
+[0;32mI (1642) ir_engine: IR RMT initialized TX=4 RX={5,6}[0m
+[0;32mI (1642) ir_engine: IR engine initialized (signals=2, next_id=3)[0m
+[0;32mI (1642) pp: pp rom version: e7ae62f[0m
+[0;32mI (1652) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (1662) wifi:wifi driver task: 3fcccabc, prio:23, stack:6656, core=0[0m
+[0;32mI (1692) wifi:wifi firmware version: a9f5b59[0m
+[0;32mI (1692) wifi:wifi certification version: v7.0[0m
+[0;32mI (1692) wifi:config NVS flash: enabled[0m
+[0;32mI (1692) wifi:config nano formating: disabled[0m
+[0;32mI (1692) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (1702) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (1702) wifi:Init management short buffer num: 32[0m
+[0;32mI (1712) wifi:Init static tx buffer num: 16[0m
+[0;32mI (1712) wifi:Init tx cache buffer num: 32[0m
+[0;32mI (1712) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (1722) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (1722) wifi:Init static rx buffer num: 10[0m
+[0;32mI (1732) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (1732) wifi_init: rx ba win: 6[0m
+[0;32mI (1732) wifi_init: tcpip mbox: 32[0m
+[0;32mI (1742) wifi_init: udp mbox: 6[0m
+[0;32mI (1742) wifi_init: tcp mbox: 6[0m
+[0;32mI (1752) wifi_init: tcp tx win: 5760[0m
+[0;32mI (1752) wifi_init: tcp rx win: 5760[0m
+[0;32mI (1752) wifi_init: tcp mss: 1440[0m
+[0;32mI (1762) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (1762) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (1802) chip[DL]: NVS set: chip-counters/reboot-count = 15 (0xF)[0m
+[0;32mI (1802) BLE_INIT: BT controller compile version [30b57c4][0m
+[0;32mI (1802) BLE_INIT: Bluetooth MAC: 1c:db:d4:65:98:26[0m
+[0;32mI (1802) phy_init: phy_version 640,cd64a1a,Jan 24 2024,17:28:12[0m
+[0;32mI (1852) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (1852) CHIP[DL]: BLE host-controller synced[0m
+[0;32mI (2352) chip[DL]: Starting ESP WiFi layer[0m
+[0;32mI (2352) wifi:mode : sta (1c:db:d4:65:98:24)[0m
+[0;32mI (2352) wifi:enable tsf[0m
+[0;32mI (2352) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;33mW (2352) wifi:Haven't to connect to a suitable AP now![0m
+[0;32mI (2362) chip[DL]: Attempting to connect WiFi station interface[0m
+[0;32mI (2362) chip[DL]: [0;32mI (2372) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 2WiFi station state change: NotConnected -> ConnectingI (2372) wifi:[0m
+new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1
+[0;32mI (2382) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2392) wifi:state: init -> auth (b0)[0m
+[0;32mI (2392) chip[SVR]: Initializing session resumption storage...[0m
+[0;32mI (2402) wifi:state: auth -> assoc (0)[0;32mI (2402) chip[SVR]: [0m
+Initializing subscription resumption storage...[0m
+[0m
+[0;32mI (2412) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 40[0m
+[0;32mI (2412) chip[SVR]: Server initializing...[0m
+[0;32mI (2432) chip[TS]: Last Known Good Time: 2026-03-05T08:13:52[0m
+[0;32mI (2432) wifi:state: assoc -> run (10)[0m
+[0;32mI (2442) chip[FP]: Fabric index 0x1 was retrieved from storage. Compressed FabricId 0xE33643B0965FE197, FabricId 0x000000006057FA6B, NodeId 0x000000003BBB5D68, VendorId 0x1349[0m
+[0;32mI (2462) chip[FP]: Fabric index 0x2 was retrieved from storage. Compressed FabricId 0x7969C12744EC5819, FabricId 0x000000002B179B36, NodeId 0x0000000045B23DC9, VendorId 0x1384[0m
+[0;32mI (2472) chip[DMG]: AccessControl: initializing[0m
+[0;32mI (2472) chip[DMG]: Examples::AccessControlDelegate::Init[0m
+[0;32mI (2482) chip[DMG]: AccessControl: setting[0m
+[0;32mI (2482) chip[DMG]: DefaultAclStorage: initializing[0m
+[0;32mI (2492) chip[DMG]: DefaultAclStorage: 2 entries loaded[0m
+[0;32mI (2492) wifi:[0;32mI (2492) chip[SVR]: connected with SK_WiFiGIGADC40_2.4G, aid = 2, channel 2, BW20, bssid = 04:09:a5:51:dc:43WARNING: mTestEventTriggerDelegate is null[0m
+[0m
+[0;32mI (2512) wifi:security: WPA2-PSK, phy: bgn, rssi: -60[0m
+[0;32mI (2522) wifi:pm start, type: 1[0m
+
+[0;32mI (2522) wifi:dp: 1, bi: 103424, li: 2, scale listen interval from 307200 us to 206848 us[0m
+[0;32mI (2532) wifi:set rx beacon pti, rx_bcn_pti: 14, bcn_timeout: 25000, mt_pti: 14, mt_time: 10000[0m
+[0;32mI (2532) chip[SVR]: Fabric already commissioned. Disabling BLE advertisement[0m
+[0;32mI (2542) chip[DL]: Posting ESPSystemEvent: Wifi Event with eventId : 4[0;32mI (2542) chip[IN]: [0m
+CASE Server enabling CASE session setups[0m
+[0;32mI (2562) chip[SVR]: Joining Multicast groups[0m
+[0;32mI (2562) chip[SVR]: Server Listening...[0m
+[0;32mI (2572) chip[DMG]: AccessControlCluster: initializing[0m
+[0;32mI (2582) chip[ZCL]: Endpoint 1 On/off already set to new value[0m
+[0;32mI (2582) app_driver: Slot 0 action: level=64[0m
+[0;32mI (2582) bridge_action: Slot 0 mapped level signal_id=0, value=64[0m
+[0;33mW (2592) ir_engine: No signal mapped for slot 0 cluster=0x0008 attr=0x0000[0m
+[0;32mI (2602) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (2612) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (2612) chip[ZCL]: Endpoint 3 On/off already set to new value[0m
+[0;32mI (2622) chip[ZCL]: Endpoint 4 On/off already set to new value[0m
+[0;32mI (2632) chip[DL]: WIFI_EVENT_STA_START[0m
+[0;32mI (2632) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2632) wifi:AP's beacon interval = 103424 us, DTIM period = 1[0m
+[0;32mI (2642) chip[DL]: WIFI_EVENT_STA_CONNECTED[0m
+[0;32mI (2642) chip[DL]: WiFi station state change: Connecting -> Connecting_Succeeded[0m
+[0;32mI (2642) chip[SVR]: SetupQRCode: [MT:Y.K9042C00KA0648G00][0m
+[0;32mI (2652) chip[DL]: [0;32mI (2662) chip[SVR]: WiFi station state change: Connecting_Succeeded -> Connected[0m
+Copy/paste the below URL in a browser to see the QR Code:[0m
+[0;32mI (2672) chip[DL]: [0;32mI (2672) chip[SVR]: WiFi station interface connectedhttps://project-chip.github.io/connectedhomeip/qrcode.html?data=MT%3AY.K9042C00KA0648G00[0m
+[0m
+[0;32mI (2692) chip[SVR]: Manual pairing code: [34970112332][0m
+[0;32mI (2692) chip[DL]: Done driving station state, nothing else to do...[0m
+[0;32mI (2702) web_server: HTTP API started: GET /, GET /api/health, GET /api/slots, GET /api/signals, POST /api/slots/{id}/bind, POST /api/learn/start, GET /api/learn/status, POST /api/learn/commit, POST /api/commissioning/open[0m
+[0;32mI (2702) chip[DL]: Updating advertising data[0m
+[0;32mI (2722) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (2732) NimBLE: GAP procedure initiated: stop advertising.
+[0m
+[0;32mI (2732) led_driver_ws2812: led set r:0, g:0, b:0[0m
+[0;32mI (2742) chip[DL]: BLE deinit successful and memory reclaimed[0m
+[0;32��[5n[6n [999C [6n [77D[0;32m> [0m[0;32mI (3542) esp_netif_handlers: sta ip: 192.168.75.231, mask: 255.255.255.0, gw: 192.168.75.1[0m
+[0;32mI (3542) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 0[0m
+[0;32mI (3552) chip[DL]: [0;33mW (3552) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+IP_EVENT_STA_GOT_IP[0;33mW (3562) app_main: mDNS start deferred (IP_EVENT_STA_GOT_IP): ESP_ERR_INVALID_STATE[0m
+[0m
+[0;32mI (3562) chip[DL]: [0;33mW (3562) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+IPv4 address changed on WiFi station interface: 192.168.75.231/255.255.255.0 gateway 192.168.75.1[0m
+[0;32mI (3592) chip[DL]: IPv4 Internet connectivity ESTABLISHED[0m
+[0;32mI (3562) app_main: Scheduled mDNS registration retry (ip_event_sta_got_ip)[0m
+[0;32mI (3592) app_main: Interface IP Address changed[0m
+[0;33mW (3602) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (3622) app_main: mDNS registration deferred (interface event): ESP_ERR_INVALID_STATE[0m
+[0;32mI (3632) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (3632) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (3642) chip[DIS]: Advertise operational node E33643B0965FE197-000000003BBB5D68[0m
+[0;32mI (3652) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-000000003BBB5D68.[0m
+[0;32mI (3662) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (3662) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000045B23DC9[0m
+[0;32mI (3672) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000045B23DC9.[0m
+[0;32mI (3692) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;33mW (4082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (4582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;32mI (4642) chip[DL]: Posting ESPSystemEvent: IP Event with eventId : 3[0m
+[0;32mI (4642) chip[DL]: IP_EVENT_GOT_IP6[0m
+[0;32mI (4642) chip[DL]: IPv6 addr available. Ready on WIFI_STA_DEF interface: fe80:0000:0000:0000:1edb:d4ff:fe65:9824[0m
+[0;32mI (4652) app_main: Interface IP Address changed[0m
+[0;33mW (4652) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (4672) app_main: mDNS registration deferred (interface event): ESP_ERR_INVALID_STATE[0m
+[0;32mI (4682) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (4682) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (4702) chip[DIS]: Advertise operational node E33643B0965FE197-000000003BBB5D68[0m
+[0;32mI (4712) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-000000003BBB5D68.[0m
+[0;32mI (4722) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4722) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000045B23DC9[0m
+[0;32mI (4742) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000045B23DC9.[0m
+[0;32mI (4742) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4752) chip[DIS]: Updating services using commissioning mode 0[0m
+[0;32mI (4762) chip[DIS]: CHIP minimal mDNS started advertising.[0m
+[0;32mI (4772) chip[DIS]: Advertise operational node E33643B0965FE197-000000003BBB5D68[0m
+[0;32mI (4772) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: E33643B0965FE197-000000003BBB5D68.[0m
+[0;32mI (4792) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4792) chip[DIS]: Advertise operational node 7969C12744EC5819-0000000045B23DC9[0m
+[0;32mI (4812) chip[DIS]: CHIP minimal mDNS configured as 'Operational device'; instance name: 7969C12744EC5819-0000000045B23DC9.[0m
+[0;32mI (4812) chip[DIS]: mDNS service published: _matter._tcp[0m
+[0;32mI (4812) chip[SVR]: Server initialization complete[0m
+[0;32mI (4832) chip[SWU]: Stopping the watchdog timer[0m
+[0;32mI (4832) chip[SWU]: Starting the periodic query timer, timeout: 86400 seconds[0m
+[0;32mI (4852) chip[IM]: Resuming 1 subscriptions in 0 seconds[0m
+[0;32mI (4852) chip[DIS]: Lookup started for E33643B0965FE197-000000002CA995E7[0m
+[0;32mI (4932) wifi:<ba-add>idx:0 (ifx:0, 04:09:a5:51:dc:43), tid:0, ssn:2547, winSize:64[0m
+[0;32mI (5052) chip[DIS]: Checking node lookup status for E33643B0965FE197-000000002CA995E7 after 200 ms[0m
+[0;33mW (5082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (5582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;32mI (5602) data_model: Store the deferred attribute 0x0 of cluster 0x8 on endpoint 0x1[0m
+[0;33mW (6082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (6582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (7082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (7582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (8082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (8582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (9082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (9582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (10082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (10582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (11082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (11582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (12082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (12582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (13082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (13582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (14082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (14582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (15082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (15582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (16082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (16582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (17082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (17582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (18082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (18582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (19082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (19582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (20082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (20582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (20642) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;32mI (20842) wifi:<ba-add>idx:1 (ifx:0, 04:09:a5:51:dc:43), tid:4, ssn:18, winSize:64[0m
+[0;33mW (21082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (21252) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (21582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (21742) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (22082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (22582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (22702) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (23082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (23582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (24082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (24252) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (24582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (25082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (25582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (26082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (26582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (27082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (27582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (28082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (28582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (28702) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (29082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (29532) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (29582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (29832) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (30082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (30582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (30872) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (31082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (31582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (32082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (32582) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;31mE (32632) chip[IN]: Data received on an unknown session (LSID=38867). Dropping it![0m
+[0;33mW (33082) local_discovery: Matter mDNS host not ready yet, deferring HTTP mDNS registration[0m
+[0;33mW (33082) app_main: mDNS retry attempt 60/60 failed: ESP_ERR_INVALID_STATE[0m
+[0;33mW (33592) app_main: mDNS registration timed out after 30000 ms[0m
+[0;32mI (34222) chip[EM]: >>> [E:57777r S:0 M:145363388] (U) Msg RX from 0:D8DBE95699799C0E [0000] to 0000000000000000 --- Type 0000:30 (SecureChannel:CASE_Sigma1) (B:234)[0m
+[0;32mI (34232) chip[IN]: CASE Server received Sigma1 message . Starting handshake. EC 0x3fca8430[0m
+[0;32mI (34232) chip[EM]: <<< [E:57777r S:0 M:203683716 (Ack:145363388)] (U) Msg TX from 0000000000000000 to 0:D8DBE95699799C0E [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (34262) chip[SC]: Received Sigma1 msg[0m
+[0;32mI (34272) chip[EM]: <<< [E:57777r S:0 M:203683717 (Ack:145363388)] (U) Msg TX from 0000000000000000 to 0:D8DBE95699799C0E [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0000:33 (SecureChannel:CASE_Sigma2Resume) (B:100)[0m
+[0;32mI (34282) chip[EM]: ??1 [E:57777r S:0 M:203683717] (U) Msg Retransmission to 0:0000000000000000 scheduled for 406ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (34302) chip[SC]: Sent Sigma2Resume msg[0m
+[0;32mI (34492) chip[EM]: >>> [E:57777r S:0 M:145363389 (Ack:203683717)] (U) Msg RX from 0:D8DBE95699799C0E [0000] to 0000000000000000 --- Type 0000:40 (SecureChannel:StatusReport) (B:34)[0m
+[0;32mI (34502) chip[SC]: Success status report received. Session was established[0m
+[0;32mI (34522) chip[SC]: SecureSession[0x3fca69d0, LSID:1817]: State change 'kEstablishing' --> 'kActive'[0m
+[0;32mI (34532) chip[IN]: CASE Session established to peer: <000000002CA995E7, 1>[0m
+[0;32mI (34542) chip[EM]: <<< [E:57777r S:0 M:203683718 (Ack:145363389)] (U) Msg TX from 0000000000000000 to 0:D8DBE95699799C0E [0000] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:26)[0m
+[0;32mI (34562) chip[EM]: >>> [E:57778r S:1817 M:99226365] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:03 (IM:SubscribeRequest) (B:633)[0m
+[0;32mI (34582) chip[DMG]: Final negotiated min/max parameters: Min = 0s, Max = 600s[0m
+[0;32mI (34622) chip[EM]: <<< [E:57778r S:1817 M:35052576 (Ack:99226365)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1194)[0m
+[0;32mI (34642) chip[EM]: ??1 [E:57778r S:1817 M:35052576] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 345ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (34742) chip[EM]: >>> [E:57778r S:1817 M:99226365] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:03 (IM:SubscribeRequest) (B:633)[0m
+[0;32mI (34762) chip[EM]: <<< [E:57778r S:1817 M:35052577 (Ack:99226365)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (34772) chip[EM]: >>> [E:57778r S:1817 M:99226366 (Ack:35052576)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (34792) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (34812) chip[EM]: <<< [E:57778r S:1817 M:35052578 (Ack:99226366)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1202)[0m
+[0;32mI (34832) chip[EM]: ??1 [E:57778r S:1817 M:35052578] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 358ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (34852) chip[EM]: >>> [E:57778r S:1817 M:99226367 (Ack:35052578)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (34862) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (34892) chip[EM]: <<< [E:57778r S:1817 M:35052579 (Ack:99226367)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1196)[0m
+[0;32mI (34902) chip[EM]: ??1 [E:57778r S:1817 M:35052579] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 373ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (34922) chip[EM]: >>> [E:57778r S:1817 M:99226368 (Ack:35052579)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (34932) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (34972) chip[EM]: <<< [E:57778r S:1817 M:35052580 (Ack:99226368)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1208)[0m
+[0;32mI (34982) chip[EM]: ??1 [E:57778r S:1817 M:35052580] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 368ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35012) chip[EM]: >>> [E:57778r S:1817 M:99226369 (Ack:35052580)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35032) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35052) chip[EM]: <<< [E:57778r S:1817 M:35052581 (Ack:99226369)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1190)[0m
+[0;32mI (35072) chip[EM]: ??1 [E:57778r S:1817 M:35052581] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 411ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35332) chip[EM]: >>> [E:57778r S:1817 M:99226370 (Ack:35052581)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35342) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35362) chip[EM]: <<< [E:57778r S:1817 M:35052582 (Ack:99226370)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1185)[0m
+[0;32mI (35382) chip[EM]: ??1 [E:57778r S:1817 M:35052582] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 358ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35432) chip[EM]: >>> [E:57778r S:1817 M:99226371 (Ack:35052582)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35442) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35472) chip[EM]: <<< [E:57778r S:1817 M:35052583 (Ack:99226371)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1183)[0m
+[0;32mI (35482) chip[EM]: ??1 [E:57778r S:1817 M:35052583] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 367ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35502) chip[EM]: >>> [E:57778r S:1817 M:99226372 (Ack:35052583)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35512) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35542) chip[EM]: <<< [E:57778r S:1817 M:35052584 (Ack:99226372)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1204)[0m
+[0;32mI (35552) chip[EM]: ??1 [E:57778r S:1817 M:35052584] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 396ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35602) chip[EM]: >>> [E:57778r S:1817 M:99226373 (Ack:35052584)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35612) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35632) chip[EM]: <<< [E:57778r S:1817 M:35052585 (Ack:99226373)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:1190)[0m
+[0;32mI (35652) chip[EM]: ??1 [E:57778r S:1817 M:35052585] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 394ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35672) chip[EM]: >>> [E:57778r S:1817 M:99226374 (Ack:35052585)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35682) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35692) chip[EM]: <<< [E:57778r S:1817 M:35052586 (Ack:99226374)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:05 (IM:ReportData) (B:509)[0m
+[0;32mI (35712) chip[EM]: ??1 [E:57778r S:1817 M:35052586] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 362ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35742) chip[EM]: >>> [E:57778r S:1817 M:99226375 (Ack:35052586)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:01 (IM:StatusResponse) (B:42)[0m
+[0;32mI (35752) chip[IM]: Received status response, status is 0x00[0m
+[0;32mI (35762) chip[EM]: <<< [E:57778r S:1817 M:35052587 (Ack:99226375)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:04 (IM:SubscribeResponse) (B:49)[0m
+[0;32mI (35782) chip[EM]: ??1 [E:57778r S:1817 M:35052587] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 359ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (35802) chip[DMG]: Registered a ReadHandler that will schedule a report between system Timestamp: 0x0000000000008BD7 and system Timestamp 0x000000000009B397.[0m
+[0;32mI (35812) chip[EM]: >>> [E:57778r S:1817 M:99226376 (Ack:35052587)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;31mE (35852) chip[DIS]: Timeout waiting for mDNS resolution.[0m
+[0;32mI (42072) chip[EM]: >>> [E:57779r S:1817 M:99226377] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0001:08 (IM:InvokeCommandRequest) (B:59)[0m
+[0;32mI (42082) esp_matter_command: Received command 0x00000001 for endpoint 0x0002's cluster 0x00000006[0m
+[0;32mI (42092) chip[ZCL]: Endpoint 2 On/off already set to new value[0m
+[0;32mI (42102) chip[EM]: <<< [E:57779r S:1817 M:35052588 (Ack:99226377)] (S) Msg TX from 000000003BBB5D68 to 1:000000002CA995E7 [E197] [UDP:[FE80::1C61:DDD:D949:5EF0%st1]:61473] --- Type 0001:09 (IM:InvokeCommandResponse) (B:67)[0m
+[0;32mI (42122) chip[EM]: ??1 [E:57779r S:1817 M:35052588] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 409ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42532) chip[EM]: <<1 [E:57779r S:1817 M:35052588] (S) Msg Retransmission to 1:000000002CA995E7[0m
+[0;32mI (42532) chip[EM]: ??2 [E:57779r S:1817 M:35052588] (S) Msg Retransmission to 1:000000002CA995E7 scheduled for 333ms from now [State:Active II:500 AI:300 AT:4000][0m
+[0;32mI (42562) chip[EM]: >>> [E:57779r S:1817 M:99226378 (Ack:35052588)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (42582) chip[EM]: >>> [E:57779r S:1817 M:99226379 (Ack:35052588)] (S) Msg RX from 1:000000002CA995E7 [E197] to 000000003BBB5D68 --- Type 0000:10 (SecureChannel:StandaloneAck) (B:34)[0m
+[0;32mI (49852) chip[DIS]: Checking node lookup status for E33643B0965FE197-000000002CA995E7 after 45000 ms[0m
+[0;31mE (49852) chip[DIS]: OperationalSessionSetup[1:000000002CA995E7]: operational discovery failed: 32[0m
+[0;31mE (49862) chip[DMG]: Failed to establish CASE for subscription-resumption with error '32'[0m
+[0;32mI (49882) chip[IM]: Schedule subscription resumption when failing to establish session, Retries: 1[0m

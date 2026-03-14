@@ -1,0 +1,87 @@
+CMake Deprecation Warning at CMakeLists.txt:3 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at /Users/hanjunkim/esp/esp-matter/examples/common/cmake_common/components_include.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  CMakeLists.txt:41 (include)
+
+
+IDF_VERSION: 5.2.1; idf version number: 5.2.1
+Sequence of SDKCONFIG files: sdkconfig.defaults
+CMake Deprecation Warning at /Users/hanjunkim/esp/esp-matter/device_hal/device/esp32s3_devkit_c/esp_matter_device.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  CMakeLists.txt:42 (include)
+
+
+warning: default on the choice symbol SEC_CERT_DAC_PROVIDER (defined at /Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/config/esp32/components/chip/Kconfig:851, /Users/hanjunkim/esp/esp-matter/components/esp_matter/Kconfig:48) will have no effect, as defaults do not affect choice symbols
+warning: the choice symbol SEC_CERT_DAC_PROVIDER (defined at /Users/hanjunkim/esp/esp-matter/connectedhomeip/connectedhomeip/config/esp32/components/chip/Kconfig:851, /Users/hanjunkim/esp/esp-matter/components/esp_matter/Kconfig:48) is defined with a prompt outside the choice
+CMake Deprecation Warning at /Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/mbedtls/mbedtls/CMakeLists.txt:21 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+ESP Insights Project commit: managed-component
+CMake Deprecation Warning at managed_components/espressif__esp-serial-flasher/CMakeLists.txt:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+
+
+CMake Deprecation Warning at /Users/hanjunkim/esp/esp-matter/device_hal/device/esp32s3_devkit_c/esp_matter_device.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  /Users/hanjunkim/esp/esp-matter/device_hal/led_driver/CMakeLists.txt:1 (include)
+
+
+CMake Deprecation Warning at /Users/hanjunkim/esp/esp-matter/device_hal/device/esp32s3_devkit_c/esp_matter_device.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  /Users/hanjunkim/esp/esp-matter/device_hal/button_driver/iot_button/CMakeLists.txt:1 (include)
+
+
+CMake Deprecation Warning at /Users/hanjunkim/esp/esp-matter/device_hal/device/esp32s3_devkit_c/esp_matter_device.cmake:1 (cmake_minimum_required):
+  Compatibility with CMake < 3.10 will be removed from a future version of
+  CMake.
+
+  Update the VERSION argument <min> value.  Or, use the <min>...<max> syntax
+  to tell CMake that the project requires at least <min> but has been updated
+  to work with policies introduced by <max> or earlier.
+Call Stack (most recent call first):
+  /Users/hanjunkim/esp/esp-matter/device_hal/device/CMakeLists.txt:1 (include)
+
+

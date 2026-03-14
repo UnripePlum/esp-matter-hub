@@ -1,0 +1,6 @@
+# ESP32 Development Toolkit
+esp-idf/
+esp-matter/
+
+# Build artifacts
+build/

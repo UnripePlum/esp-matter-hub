@@ -1,0 +1,8 @@
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbserial-0001 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x40375c8e: [0;33mpanic_abort[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m472[0m
+[0m--- 0x40380f95: [0;33mesp_system_abort[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_system/port/esp_system_chip.c[0m[0m:[1;31m93[0m
+[0m--- 0x40381d36: [0;33mvApplicationStackOverflowHook[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m553[0m
+[0m--- 0x40381ba0: [0;33mspinlock_acquire[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/esp_hw_support/include/spinlock.h[0m[0m:[1;31m130[0m
+[0m--- (inlined by) [0;33mxPortEnterCriticalTimeout[0m[0m at [0;32m/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c[0m[0m:[1;31m473[0m
+[0m
