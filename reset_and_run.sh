@@ -3,7 +3,7 @@
 set -euo pipefail
 
 PORT="${1:-/dev/cu.usbserial-0001}"
-PROJECT_DIR="/Users/hanjunkim/IdeaProjects/esp-matter-hub"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 echo "🔄 Loading ESP-IDF environment..."
 source "$HOME/esp/esp-idf/export.sh"

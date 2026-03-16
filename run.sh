@@ -66,7 +66,7 @@ else
     echo "Matter 개발이 필요하다면 './setup.sh'를 다시 확인해주세요."
 fi
 
-# 경로 표기를 심볼릭 링크(/Users/hanjunkim/esp)로 강제 통일
+# 경로 표기를 $ESP_ROOT 기준으로 강제 통일
 export IDF_PATH="$ESP_ROOT/esp-idf"
 export ESP_MATTER_PATH="$ESP_ROOT/esp-matter"
 unset ESP_MATTER_DEVICE_PATH

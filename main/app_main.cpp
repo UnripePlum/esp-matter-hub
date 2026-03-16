@@ -26,6 +26,7 @@
 #include <app_reset.h>
 #include "bridge_action.h"
 #include "ir_engine.h"
+#include "ir_mgmt_cluster.h"
 #include "local_discovery.h"
 #include "status_led.h"
 #include "web_server.h"
@@ -284,24 +285,37 @@ static void app_event_cb(const ChipDeviceEvent *event, intptr_t arg)
     }
 }
 
-extern "C" esp_err_t app_open_commissioning_window(uint16_t timeout_seconds)
+static uint16_t s_pending_commission_timeout = 0;
+
+static void open_commissioning_window_work(intptr_t arg)
 {
+    uint16_t timeout_seconds = static_cast<uint16_t>(arg);
     chip::CommissioningWindowManager &commissionMgr = chip::Server::GetInstance().GetCommissioningWindowManager();
     if (commissionMgr.IsCommissioningWindowOpen()) {
-        return ESP_OK;
+        ESP_LOGI(TAG, "Commissioning window already open");
+        return;
     }
-    constexpr uint16_t kDefaultTimeout = k_timeout_seconds;
     if (timeout_seconds == 0) {
-        timeout_seconds = kDefaultTimeout;
+        timeout_seconds = k_timeout_seconds;
     }
     CHIP_ERROR err = commissionMgr.OpenBasicCommissioningWindow(chip::System::Clock::Seconds16(timeout_seconds),
                                                                  chip::CommissioningWindowAdvertisement::kDnssdOnly);
     if (err != CHIP_NO_ERROR) {
         ESP_LOGE(TAG, "Failed to open commissioning window, err:%" CHIP_ERROR_FORMAT, err.Format());
-        return ESP_FAIL;
+        return;
     }
     ESP_LOGI(TAG, "Commissioning window opened manually for %u seconds", timeout_seconds);
     status_led_set_commissioning(true);
+}
+
+extern "C" esp_err_t app_open_commissioning_window(uint16_t timeout_seconds)
+{
+    CHIP_ERROR err = chip::DeviceLayer::PlatformMgr().ScheduleWork(open_commissioning_window_work,
+                                                                    static_cast<intptr_t>(timeout_seconds));
+    if (err != CHIP_NO_ERROR) {
+        ESP_LOGE(TAG, "ScheduleWork failed: %" CHIP_ERROR_FORMAT, err.Format());
+        return ESP_FAIL;
+    }
     return ESP_OK;
 }
 
@@ -424,6 +438,9 @@ extern "C" void app_main()
     ABORT_APP_ON_FAILURE(err == ESP_OK, ESP_LOGE(TAG, "Failed to initialize bridge action module, err:%d", err));
     err = ir_engine_init();
     ABORT_APP_ON_FAILURE(err == ESP_OK, ESP_LOGE(TAG, "Failed to initialize IR engine, err:%d", err));
+
+    err = ir_mgmt_cluster_init(node);
+    ABORT_APP_ON_FAILURE(err == ESP_OK, ESP_LOGE(TAG, "Failed to initialize IrManagement cluster, err:%d", err));
 
 #if CHIP_DEVICE_CONFIG_ENABLE_THREAD && CHIP_DEVICE_CONFIG_ENABLE_WIFI_STATION
     // Enable secondary network interface

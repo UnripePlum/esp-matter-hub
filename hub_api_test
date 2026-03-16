@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-DEFAULT_HOST="esp-matter-hub-659824.local"
-HOST="${1:-$DEFAULT_HOST}"
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPL_FILE="$PROJECT_DIR/.hub_api_test_repl.sh"
 
@@ -14,14 +12,12 @@ fi
 
 chmod +x "$REPL_FILE"
 
-HOST_ESCAPED="${HOST//\"/\\\"}"
-SESSION_CMD="bash \"$REPL_FILE\" \"$HOST_ESCAPED\""
+NODE_ID="${1:-1}"
+ENDPOINT_ID="${2:-10}"
 
-osascript - "$SESSION_CMD" <<'EOF'
-on run argv
-  tell application "Terminal"
+osascript <<EOF
+tell application "Terminal"
     activate
-    do script (item 1 of argv)
-  end tell
-end run
+    do script "bash '${REPL_FILE}' '${NODE_ID}' '${ENDPOINT_ID}'"
+end tell
 EOF
