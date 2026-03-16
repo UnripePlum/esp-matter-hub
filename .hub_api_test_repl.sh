@@ -5,7 +5,7 @@ set -uo pipefail
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 ENV_FILE="$PROJECT_DIR/.hub_api_test_env.sh"
 NODE_ID="${1:-1}"
-ENDPOINT_ID="${2:-9}"
+ENDPOINT_ID="${2:-10}"
 
 if [[ ! -f "$ENV_FILE" ]]; then
   echo "Missing env file: $ENV_FILE"

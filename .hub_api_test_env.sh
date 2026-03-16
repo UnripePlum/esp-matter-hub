@@ -2,25 +2,139 @@
 
 export PATH="$HOME/esp/esp-matter/connectedhomeip/connectedhomeip/.environment/gn_out:$PATH"
 
-CLUSTER_ID="0x13370001"
+CLUSTER_ID="0x1337FC01"
+COMMISSIONER_NAME="${COMMISSIONER_NAME:-beta}"
 NODE_ID="${1:-1}"
 ENDPOINT_ID="${2:-10}"
 
+# ── Output Filters ──────────────────────────────────────────
+
+_strip_ansi() {
+  sed $'s/\x1b\\[[0-9;]*m//g'
+}
+
+_filter_read() {
+  local output
+  output="$(_strip_ansi)"
+
+  local err
+  err="$(printf '%s\n' "$output" | grep -m1 'Run command failure:')"
+  if [[ -n "$err" ]]; then
+    printf '\033[31mERROR: %s\033[0m\n' "${err##*Run command failure: }"
+    return 1
+  fi
+
+  local data_line
+  data_line="$(printf '%s\n' "$output" | grep -m1 'Data = ')"
+  if [[ -z "$data_line" ]]; then
+    printf '\033[31mERROR: no data in response\033[0m\n'
+    return 1
+  fi
+
+  # String value: Data = "..." (N chars),
+  local str_val
+  str_val="$(printf '%s\n' "$data_line" | sed -n 's/.*Data = "\(.*\)" ([0-9]* chars).*/\1/p')"
+  if [[ -n "$str_val" ]]; then
+    printf '%s' "$str_val" | python3 -m json.tool 2>/dev/null || printf '%s\n' "$str_val"
+    return 0
+  fi
+
+  # Numeric value: Data = N (unsigned/signed),
+  local num_val
+  num_val="$(printf '%s\n' "$data_line" | sed -n 's/.*Data = \([0-9-]*\) .*/\1/p')"
+  if [[ -n "$num_val" ]]; then
+    printf '%s\n' "$num_val"
+    return 0
+  fi
+
+  # Fallback: show raw Data= content
+  printf '%s\n' "$data_line" | sed 's/.*Data = //'
+}
+
+_filter_cmd() {
+  local output
+  output="$(_strip_ansi)"
+
+  local err
+  err="$(printf '%s\n' "$output" | grep -m1 'Run command failure:')"
+  if [[ -n "$err" ]]; then
+    printf '\033[31mERROR: %s\033[0m\n' "${err##*Run command failure: }"
+    return 1
+  fi
+
+  local status_line
+  status_line="$(printf '%s\n' "$output" | grep -m1 'Received Command Response Status')"
+  if [[ -n "$status_line" ]]; then
+    local cmd_status
+    cmd_status="$(printf '%s' "$status_line" | sed -n 's/.*Status=\(0x[0-9a-fA-F]*\).*/\1/p')"
+    if [[ "$cmd_status" == "0x0" ]]; then
+      printf '\033[32mOK\033[0m\n'
+    else
+      printf '\033[31mFAIL (Status=%s)\033[0m\n' "$cmd_status"
+      return 1
+    fi
+    return 0
+  fi
+
+  printf 'OK\n'
+}
+
+_filter_pair() {
+  local output
+  output="$(_strip_ansi)"
+
+  if printf '%s\n' "$output" | grep -q 'commissioning completed with success'; then
+    printf '\033[32mPaired successfully\033[0m\n'
+    return 0
+  fi
+
+  local err
+  err="$(printf '%s\n' "$output" | grep -m1 'commissioning Failure:\|Run command failure:')"
+  if [[ -n "$err" ]]; then
+    printf '\033[31mFAILED: %s\033[0m\n' "${err##*: }"
+    return 1
+  fi
+
+  printf 'Unknown result\n'
+  return 1
+}
+
+# ── Core ────────────────────────────────────────────────────
+
 read_attr() {
-  chip-tool any read-by-id "$CLUSTER_ID" "$1" "$NODE_ID" "$ENDPOINT_ID"
+  chip-tool any read-by-id "$CLUSTER_ID" "$1" "$NODE_ID" "$ENDPOINT_ID" \
+    --commissioner-name "$COMMISSIONER_NAME" 2>&1 | _filter_read
 }
 
 send_cmd() {
   local cmd_id="$1"
   local fields="${2:-\{\}}"
-  chip-tool any command-by-id "$CLUSTER_ID" "$cmd_id" "$fields" "$NODE_ID" "$ENDPOINT_ID"
+  chip-tool any command-by-id "$CLUSTER_ID" "$cmd_id" "$fields" "$NODE_ID" "$ENDPOINT_ID" \
+    --commissioner-name "$COMMISSIONER_NAME" 2>&1 | _filter_cmd
 }
 
-learn_state()      { read_attr 0x0000; }
+# ── Attribute Reads ─────────────────────────────────────────
+
+learn_state() {
+  local val
+  val="$(read_attr 0x0000)"
+  local rc=$?
+  case "$val" in
+    0) printf '%s (IDLE)\n' "$val" ;;
+    1) printf '%s (IN_PROGRESS)\n' "$val" ;;
+    2) printf '%s (READY)\n' "$val" ;;
+    3) printf '%s (FAILED)\n' "$val" ;;
+    *) printf '%s\n' "$val" ;;
+  esac
+  return $rc
+}
+
 learned_payload()  { read_attr 0x0001; }
 signals()          { read_attr 0x0002; }
 slots()            { read_attr 0x0003; }
 devices()          { read_attr 0x0004; }
+
+# ── Commands ────────────────────────────────────────────────
 
 learn() {
   local timeout_ms="${1:-15000}"
@@ -99,13 +213,15 @@ commission() {
 
 pair() {
   local pin="${1:-20202021}"
-  echo "Pairing node $NODE_ID with setup-pin-code $pin ..."
-  chip-tool pairing onnetwork "$NODE_ID" "$pin"
+  printf 'Pairing node %s (pin: %s) ...\n' "$NODE_ID" "$pin"
+  chip-tool pairing onnetwork "$NODE_ID" "$pin" \
+    --commissioner-name "$COMMISSIONER_NAME" 2>&1 | _filter_pair
 }
 
 unpair() {
-  echo "Unpairing node $NODE_ID ..."
-  chip-tool pairing unpair "$NODE_ID"
+  printf 'Unpairing node %s ...\n' "$NODE_ID"
+  chip-tool pairing unpair "$NODE_ID" \
+    --commissioner-name "$COMMISSIONER_NAME" 2>&1 | _filter_pair
 }
 
 smoke() {
@@ -133,15 +249,15 @@ api_help() {
 ── 장치 관리 ──────────────────────────────────────────────
   register <name> [type]      가상 장치 등록
   rename <device_id> <name>   장치 이름 변경
-  bind <dev> [on] [off] [up] [down]  신호 바인딩
+  bind <device_id> [on] [off] [up] [down]  신호 바인딩
 
 ── 슬롯 할당 ──────────────────────────────────────────────
   assign <slot:0-7> <dev_id>  장치를 슬롯에 할당
   unassign <slot:0-7>         슬롯 할당 해제
 
 ── 기타 ───────────────────────────────────────────────────
-  pair [setup_pin]              디바이스 커미셔닝 (기본 20202021)
-  unpair                        디바이스 커미셔닝 해제
+  pair [setup_pin]            디바이스 커미셔닝 (기본 20202021)
+  unpair                      디바이스 커미셔닝 해제
   commission [timeout_sec]    커미셔닝 창 열기
   smoke                       전체 상태 일괄 조회
 
