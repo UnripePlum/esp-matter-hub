@@ -1,5 +1,7 @@
 # 2026-03-10 구현 계획: Apple Home 대응을 위한 운영/개편 트랙
 
+> **상태**: Track A~C 전부 완료 (2026-03-12). 본 문서는 계획 단계의 기록이며, 구현 결과는 `2026-03-12_19_worklog_aggregator_transition_and_slot_model.md` 참조.
+
 ## 목적
 - 운영 라인 안정성을 유지하면서 Apple Home UX 한계를 검증 가능한 방식으로 개선
 - 고정 8슬롯 API 계약을 깨지 않고 Aggregator/Bridge 전환 가능성 평가

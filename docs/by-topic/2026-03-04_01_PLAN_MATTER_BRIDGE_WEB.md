@@ -152,3 +152,10 @@
 - Home 앱에서 4개 가상 기기 확인
 - 로컬 웹에서 신호 학습 후 바로 제어 성공
 - 재부팅 후 매핑/신호 유지 확인
+
+## 현재 완성된 기능 (2026-03-17 기준)
+- Phase 1~4 전부 완료 및 운영 중
+- Custom cluster 0x1337FC01 (endpoint 10) 구현
+- Aggregator 기반 토폴로지 전환 완료
+- Multi-fabric (Apple Home + chip-tool) 지원
+- PSRAM 기반 메모리 할당으로 commissioning 안정화

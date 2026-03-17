@@ -74,4 +74,8 @@
 ## 접근 정책
 - 현재 운영 기본값: IP + mDNS 병행
 - mDNS hostname은 충돌 방지를 위해 `esp-matter-hub-<mac_suffix>` 규칙 사용
-- 운영 스크립트 기준 접속: `./run_esp32-s3` -> `./open-local-web`
+- 운영 스크립트 기준 접속: `open-local-web`은 삭제됨. 대시보드 접속: 브라우저에서 직접 `http://<hub-ip>/` 또는 `hub_api_test` REPL 사용.
+
+## chip-tool 기반 테스트 도구
+- `hub_api_test`: chip-tool 래퍼 REPL (커스텀 클러스터 테스트용)
+- `--commissioner-name beta` 플래그 필수 (multi-fabric 환경)

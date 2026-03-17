@@ -117,6 +117,7 @@ curl -s -X DELETE "http://<hub-host>/api/signals/1"
 4. mDNS 실패 시 IP 직접 접속으로 API 재검증
 
 ## 현 계획(추가): Aggregator 개편 트랙
+(완료: 2026-03-12 구현. 상세 내용은 2026-03-12_19 참조)
 - 현재 릴리스 라인: 고정 8슬롯 평면 endpoint 구조 유지
 - Aggregator 아키텍처는 별도 트랙으로 설계/검증 후 병합 판단
 

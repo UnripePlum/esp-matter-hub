@@ -2,6 +2,8 @@
 
 ## 요약
 - 3색 상태 LED(R=GPIO15, G=GPIO16, B=GPIO17, common cathode) 연동 완료
+
+> **업데이트 (2026-03-12)**: 외부 3색 LED(GPIO 15/16/17)는 온보드 WS2812 LED로 교체됨. 상세 내용은 `2026-03-12_20` 문서 참조.
 - 슬롯 바인딩을 `onoff_signal_id` 단일 구조에서 `on_signal_id` / `off_signal_id` / `level_up_signal_id` / `level_down_signal_id` 구조로 변경
 - 웹 대시보드/API를 새 바인딩 구조로 전면 업데이트
 - mDNS 동작 경로를 정리했고, 현재는 alias host(`esp-matter-hub-<mac_suffix>.local`) 기반 HTTP 광고를 사용하도록 조정

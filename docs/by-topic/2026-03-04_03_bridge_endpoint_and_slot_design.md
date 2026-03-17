@@ -18,6 +18,10 @@
   - 슬롯 바인딩 상태 로드/저장(NVS)
   - `bridge_action_execute()`에서 slot + cluster + attribute 라우팅
 
+## 토폴로지 비고
+- 슬롯은 Aggregator endpoint의 bridged child로 구성됨
+- Endpoint 10: IrManagement custom cluster (0x1337FC01, Device Type 0xFFF10001)
+
 ## 동작 확인
 - Home 앱 조작 시 슬롯 로그가 출력되어 명령 라우팅 경로 확인 완료
   - OnOff/Level 명령이 slot action으로 반영됨

@@ -230,6 +230,24 @@
 ## 참고 문서
 - export API 스키마: `docs/by-topic/2026-03-09_13_api_export_nvs_json_schema.md`
 
+## 시나리오 13: Custom Cluster 검증
+### 절차
+1. chip-tool로 속성 5개 읽기 (smoke test)
+2. StartLearning → LearnState=1 확인
+3. RegisterDevice + RenameDevice 커맨드
+4. OpenCommissioning 커맨드
+### 기대 결과
+- 모든 속성 정상 반환
+- 커맨드 성공 응답
+
+## 시나리오 14: Multi-Fabric 검증
+### 절차
+1. Apple Home 페어링 확인
+2. HTTP API로 commissioning window open
+3. chip-tool pairing onnetwork --commissioner-name beta
+### 기대 결과
+- 두 fabric 모두 제어 가능
+
 ## 참고 커맨드
 ```bash
 curl -s "http://<hub-host>/api/health"

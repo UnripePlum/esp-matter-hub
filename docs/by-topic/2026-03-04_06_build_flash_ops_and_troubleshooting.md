@@ -9,8 +9,8 @@
 ```bash
 cd ~/IdeaProjects/esp-matter-hub
 ./run_esp32-s3 /dev/cu.usbserial-0001
-./open-local-web
 ```
+- 웹 접속: `hub_api_test` 또는 브라우저 직접 접속
 
 - 환경 로드 + 플래시/모니터
 ```bash
@@ -45,6 +45,20 @@ idf.py --build-dir build2 -p /dev/cu.usbserial-0001 flash monitor
 
 - 로그: `Timeout waiting for mDNS resolution`
   - 해석: Matter 운영 탐색 재시도 로그이며, 웹 mDNS(`_http._tcp`)와는 별개일 수 있음
+
+- 증상: Apple Home 페어링 시 "Pairing Failed" (AddNOC 단계)
+  - 로그: `mbedTLS error: BIGNUM - Memory allocation failed`
+  - 원인: 내부 DRAM 힙 부족. CHIP/mbedTLS가 내부 DRAM에서만 할당하고 있었음
+  - 대응: `CONFIG_CHIP_MEM_ALLOC_MODE_EXTERNAL=y`를 sdkconfig.defaults에 추가하여 PSRAM으로 전환
+  - 참고: `CONFIG_ESP_MATTER_MEM_ALLOC_MODE_EXTERNAL`과는 별개 설정임
+
+- 증상: chip-tool 속성 읽기/페어링 타임아웃 (IP 변경 후)
+  - 원인: 디바이스 리부트 시 DHCP에서 다른 IP를 받을 수 있음. chip-tool KVS에 stale 세션 잔존
+  - 대응: KVS 삭제 (`rm /var/folders/.../chip_tool_kvs*`) + commissioning window 재오픈 + 재페어링
+
+- 증상: IRAM 링크 실패 (region `iram0_0_seg` overflowed)
+  - 원인: IRAM 사용량 100% (16,383/16,384 bytes, 1바이트 잔여)
+  - 대응: IRAM에 배치되는 함수 추가 자제. 필요시 `IRAM_ATTR` 제거 또는 flash 실행으로 전환
 
 ## 오늘 결론
 - 실사용 운영 절차는

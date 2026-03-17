@@ -22,7 +22,7 @@
   - 조회 함수 구현
     - 메모리 테이블을 `/api/signals`로 노출
 
-## 현재 구현 상태 (2026-03-05 기준)
+## 현재 구현 상태 (2026-03-05 기준 (최신 업데이트: 2026-03-17))
 - IR raw payload 캡처/저장/재송신 경로 연결됨
   - RX: 듀얼 채널(GPIO5/GPIO6)에서 캡처 후 `rx_source`, `captured_len`, `quality_score` 노출
   - Commit: pending 학습을 `signal_id`로 확정하고 payload를 NVS에 저장
@@ -36,3 +36,6 @@
 ## 다음 구현 포인트
 - 메타데이터 테이블 + payload blob 분리 저장 구조로 확장
 - 장문 프레임(AC 리모컨) 대응을 위한 payload 상한 확장
+
+### Custom Cluster를 통한 학습
+Matter custom cluster (0x1337FC01)의 StartLearning/SaveSignal 커맨드로도 IR 학습이 가능합니다. 상세 내용은 `docs/api-spec-ir-management-cluster.md` 참조.
