@@ -253,7 +253,9 @@ api_help() {
   예: send_raw 100 41248A117C02 38000 1
 
 ── 버퍼/시스템 ────────────────────────────────────────────
-  sync_buffer                 버퍼 → NVS flush + 스냅샷 갱신
+  sync_buffer                 버퍼 → NVS flush + 버퍼 비움 + 스냅샷 갱신
+  dump_nvs                    SyncBuffer + NVS 전체 신호 조회 → 스냅샷
+  buffer_snapshot             BufferSnapshot 속성 읽기
   factory_reset               Matter 팩토리 리셋 (전체 초기화)
 
 ── 커미셔닝 ───────────────────────────────────────────────

@@ -39,6 +39,7 @@ run_cmd() {
     /learned_payload)  learned_payload ;;
     /buffer_snapshot)  buffer_snapshot ;;
     /sync_buffer)      sync_buffer ;;
+    /dump_nvs)         dump_nvs ;;
     /factory_reset)    factory_reset ;;
     /smoke)            smoke ;;
     /pair)             pair ;;

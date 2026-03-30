@@ -1,7 +1,7 @@
 # ESP Matter IR Hub — API 명세서 v3.2
 
 > **대상**: 앱 개발자
-> **버전**: 3.2 (2026-03-31)
+> **버전**: 3.2.2 (2026-03-31)
 
 ---
 
@@ -17,44 +17,61 @@
 
 ## 2. 커맨드
 
+모든 커맨드의 응답은 Matter Status Code로 반환됩니다.
+
+| Status | 값 | 설명 |
+|--------|---|------|
+| SUCCESS | 0x00 | 성공 |
+| FAILURE | 0x01 | 일반 실패 |
+| INVALID_COMMAND | 0x85 | 잘못된 파라미터 |
+| INVALID_ACTION | 0x86 | 현재 상태에서 실행 불가 |
+
 ### 2.1 SendSignalWithRaw (0x0B) — IR 신호 송신
 
-허브에 IR 신호를 전송합니다. 신호는 버퍼에 저장되어 빠른 재송신에 사용됩니다.
+**Request:**
 
-| Tag | 필드 | 타입 | 설명 |
-|-----|------|------|------|
-| 0 | signal_id | uint32 | 신호 고유 ID (앱이 지정) |
-| 1 | carrier_hz | uint32 | IR 캐리어 주파수 (보통 38000) |
-| 2 | repeat | uint8 | 반복 횟수 (1~5) |
-| 3 | ticks | octet_string | uint16 LE 인코딩 타이밍 데이터 (µs) |
+| Tag | 필드 | 타입 | 필수 | 설명 |
+|-----|------|------|------|------|
+| 0 | signal_id | uint32 | O | 신호 고유 ID (앱이 지정) |
+| 1 | carrier_hz | uint32 | O | IR 캐리어 주파수 (보통 38000) |
+| 2 | repeat | uint8 | O | 반복 횟수 (1~5) |
+| 3 | ticks | octet_string | O | uint16 LE 인코딩 타이밍 데이터 (µs) |
 
-**chip-tool 예시:**
-```bash
-chip-tool any command-by-id 0x1337FC01 0x0B \
-  '{"0:U32":100, "1:U32":38000, "2:U8":1, "3:BYTES":"41248A117C02"}' \
-  1 10 --commissioner-name beta
-```
+**Response:** Matter Status Code
+
+| 상황 | Status |
+|------|--------|
+| IR 송신 성공 | SUCCESS (0x00) |
+| ticks가 비어있거나 홀수 바이트 | INVALID_COMMAND (0x85) |
+| 학습 진행 중 | INVALID_ACTION (0x86) |
 
 ### 2.2 StartLearning (0x00) — IR 학습 시작
 
-IR 수신기를 활성화하고 리모컨 신호를 대기합니다.
+**Request:**
 
-| Tag | 필드 | 타입 | 설명 |
-|-----|------|------|------|
-| 0 | timeout_ms | uint32 | 타임아웃 (기본 15000ms) |
+| Tag | 필드 | 타입 | 필수 | 설명 |
+|-----|------|------|------|------|
+| 0 | timeout_ms | uint32 | X | 타임아웃 (기본 15000ms) |
 
-**학습 프로세스:**
+**Response:** Matter Status Code
+
+| 상황 | Status |
+|------|--------|
+| 학습 시작됨 | SUCCESS (0x00) |
+| 이미 학습 진행 중 | INVALID_ACTION (0x86) |
+
+**학습 결과 확인 — LearnedPayload(0x0001) 속성 폴링:**
+
 ```
 앱                              허브
  │── StartLearning(15000) ────→ │ IR 수신기 활성화, 타이머 시작
  │                               │ (사용자가 리모컨 버튼 누름)
  │── LearnedPayload 폴링 ─────→ │
- │←── state=1 (진행 중) ──────── │
+ │←── {"state":1, ...} ───────── │ 진행 중
  │── LearnedPayload 폴링 ─────→ │
- │←── state=2 + carrier + ticks  │ 학습 성공! IR 데이터 포함
+ │←── {"state":2, "carrier":38000, "ticks":"A801..."} │ 성공!
  │                               │
  │  앱이 carrier + ticks 저장    │
- │                               │
  │── SendSignalWithRaw ────────→ │ 저장한 ticks로 IR 재생
 ```
 
@@ -63,68 +80,94 @@ IR 수신기를 활성화하고 리모컨 신호를 대기합니다.
 | 값 | 상태 | 설명 | 앱 동작 |
 |----|------|------|---------|
 | 0 | IDLE | 대기 중 | StartLearning 호출 |
-| 1 | IN_PROGRESS | 학습 중, IR 신호 대기 | 계속 폴링 |
-| 2 | READY | 학습 성공, 데이터 준비됨 | LearnedPayload에서 carrier + ticks 추출 |
+| 1 | IN_PROGRESS | 학습 중, IR 신호 대기 | 계속 폴링 (~500ms 간격) |
+| 2 | READY | 학습 성공, 데이터 준비됨 | carrier + ticks 추출 후 앱에 저장 |
 | 3 | FAILED | 타임아웃, 학습 실패 | 사용자에게 재시도 안내 |
-
-**폴링 방법:** `LearnedPayload(0x0001)`만 읽으면 state + carrier + ticks를 한번에 확인할 수 있습니다. 별도로 `LearnState(0x0000)`를 읽을 필요 없습니다.
 
 ### 2.3 CancelLearning (0x01) — 학습 취소
 
-진행 중인 학습을 취소합니다. 파라미터 없음.
+**Request:** 파라미터 없음
+
+**Response:** Matter Status Code (SUCCESS)
 
 ### 2.4 OpenCommissioning (0x08) — 커미셔닝 창 열기
 
-| Tag | 필드 | 타입 | 설명 |
-|-----|------|------|------|
-| 0 | timeout_s | uint16 | 타임아웃 초 (기본 300) |
+**Request:**
+
+| Tag | 필드 | 타입 | 필수 | 설명 |
+|-----|------|------|------|------|
+| 0 | timeout_s | uint16 | X | 타임아웃 초 (기본 300) |
+
+**Response:** Matter Status Code (SUCCESS / FAILURE)
 
 ### 2.5 SyncBuffer (0x0C) — 버퍼 → NVS 동기화
 
-파라미터 없음. 버퍼의 모든 신호를 NVS에 저장한 후 버퍼를 비웁니다 (clear).
+**Request:** 파라미터 없음
 
-**동작**:
-1. 버퍼의 모든 유효한 항목을 NVS에 저장
-2. 버퍼 전체 초기화 (invalid 처리)
-3. 결과를 **BufferSnapshot (0x0007)** 속성에 기록
+**Response:** Matter Status Code (SUCCESS)
 
-```bash
-# 실행 후 스냅샷 조회
-chip-tool any command-by-id 0x1337FC01 0x0C '{}' 1 10
-chip-tool any read-by-id 0x1337FC01 0x0007 1 10
-```
+**동작 후 속성 변화:**
+- BufferSnapshot(0x0007)에 버퍼 내용 기록 (JSON 배열)
+- 버퍼 비움 (clear)
 
 ### 2.6 DumpNVS (0x0E) — NVS 전체 신호 조회
 
-파라미터 없음. 허브에 저장된 모든 NVS 신호를 조회합니다.
+**Request:** 파라미터 없음
 
-**동작**:
-1. SyncBuffer 실행 (버퍼 → NVS 저장 + 버퍼 비움)
-2. NVS의 모든 IR 신호 데이터 읽기
-3. 결과를 **BufferSnapshot (0x0007)** 속성에 JSON 배열로 기록
+**Response:** Matter Status Code (SUCCESS)
 
-**사용 사례**: 앱이 허브의 모든 저장된 신호를 한 번에 조회
-
-```bash
-chip-tool any command-by-id 0x1337FC01 0x0E '{}' 1 10
-chip-tool any read-by-id 0x1337FC01 0x0007 1 10
-```
+**동작 후 속성 변화:**
+- SyncBuffer 실행 (버퍼 → NVS + 비움)
+- NVS의 모든 IR 신호를 BufferSnapshot(0x0007)에 기록
 
 ### 2.7 FactoryReset (0x0D) — 팩토리 리셋
 
-파라미터 없음. Matter 팩토리 리셋을 수행합니다. NVS 전체 초기화 + 재부팅.
+**Request:** 파라미터 없음
+
+**Response:** 없음 (디바이스 즉시 재부팅)
 
 ---
 
 ## 3. 속성 (읽기 전용)
 
-| ID | 이름 | 타입 | 설명 |
-|----|------|------|------|
-| 0x0000 | LearnState | uint8 | 학습 상태: 0=IDLE, 1=IN_PROGRESS, 2=READY, 3=FAILED |
-| 0x0001 | LearnedPayload | long_char_str | 학습 결과 JSON (READY 상태일 때 carrier와 ticks 포함) |
-| 0x0007 | BufferSnapshot | long_char_str | DumpNVS/SyncBuffer 실행 후 신호 데이터 JSON 배열 |
+### 3.1 LearnState (0x0000)
 
-**LearnedPayload 형식 (READY 상태):**
+| 항목 | 값 |
+|------|---|
+| 타입 | uint8 |
+| 읽기 | `read-by-id 0x1337FC01 0x0000` |
+
+**Response:** 정수 값 (0~3)
+
+```
+0 = IDLE
+1 = IN_PROGRESS
+2 = READY
+3 = FAILED
+```
+
+### 3.2 LearnedPayload (0x0001)
+
+| 항목 | 값 |
+|------|---|
+| 타입 | long_char_str (JSON) |
+| 최대 크기 | 1280 bytes |
+| 읽기 | `read-by-id 0x1337FC01 0x0001` |
+
+**Response (state != READY):**
+```json
+{
+  "state": 1,
+  "elapsed": 2500,
+  "timeout": 15000,
+  "last_id": 0,
+  "rx": 0,
+  "len": 0,
+  "quality": 0
+}
+```
+
+**Response (state == READY — 학습 성공):**
 ```json
 {
   "state": 2,
@@ -139,15 +182,59 @@ chip-tool any read-by-id 0x1337FC01 0x0007 1 10
 }
 ```
 
-**주의**: `ticks`는 uint16 LE 인코딩 바이트 hex입니다. 이 값을 그대로 SendSignalWithRaw의 BYTES 파라미터에 사용할 수 있습니다.
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| state | int | 학습 상태 (0~3) |
+| elapsed | int | 경과 시간 (ms) |
+| timeout | int | 설정된 타임아웃 (ms) |
+| last_id | int | 마지막 신호 ID |
+| rx | int | 수신 소스 번호 |
+| len | int | 캡처된 ticks 수 |
+| quality | int | 신호 품질 점수 |
+| carrier | int | IR 캐리어 주파수 (Hz). **READY일 때만** |
+| ticks | string | IR 타이밍 데이터 (hex). **READY일 때만** |
 
-**BufferSnapshot 형식 (SyncBuffer/DumpNVS 실행 후):**
+**ticks 형식:** uint16 LE 바이트 hex. `SendSignalWithRaw`의 `ticks` 파라미터에 그대로 사용 가능.
+
+### 3.3 BufferSnapshot (0x0007)
+
+| 항목 | 값 |
+|------|---|
+| 타입 | long_char_str (JSON 배열) |
+| 최대 크기 | 2048 bytes |
+| 읽기 | `read-by-id 0x1337FC01 0x0007` |
+| 갱신 시점 | SyncBuffer(0x0C) 또는 DumpNVS(0x0E) 실행 후 |
+
+**Response:**
 ```json
 [
-  {"signal_id":100, "carrier_hz":38000, "repeat":1, "item_count":32, "ref_count":3, "last_seen_at":1743400000},
-  ...
+  {
+    "signal_id": 100,
+    "carrier_hz": 38000,
+    "repeat": 1,
+    "tick_count": 48,
+    "ref_count": 3,
+    "last_seen_at": 1743400000
+  },
+  {
+    "signal_id": 200,
+    "carrier_hz": 38000,
+    "repeat": 1,
+    "tick_count": 32,
+    "ref_count": 1,
+    "last_seen_at": 1743400500
+  }
 ]
 ```
+
+| 필드 | 타입 | 설명 |
+|------|------|------|
+| signal_id | int | 신호 고유 ID |
+| carrier_hz | int | 캐리어 주파수 (Hz) |
+| repeat | int | 반복 횟수 |
+| tick_count | int | ticks 수 |
+| ref_count | int | NVS 저장 횟수 (버퍼→NVS 시 증가) |
+| last_seen_at | int | 마지막 저장 Unix timestamp (SNTP 동기화 전이면 0) |
 
 ---
 
@@ -156,7 +243,7 @@ chip-tool any read-by-id 0x1337FC01 0x0007 1 10
 - 16개 엔트리, LRU 교체
 - `SendSignalWithRaw`로 전송된 신호가 자동 저장
 - 버퍼가 가득 차면 NVS에 일괄 저장 (ref_count 증가, timestamp 기록)
-- `SyncBuffer(0x0C)`로 수동 flush 가능
+- `SyncBuffer(0x0C)`로 수동 flush + 비우기
 - 재부팅 시 슬롯에 설정된 signal_id를 NVS에서 복원
 
 ---
@@ -168,24 +255,21 @@ chip-tool any read-by-id 0x1337FC01 0x0007 1 10
    OpenCommissioning(0x08) → BLE WiFi 페어링
 
 2. IR 학습
-   StartLearning(0x00) → 리모컨 버튼 누름 → LearnState 폴링 (READY 확인)
-   → LearnedPayload 읽기 (carrier + ticks 획득) → 앱에 저장
+   StartLearning(0x00) → 리모컨 버튼 누름
+   → LearnedPayload(0x0001) 폴링 (~500ms)
+   → state==2: carrier + ticks 추출 → 앱에 저장
+   → state==3: 실패, 재시도
 
 3. IR 송신
    SendSignalWithRaw(0x0B, signal_id, carrier, repeat, ticks)
-   → 허브가 IR 송신 + 버퍼 저장
+   → ticks는 학습에서 받은 hex 그대로 사용
 
 4. NVS 동기화
-   DumpNVS(0x0E) → BufferSnapshot(0x0007) 읽기 → 모든 NVS 신호 조회
+   DumpNVS(0x0E) → BufferSnapshot(0x0007) 읽기
 
 5. 초기화
-   FactoryReset(0x0D) → 허브 전체 초기화
+   FactoryReset(0x0D)
 ```
-
-**주의사항**:
-- LearnedPayload의 ticks hex는 SendSignalWithRaw에 그대로 사용 가능
-- SyncBuffer(0x0C)는 앱이 허브 리부팅 전에 버퍼를 강제 저장할 때 사용
-- DumpNVS(0x0E)는 허브의 모든 저장된 신호를 조회할 때 사용
 
 ---
 
@@ -193,6 +277,7 @@ chip-tool any read-by-id 0x1337FC01 0x0007 1 10
 
 | 버전 | 날짜 | 변경 내용 |
 |------|------|-----------|
+| 3.2.2 | 2026-03-31 | Request/Response 인터페이스 명시, SaveSignal(0x02) 제거 |
 | 3.2.1 | 2026-03-31 | DumpNVS(0x0E) 추가, LearnedPayload에 ticks 포함, SyncBuffer 버퍼 비움, 미사용 커맨드/속성 제거 |
 | 3.2 | 2026-03-31 | button_type 슬롯 모델, SendSignalWithRaw 4-param 단순화, SyncBuffer/FactoryReset 추가 |
 | 3.1 | 2026-03-30 | 앱 중심 신호 관리, SendSignalWithRaw 도입, 캐시+NVS 하이브리드 |
