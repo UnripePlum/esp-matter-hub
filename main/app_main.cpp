@@ -178,6 +178,14 @@ static void on_ip_event(void *arg, esp_event_base_t event_base, int32_t event_id
 
     esp_sntp_setoperatingmode(ESP_SNTP_OPMODE_POLL);
     esp_sntp_setservername(0, "pool.ntp.org");
+    esp_sntp_set_time_sync_notification_cb([](struct timeval *tv) {
+        time_t now = time(nullptr);
+        struct tm t;
+        localtime_r(&now, &t);
+        ESP_LOGI("SNTP", "Time synced: %04d-%02d-%02d %02d:%02d:%02d",
+                 t.tm_year + 1900, t.tm_mon + 1, t.tm_mday,
+                 t.tm_hour, t.tm_min, t.tm_sec);
+    });
     esp_sntp_init();
     ESP_LOGI(TAG, "SNTP initialized, syncing time from pool.ntp.org");
 

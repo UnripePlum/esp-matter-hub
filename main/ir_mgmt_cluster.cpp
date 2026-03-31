@@ -268,42 +268,13 @@ static esp_err_t cmd_send_signal_with_raw(const ConcreteCommandPath &path, TLVRe
     return ESP_OK;
 }
 
+static esp_err_t cmd_dump_nvs(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque);
+
 static esp_err_t cmd_sync_buffer(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque)
 {
-    ESP_LOGI(TAG, "SyncBuffer: flushing buffer to NVS");
-    ir_engine_flush_buffer_to_nvs();
-
-    // Build JSON snapshot of all valid buffer entries
-    size_t count = 0;
-    const signal_buffer_entry_t *entries = ir_engine_buffer_get_all(&count);
-
-    char buf[1024];
-    int off = 0;
-    off += snprintf(buf + off, sizeof(buf) - off, "[");
-    bool first = true;
-    for (size_t i = 0; i < count; ++i) {
-        const signal_buffer_entry_t &e = entries[i];
-        if (!e.valid) continue;
-        off += snprintf(buf + off, sizeof(buf) - off,
-                        "%s{\"signal_id\":%lu,\"carrier_hz\":%lu,\"repeat\":%u,\"item_count\":%u,\"ref_count\":%lu,\"last_seen_at\":%lld}",
-                        first ? "" : ",",
-                        static_cast<unsigned long>(e.signal_id),
-                        static_cast<unsigned long>(e.carrier_hz),
-                        e.repeat,
-                        static_cast<unsigned>(e.item_count),
-                        static_cast<unsigned long>(e.ref_count),
-                        static_cast<long long>(e.last_seen_at));
-        first = false;
-        if (off >= static_cast<int>(sizeof(buf) - 2)) break;
-    }
-    off += snprintf(buf + off, sizeof(buf) - off, "]");
-
-    esp_matter_attr_val_t val = esp_matter_long_char_str(buf, static_cast<uint16_t>(off));
-    esp_matter::attribute::set_val(s_ir_mgmt_endpoint_id, IR_MGMT_CLUSTER_ID, IR_MGMT_ATTR_BUFFER_SNAPSHOT, &val);
-
-    ESP_LOGI(TAG, "SyncBuffer: snapshot written (%d bytes, %zu entries)", off, count);
-    refresh_all_attributes();
-    return ESP_OK;
+    // SyncBuffer is now an alias for DumpNVS — no RAM buffer exists
+    ESP_LOGI(TAG, "SyncBuffer: reading all NVS signals (alias for DumpNVS)");
+    return cmd_dump_nvs(path, tlv, opaque);
 }
 
 static esp_err_t cmd_factory_reset(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque)
@@ -315,12 +286,9 @@ static esp_err_t cmd_factory_reset(const ConcreteCommandPath &path, TLVReader &t
 
 static esp_err_t cmd_dump_nvs(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque)
 {
-    ESP_LOGI(TAG, "DumpNVS: sync buffer then read all NVS signals");
+    ESP_LOGI(TAG, "DumpNVS: reading all NVS signals");
 
-    // Step 1: Flush buffer to NVS + clear buffer
-    ir_engine_flush_buffer_to_nvs();
-
-    // Step 2: Read all NVS signals into BufferSnapshot attribute
+    // Read all NVS signals into BufferSnapshot attribute
     char buf[2048];
     int len = ir_engine_read_all_nvs_signals(buf, sizeof(buf));
 

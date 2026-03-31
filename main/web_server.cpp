@@ -104,8 +104,6 @@ static const char *kDashboardHtml =
     ".pill.wait{background:#fff4ce;color:#7a5d00}.pill.ok{background:#dcfce7;color:#166534}.pill.err{background:#fee2e2;color:#991b1b}"
     ".sys{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px}"
     ".sys div{background:#f9fafb;padding:8px 12px;border-radius:8px}.sys .label{font-size:11px;color:#667085}.sys .val{font-size:18px;font-weight:600}"
-    ".cache-bar{display:flex;gap:2px;margin:8px 0}.buf-slot{width:24px;height:24px;border-radius:4px;background:#e9edf0;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600}"
-    ".buf-slot.used{background:#0a84ff;color:#fff}"
     ".pulse{animation:pulse .7s ease-in-out}@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}"
     "</style></head><body>"
     "<h1>ESP Matter Hub <span class='muted' style='font-size:14px'>v3.1</span></h1>"
@@ -119,12 +117,6 @@ static const char *kDashboardHtml =
     "<div id='mainContent' style='display:none'>"
 
     "<div class='card'><h3>System</h3><div class='sys' id='sysInfo'><div><div class='label'>Status</div><div class='val'>-</div></div></div></div>"
-
-    "<div class='card'><h3>Signal Buffer</h3>"
-    "<p class='muted'>App sends IR data via Matter (SendSignalWithRaw). Hub buffers for fast replay. Persisted to NVS when full.</p>"
-    "<div id='bufferBar' class='cache-bar'></div>"
-    "<p id='bufferInfo' class='muted'>-</p>"
-    "<table><thead><tr><th>#</th><th>Signal ID</th><th>Carrier</th><th>Repeat</th><th>Items</th></tr></thead><tbody id='cache'></tbody></table></div>"
 
     "<div class='card'><h3>Endpoint Slots</h3>"
     "<p class='muted'>Configure button type and signal mapping per slot.</p>"
@@ -143,8 +135,8 @@ static const char *kDashboardHtml =
     "</div></div>"
 
     "<div class='card'><h3>Persisted Signals</h3>"
-    "<p class='muted'>Signals currently in the buffer (persisted to NVS when evicted).</p>"
-    "<table><thead><tr><th>Signal ID</th><th>Carrier</th><th>Repeat</th><th>Ref Count</th><th>Last Seen</th><th>Items</th></tr></thead><tbody id='persisted'></tbody></table></div>"
+    "<p class='muted'>Signals stored in NVS. Use DumpNVS (Matter command) to refresh this list.</p>"
+    "<table><thead><tr><th>Signal ID</th><th>Carrier</th><th>Repeat</th><th>Ref Count</th><th>Last Seen</th></tr></thead><tbody id='persisted'></tbody></table></div>"
 
     "</div>"
     "<script>"
@@ -167,15 +159,6 @@ static const char *kDashboardHtml =
     "<div><div class='label'>LED</div><div class='val'>${d.led_state}</div></div>"
     "<div><div class='label'>Hostname</div><div class='val' style='font-size:12px'>${d.fqdn||'-'}</div></div>`;}"
 
-    "async function refreshBuffer(){const [s,d]=await j('/api/buffer');if(s!==200)return;const entries=d.entries||[];"
-    "const used=entries.filter(e=>e.valid).length;document.getElementById('bufferInfo').textContent=`${used}/${entries.length} buffered`;"
-    "const bar=document.getElementById('bufferBar');bar.innerHTML='';for(let i=0;i<entries.length;i++){const e=entries[i];"
-    "const div=document.createElement('div');div.className='buf-slot'+(e.valid?' used':'');div.textContent=e.valid?e.signal_id:'';div.title=e.valid?`sig=${e.signal_id} carrier=${e.carrier_hz} items=${e.item_count}`:'empty';bar.appendChild(div);}"
-    "const t=document.getElementById('cache');t.innerHTML='';for(const e of entries){if(!e.valid)continue;const tr=document.createElement('tr');"
-    "tr.innerHTML=`<td>${entries.indexOf(e)}</td><td>${e.signal_id}</td><td>${e.carrier_hz}</td><td>${e.repeat}</td><td>${e.item_count}</td>`;t.appendChild(tr);}"
-    "const pt=document.getElementById('persisted');pt.innerHTML='';for(const e of entries){if(!e.valid)continue;const tr=document.createElement('tr');"
-    "const ls=e.last_seen_at>0?new Date(e.last_seen_at).toLocaleString():'-';"
-    "tr.innerHTML=`<td>${e.signal_id}</td><td>${e.carrier_hz}</td><td>${e.repeat}</td><td>${e.ref_count||0}</td><td>${ls}</td><td>${e.item_count}</td>`;pt.appendChild(tr);}}"
 
     "const BT=['ONOFF','LEVEL','ONLYON'];"
     "const LBL_A=['ON','UP','Signal'];const LBL_B=['OFF','DOWN',''];"
@@ -236,8 +219,8 @@ static const char *kDashboardHtml =
     "const [s,d]=await j('/api/learn/start',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({timeout_s:t})});"
     "document.getElementById('captureHint').className='pill wait';document.getElementById('captureHint').textContent='Listening...';setTimeout(refreshStatus,300);}"
 
-    "function initDashboard(){refreshSys();refreshBuffer();refreshSlots();refreshStatus();"
-    "setInterval(refreshStatus,1000);setInterval(()=>{refreshSys();refreshBuffer();},5000);}"
+    "function initDashboard(){refreshSys();refreshSlots();refreshStatus();"
+    "setInterval(refreshStatus,1000);setInterval(refreshSys,5000);}"
     "tryAutoUnlock();"
     "</script></body></html>";
 
@@ -288,47 +271,6 @@ static esp_err_t health_get_handler(httpd_req_t *req)
              static_cast<unsigned long>(esp_get_free_heap_size()),
              static_cast<unsigned long>(esp_get_minimum_free_heap_size()));
     return send_json(req, body);
-}
-
-static esp_err_t buffer_get_handler(httpd_req_t *req)
-{
-    size_t count = 0;
-    const signal_buffer_entry_t *entries = ir_engine_buffer_get_all(&count);
-
-    esp_err_t err = begin_json_stream(req);
-    if (err != ESP_OK) {
-        return err;
-    }
-
-    err = httpd_resp_sendstr_chunk(req, "{\"entries\":[");
-    if (err != ESP_OK) {
-        return err;
-    }
-
-    char item[192];
-    for (size_t i = 0; i < count; ++i) {
-        const signal_buffer_entry_t &e = entries[i];
-        snprintf(item, sizeof(item),
-                 "%s{\"valid\":%s,\"signal_id\":%lu,\"carrier_hz\":%lu,\"repeat\":%u,\"item_count\":%u,\"ref_count\":%lu,\"last_seen_at\":%lld}",
-                 (i == 0) ? "" : ",",
-                 e.valid ? "true" : "false",
-                 static_cast<unsigned long>(e.signal_id),
-                 static_cast<unsigned long>(e.carrier_hz),
-                 e.repeat,
-                 static_cast<unsigned>(e.item_count),
-                 static_cast<unsigned long>(e.ref_count),
-                 static_cast<long long>(e.last_seen_at));
-        err = httpd_resp_sendstr_chunk(req, item);
-        if (err != ESP_OK) {
-            return err;
-        }
-    }
-
-    err = httpd_resp_sendstr_chunk(req, "]}");
-    if (err != ESP_OK) {
-        return err;
-    }
-    return end_json_stream(req);
 }
 
 static esp_err_t slots_get_handler(httpd_req_t *req)
@@ -751,17 +693,6 @@ esp_err_t app_web_server_start()
         .user_ctx = nullptr,
     };
     err = register_uri_handler_checked(s_server, &learn_replay_uri);
-    if (err != ESP_OK) {
-        return err;
-    }
-
-    const httpd_uri_t cache_uri = {
-        .uri = "/api/buffer",
-        .method = HTTP_GET,
-        .handler = buffer_get_handler,
-        .user_ctx = nullptr,
-    };
-    err = register_uri_handler_checked(s_server, &cache_uri);
     if (err != ESP_OK) {
         return err;
     }

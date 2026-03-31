@@ -152,7 +152,7 @@ send_raw() {
   send_cmd 0x0B "{\"0:U32\":${sig}, \"1:U32\":${carrier}, \"2:U8\":${repeat}, \"3:BYTES\":\"${ticks_hex}\"}"
 }
 
-sync_buffer()    { send_cmd 0x0C; }
+sync_buffer()    { dump_nvs; }  # alias for dump_nvs (no RAM buffer)
 factory_reset()  { send_cmd 0x0D; }
 dump_nvs()       { send_cmd 0x0E; echo "Reading snapshot..."; buffer_snapshot; }
 buffer_snapshot() { read_attr 0x0007; }
@@ -252,9 +252,9 @@ api_help() {
                               raw 신호 송신 + 버퍼 저장
   예: send_raw 100 41248A117C02 38000 1
 
-── 버퍼/시스템 ────────────────────────────────────────────
-  sync_buffer                 버퍼 → NVS flush + 버퍼 비움 + 스냅샷 갱신
-  dump_nvs                    SyncBuffer + NVS 전체 신호 조회 → 스냅샷
+── NVS/시스템 ─────────────────────────────────────────────
+  sync_buffer                 dump_nvs 별칭 (RAM 버퍼 없음)
+  dump_nvs                    NVS 전체 신호 조회 → 스냅샷
   buffer_snapshot             BufferSnapshot 속성 읽기
   factory_reset               Matter 팩토리 리셋 (전체 초기화)
 

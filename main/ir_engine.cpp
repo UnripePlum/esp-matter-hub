@@ -55,8 +55,6 @@ static uint16_t s_pending_quality = 0;
 static uint32_t s_noise_reject_count[kRxCount] = { 0 };
 static uint64_t s_noise_last_log_us[kRxCount] = { 0 };
 
-static signal_buffer_entry_t s_signal_buffer[SIGNAL_BUFFER_SIZE] = {};
-static uint32_t s_buffer_tick = 0;
 static SemaphoreHandle_t s_tx_mutex = nullptr;
 
 static size_t ticks_to_rmt_items(const uint16_t *ticks, size_t tick_count, rmt_item32_t *out_items, size_t max_items)
@@ -77,35 +75,6 @@ static size_t ticks_to_rmt_items(const uint16_t *ticks, size_t tick_count, rmt_i
         }
     }
     return item_count;
-}
-
-static signal_buffer_entry_t *buffer_find_slot(uint32_t signal_id)
-{
-    // First check for existing entry
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        if (s_signal_buffer[i].valid && s_signal_buffer[i].signal_id == signal_id) {
-            return &s_signal_buffer[i];
-        }
-    }
-    // Find LRU slot (invalid slot first, then lowest last_used)
-    signal_buffer_entry_t *lru = nullptr;
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        if (!s_signal_buffer[i].valid) {
-            return &s_signal_buffer[i];
-        }
-        if (!lru || s_signal_buffer[i].last_used < lru->last_used) {
-            lru = &s_signal_buffer[i];
-        }
-    }
-    return lru;
-}
-
-const signal_buffer_entry_t *ir_engine_buffer_get_all(size_t *count)
-{
-    if (count) {
-        *count = SIGNAL_BUFFER_SIZE;
-    }
-    return s_signal_buffer;
 }
 
 static void make_binding_key(uint8_t slot_id, const char *suffix, char *out_key, size_t out_size)
@@ -376,9 +345,6 @@ esp_err_t ir_engine_init()
     s_pending_rx_source = 0;
     s_pending_quality = 0;
 
-    memset(s_signal_buffer, 0, sizeof(s_signal_buffer));
-    s_buffer_tick = 0;
-
     if (!s_tx_mutex) {
         s_tx_mutex = xSemaphoreCreateMutex();
         if (!s_tx_mutex) {
@@ -399,8 +365,6 @@ esp_err_t ir_engine_init()
         }
     }
 
-    ir_engine_load_buffer();
-
     ESP_LOGI(TAG, "IR engine initialized");
     return ESP_OK;
 }
@@ -416,29 +380,52 @@ esp_err_t ir_engine_send_signal(uint32_t signal_id, uint8_t slot_id, uint32_t cl
         return ESP_ERR_NOT_FOUND;
     }
 
-    // Look up in buffer
-    signal_buffer_entry_t *buf_entry = nullptr;
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        if (s_signal_buffer[i].valid && s_signal_buffer[i].signal_id == signal_id) {
-            buf_entry = &s_signal_buffer[i];
-            break;
-        }
+    // Read signal directly from NVS
+    char ckey[16];
+    snprintf(ckey, sizeof(ckey), "c%" PRIu32, signal_id);
+
+    nvs_handle_t nvs_handle;
+    esp_err_t nvs_err = nvs_open(kNvsCacheNamespace, NVS_READONLY, &nvs_handle);
+    if (nvs_err != ESP_OK) {
+        ESP_LOGW(TAG, "Signal %" PRIu32 " not found in NVS (open failed: %s)", signal_id, esp_err_to_name(nvs_err));
+        return ESP_ERR_NOT_FOUND;
     }
 
-    rmt_item32_t items[64] = {};
-    size_t item_count = 0;
-    uint32_t carrier_hz = 38000;
-    uint8_t repeat = 1;
+    uint8_t blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
+    size_t blob_size = sizeof(blob);
+    nvs_err = nvs_get_blob(nvs_handle, ckey, blob, &blob_size);
+    nvs_close(nvs_handle);
 
-    if (buf_entry) {
-        buf_entry->last_used = ++s_buffer_tick;
-        item_count = buf_entry->item_count;
-        carrier_hz = buf_entry->carrier_hz;
-        repeat = buf_entry->repeat;
-        memcpy(items, buf_entry->items, item_count * sizeof(rmt_item32_t));
-    } else {
-        ESP_LOGW(TAG, "Signal %" PRIu32 " not found in buffer", signal_id);
+    if (nvs_err != ESP_OK || blob_size < 11) {
+        ESP_LOGW(TAG, "Signal %" PRIu32 " not found in NVS", signal_id);
         return ESP_ERR_NOT_FOUND;
+    }
+
+    static constexpr size_t kNewHeaderSize = 4 + 4 + 1 + 2 + 4 + 8;
+    size_t off = 0;
+    uint32_t sig_id_stored, carrier_hz;
+    uint8_t repeat;
+    uint16_t tc16;
+    memcpy(&sig_id_stored, blob + off, 4); off += 4;
+    memcpy(&carrier_hz,    blob + off, 4); off += 4;
+    memcpy(&repeat,        blob + off, 1); off += 1;
+    memcpy(&tc16,          blob + off, 2); off += 2;
+    if (blob_size >= kNewHeaderSize + tc16 * sizeof(uint16_t)) {
+        off += 4 + 8; // skip ref_count + last_seen_at
+    }
+    if (tc16 == 0 || tc16 > 128 || blob_size < off + tc16 * sizeof(uint16_t)) {
+        ESP_LOGW(TAG, "Signal %" PRIu32 " blob corrupt", signal_id);
+        return ESP_ERR_NOT_FOUND;
+    }
+
+    uint16_t ticks[128];
+    memcpy(ticks, blob + off, tc16 * sizeof(uint16_t));
+
+    rmt_item32_t items[64] = {};
+    size_t item_count = ticks_to_rmt_items(ticks, tc16, items, 64);
+    if (item_count == 0) {
+        ESP_LOGW(TAG, "Signal %" PRIu32 " ticks_to_rmt failed", signal_id);
+        return ESP_ERR_INVALID_SIZE;
     }
 
     if (repeat > kMaxRepeatCount) {
@@ -531,30 +518,6 @@ const uint16_t *ir_engine_get_learned_ticks(uint8_t *out_len, uint32_t *out_carr
     return s_pending_payload;
 }
 
-// ---- Buffer public API ----
-
-const signal_buffer_entry_t *ir_engine_buffer_lookup(uint32_t signal_id)
-{
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        if (s_signal_buffer[i].valid && s_signal_buffer[i].signal_id == signal_id) {
-            return &s_signal_buffer[i];
-        }
-    }
-    return nullptr;
-}
-
-static void persist_buffer_to_nvs();
-
-void ir_engine_flush_buffer_to_nvs()
-{
-    persist_buffer_to_nvs();
-    // Clear buffer after persisting
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        s_signal_buffer[i].valid = false;
-    }
-    ESP_LOGI(TAG, "Buffer cleared after NVS persist");
-}
-
 int ir_engine_read_all_nvs_signals(char *out_json, size_t out_size)
 {
     if (!out_json || out_size < 3) return 0;
@@ -622,73 +585,6 @@ int ir_engine_read_all_nvs_signals(char *out_json, size_t out_size)
     return off;
 }
 
-static void persist_buffer_to_nvs()
-{
-    nvs_handle_t handle;
-    esp_err_t err = nvs_open(kNvsCacheNamespace, NVS_READWRITE, &handle);
-    if (err != ESP_OK) {
-        ESP_LOGW(TAG, "Failed to open ir_cache for buffer persist: %s", esp_err_to_name(err));
-        return;
-    }
-
-    int persisted = 0;
-    for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-        const signal_buffer_entry_t &e = s_signal_buffer[i];
-        if (!e.valid || e.signal_id == 0) continue;
-
-        // Convert RMT items back to ticks for storage
-        uint16_t ticks[128];
-        size_t tick_count = 0;
-        for (size_t j = 0; j < e.item_count && tick_count < 126; ++j) {
-            ticks[tick_count++] = static_cast<uint16_t>(e.items[j].duration0);
-            ticks[tick_count++] = static_cast<uint16_t>(e.items[j].duration1);
-        }
-
-        // Try to read existing blob to preserve/increment ref_count
-        uint32_t existing_ref_count = 0;
-        char key[16];
-        snprintf(key, sizeof(key), "c%" PRIu32, e.signal_id);
-        {
-            size_t existing_size = 0;
-            if (nvs_get_blob(handle, key, nullptr, &existing_size) == ESP_OK &&
-                existing_size >= (4 + 4 + 1 + 2 + 4 + 8)) {
-                uint8_t existing_blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
-                if (existing_size <= sizeof(existing_blob) &&
-                    nvs_get_blob(handle, key, existing_blob, &existing_size) == ESP_OK) {
-                    // ref_count is at offset 11 (after sig_id(4)+carrier(4)+repeat(1)+tc16(2))
-                    memcpy(&existing_ref_count, existing_blob + 11, 4);
-                }
-            }
-        }
-        uint32_t new_ref_count = existing_ref_count + 1;
-        int64_t now = static_cast<int64_t>(time(nullptr));
-
-        // New blob format: signal_id(4) + carrier_hz(4) + repeat(1) + tick_count(2) + ref_count(4) + last_seen_at(8) + ticks(N*2)
-        const size_t blob_size = 4 + 4 + 1 + 2 + 4 + 8 + tick_count * sizeof(uint16_t);
-        uint8_t blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
-        size_t offset = 0;
-        uint32_t sig_id = e.signal_id;
-        uint32_t carr = e.carrier_hz;
-        uint8_t rep = e.repeat;
-        uint16_t tc16 = static_cast<uint16_t>(tick_count);
-        memcpy(blob + offset, &sig_id, 4);           offset += 4;
-        memcpy(blob + offset, &carr, 4);             offset += 4;
-        memcpy(blob + offset, &rep, 1);              offset += 1;
-        memcpy(blob + offset, &tc16, 2);             offset += 2;
-        memcpy(blob + offset, &new_ref_count, 4);    offset += 4;
-        memcpy(blob + offset, &now, 8);              offset += 8;
-        memcpy(blob + offset, ticks, tick_count * sizeof(uint16_t));
-
-        if (nvs_set_blob(handle, key, blob, blob_size) == ESP_OK) {
-            persisted++;
-        }
-    }
-
-    nvs_commit(handle);
-    nvs_close(handle);
-    ESP_LOGI(TAG, "Buffer full — persisted %d signals to NVS", persisted);
-}
-
 esp_err_t ir_engine_send_raw(uint32_t signal_id, uint32_t carrier_hz, uint8_t repeat, const uint16_t *ticks,
                               size_t tick_count)
 {
@@ -708,53 +604,9 @@ esp_err_t ir_engine_send_raw(uint32_t signal_id, uint32_t carrier_hz, uint8_t re
     memcpy(local_ticks, ticks, copy_count * sizeof(uint16_t));
 
     rmt_item32_t items[64] = {};
-    size_t item_count = 0;
-
-    // Check buffer
-    signal_buffer_entry_t *buf_entry = nullptr;
-    if (signal_id != 0) {
-        for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-            if (s_signal_buffer[i].valid && s_signal_buffer[i].signal_id == signal_id) {
-                buf_entry = &s_signal_buffer[i];
-                break;
-            }
-        }
-    }
-
-    if (buf_entry) {
-        buf_entry->last_used = ++s_buffer_tick;
-        buf_entry->ref_count++;
-        buf_entry->last_seen_at = static_cast<int64_t>(time(nullptr));
-        item_count = buf_entry->item_count;
-        memcpy(items, buf_entry->items, item_count * sizeof(rmt_item32_t));
-    } else {
-        item_count = ticks_to_rmt_items(local_ticks, copy_count, items, sizeof(items) / sizeof(items[0]));
-        if (item_count == 0) {
-            return ESP_ERR_INVALID_SIZE;
-        }
-        // Store in buffer
-        if (signal_id != 0) {
-            signal_buffer_entry_t *slot = buffer_find_slot(signal_id);
-            if (slot) {
-                slot->signal_id = signal_id;
-                slot->carrier_hz = carrier_hz;
-                slot->repeat = repeat;
-                slot->item_count = item_count;
-                slot->last_used = ++s_buffer_tick;
-                slot->valid = true;
-                slot->ref_count++;
-                slot->last_seen_at = static_cast<int64_t>(time(nullptr));
-                memcpy(slot->items, items, item_count * sizeof(rmt_item32_t));
-                // Check if buffer is full, persist to NVS if so
-                bool buffer_full = true;
-                for (int i = 0; i < SIGNAL_BUFFER_SIZE; ++i) {
-                    if (!s_signal_buffer[i].valid) { buffer_full = false; break; }
-                }
-                if (buffer_full) {
-                    persist_buffer_to_nvs();
-                }
-            }
-        }
+    size_t item_count = ticks_to_rmt_items(local_ticks, copy_count, items, sizeof(items) / sizeof(items[0]));
+    if (item_count == 0) {
+        return ESP_ERR_INVALID_SIZE;
     }
 
     uint8_t actual_repeat = repeat == 0 ? 1 : repeat;
@@ -780,6 +632,53 @@ esp_err_t ir_engine_send_raw(uint32_t signal_id, uint32_t carrier_hz, uint8_t re
 
     ESP_LOGI(TAG, "TX raw signal_id=%" PRIu32 " items=%u repeat=%u carrier=%" PRIu32, signal_id,
              static_cast<unsigned>(item_count), actual_repeat, carrier_hz);
+
+    // Save to NVS immediately after TX (direct NVS store — no RAM buffer)
+    if (signal_id != 0) {
+        char ckey[16];
+        snprintf(ckey, sizeof(ckey), "c%" PRIu32, signal_id);
+
+        nvs_handle_t nvs_h;
+        esp_err_t nvs_err = nvs_open(kNvsCacheNamespace, NVS_READWRITE, &nvs_h);
+        if (nvs_err == ESP_OK) {
+            // Read existing ref_count to increment it
+            uint32_t existing_ref_count = 0;
+            {
+                size_t existing_size = 0;
+                if (nvs_get_blob(nvs_h, ckey, nullptr, &existing_size) == ESP_OK &&
+                    existing_size >= (4 + 4 + 1 + 2 + 4 + 8)) {
+                    uint8_t existing_blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
+                    if (existing_size <= sizeof(existing_blob) &&
+                        nvs_get_blob(nvs_h, ckey, existing_blob, &existing_size) == ESP_OK) {
+                        memcpy(&existing_ref_count, existing_blob + 11, 4);
+                    }
+                }
+            }
+            uint32_t new_ref_count = existing_ref_count + 1;
+            int64_t now = static_cast<int64_t>(time(nullptr));
+
+            // Blob: signal_id(4)+carrier_hz(4)+repeat(1)+tick_count(2)+ref_count(4)+last_seen_at(8)+ticks(N*2)
+            const size_t blob_size = 4 + 4 + 1 + 2 + 4 + 8 + copy_count * sizeof(uint16_t);
+            uint8_t blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
+            size_t boff = 0;
+            uint16_t tc16 = static_cast<uint16_t>(copy_count);
+            memcpy(blob + boff, &signal_id,       4); boff += 4;
+            memcpy(blob + boff, &carrier_hz,      4); boff += 4;
+            memcpy(blob + boff, &repeat,          1); boff += 1;
+            memcpy(blob + boff, &tc16,            2); boff += 2;
+            memcpy(blob + boff, &new_ref_count,   4); boff += 4;
+            memcpy(blob + boff, &now,             8); boff += 8;
+            memcpy(blob + boff, local_ticks, copy_count * sizeof(uint16_t));
+
+            nvs_set_blob(nvs_h, ckey, blob, blob_size);
+            nvs_commit(nvs_h);
+            nvs_close(nvs_h);
+            ESP_LOGI(TAG, "Saved signal_id=%" PRIu32 " to NVS (ref_count=%" PRIu32 ")", signal_id, new_ref_count);
+        } else {
+            ESP_LOGW(TAG, "Failed to open NVS for signal save: %s", esp_err_to_name(nvs_err));
+        }
+    }
+
     return ESP_OK;
 }
 
@@ -820,130 +719,3 @@ esp_err_t ir_engine_persist_binding(uint8_t slot_id, const char *binding_suffix,
     return err;
 }
 
-static bool load_binding_blob(nvs_handle_t handle, const char *key)
-{
-    size_t blob_size = 0;
-    esp_err_t err = nvs_get_blob(handle, key, nullptr, &blob_size);
-    if (err != ESP_OK || blob_size < 11) {
-        return false;
-    }
-
-    // New format: sig_id(4)+carrier(4)+repeat(1)+tc16(2)+ref_count(4)+last_seen_at(8)+ticks(N*2) = 23+N*2 min
-    // Old format: sig_id(4)+carrier(4)+repeat(1)+tc16(2)+ticks(N*2) = 11+N*2 min
-    static constexpr size_t kNewHeaderSize = 4 + 4 + 1 + 2 + 4 + 8; // 23
-
-    uint8_t blob[4 + 4 + 1 + 2 + 4 + 8 + 128 * 2];
-    if (blob_size > sizeof(blob)) {
-        return false;
-    }
-    err = nvs_get_blob(handle, key, blob, &blob_size);
-    if (err != ESP_OK) {
-        return false;
-    }
-
-    size_t off = 0;
-    uint32_t sig_id, carr_hz;
-    uint8_t rep;
-    uint16_t tc16;
-    memcpy(&sig_id,  blob + off, 4); off += 4;
-    memcpy(&carr_hz, blob + off, 4); off += 4;
-    memcpy(&rep,     blob + off, 1); off += 1;
-    memcpy(&tc16,    blob + off, 2); off += 2;
-
-    // Determine format by checking if blob_size matches new vs old header
-    uint32_t ref_count = 0;
-    int64_t last_seen_at = 0;
-    bool is_new_format = (blob_size >= kNewHeaderSize + tc16 * sizeof(uint16_t));
-    if (is_new_format) {
-        memcpy(&ref_count,    blob + off, 4); off += 4;
-        memcpy(&last_seen_at, blob + off, 8); off += 8;
-    }
-
-    if (tc16 == 0 || tc16 > 128 || blob_size < off + tc16 * sizeof(uint16_t)) {
-        return false;
-    }
-
-    uint16_t ticks[128];
-    memcpy(ticks, blob + off, tc16 * sizeof(uint16_t));
-
-    rmt_item32_t items[64] = {};
-    size_t item_count = ticks_to_rmt_items(ticks, tc16, items, 64);
-    if (item_count == 0) {
-        return false;
-    }
-
-    signal_buffer_entry_t *slot_entry = buffer_find_slot(sig_id);
-    if (slot_entry) {
-        slot_entry->signal_id = sig_id;
-        slot_entry->carrier_hz = carr_hz;
-        slot_entry->repeat = rep;
-        slot_entry->item_count = item_count;
-        slot_entry->last_used = ++s_buffer_tick;
-        slot_entry->valid = true;
-        slot_entry->ref_count = ref_count;
-        slot_entry->last_seen_at = last_seen_at;
-        memcpy(slot_entry->items, items, item_count * sizeof(rmt_item32_t));
-        ESP_LOGD(TAG, "Loaded binding %s into buffer sig_id=%" PRIu32 " ref_count=%" PRIu32, key, sig_id, ref_count);
-    }
-    return true;
-}
-
-void ir_engine_load_buffer()
-{
-    static const char *kNewSuffixes[] = { "a", "b" };
-    static const char *kOldSuffixes[] = { "on", "off", "up", "down" };
-    static const uint8_t kMaxSlots = 8;
-
-    nvs_handle_t handle;
-    esp_err_t err = nvs_open(kNvsCacheNamespace, NVS_READWRITE, &handle);
-    if (err == ESP_ERR_NVS_NOT_FOUND) {
-        return;
-    }
-    if (err != ESP_OK) {
-        ESP_LOGW(TAG, "Failed to open ir_cache namespace: %s", esp_err_to_name(err));
-        return;
-    }
-
-    bool migrated_any = false;
-
-    for (uint8_t slot = 0; slot < kMaxSlots; ++slot) {
-        // Load new keys (a/b)
-        for (uint8_t si = 0; si < 2; ++si) {
-            char key[16];
-            make_binding_key(slot, kNewSuffixes[si], key, sizeof(key));
-            load_binding_blob(handle, key);
-        }
-
-        // Migrate old keys (on/off/up/down) → erase after loading
-        for (uint8_t si = 0; si < 4; ++si) {
-            char key[16];
-            make_binding_key(slot, kOldSuffixes[si], key, sizeof(key));
-            if (load_binding_blob(handle, key)) {
-                nvs_erase_key(handle, key);
-                migrated_any = true;
-                ESP_LOGI(TAG, "Migrated and erased legacy key: %s", key);
-            }
-        }
-    }
-
-    if (migrated_any) {
-        nvs_commit(handle);
-    }
-
-    // Load persisted signals by signal_id (c{id} keys)
-    // Read slot configs to find which signal_ids to load
-    size_t slot_count = 0;
-    const bridge_slot_state_t *slots = bridge_action_get_slots(&slot_count);
-    for (size_t i = 0; i < slot_count; ++i) {
-        uint32_t sids[2] = { slots[i].signal_id_a, slots[i].signal_id_b };
-        for (int j = 0; j < 2; ++j) {
-            if (sids[j] == 0) continue;
-            char ckey[16];
-            snprintf(ckey, sizeof(ckey), "c%" PRIu32, sids[j]);
-            load_binding_blob(handle, ckey);
-        }
-    }
-
-    nvs_close(handle);
-    ESP_LOGI(TAG, "ir_engine_load_buffer done tick=%lu", static_cast<unsigned long>(s_buffer_tick));
-}
