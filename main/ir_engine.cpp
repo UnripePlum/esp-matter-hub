@@ -723,6 +723,8 @@ esp_err_t ir_engine_send_raw(uint32_t signal_id, uint32_t carrier_hz, uint8_t re
 
     if (buf_entry) {
         buf_entry->last_used = ++s_buffer_tick;
+        buf_entry->ref_count++;
+        buf_entry->last_seen_at = static_cast<int64_t>(time(nullptr));
         item_count = buf_entry->item_count;
         memcpy(items, buf_entry->items, item_count * sizeof(rmt_item32_t));
     } else {
@@ -740,6 +742,8 @@ esp_err_t ir_engine_send_raw(uint32_t signal_id, uint32_t carrier_hz, uint8_t re
                 slot->item_count = item_count;
                 slot->last_used = ++s_buffer_tick;
                 slot->valid = true;
+                slot->ref_count++;
+                slot->last_seen_at = static_cast<int64_t>(time(nullptr));
                 memcpy(slot->items, items, item_count * sizeof(rmt_item32_t));
                 // Check if buffer is full, persist to NVS if so
                 bool buffer_full = true;
