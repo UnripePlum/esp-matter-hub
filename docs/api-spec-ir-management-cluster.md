@@ -1,7 +1,7 @@
 # ESP Matter IR Hub — API 명세서 v3.2
 
 > **대상**: 앱 개발자
-> **버전**: 3.2.2 (2026-03-31)
+> **버전**: 3.2.3 (2026-03-31)
 
 ---
 
@@ -35,7 +35,13 @@
 | 0 | signal_id | uint32 | O | 신호 고유 ID (앱이 지정) |
 | 1 | carrier_hz | uint32 | O | IR 캐리어 주파수 (보통 38000) |
 | 2 | repeat | uint8 | O | 반복 횟수 (1~5) |
-| 3 | ticks | octet_string | O | uint16 LE 인코딩 타이밍 데이터 (µs) |
+| 3 | ticks | octet_string | O | uint16 LE 인코딩 타이밍 데이터 (µs). hex string 또는 바이너리 모두 지원 |
+
+**ticks 인코딩 주의사항:**
+- chip-tool의 BYTES 타입은 hex string을 ASCII 그대로 전달합니다 (hex→byte 디코딩 안 함)
+- 허브가 자동 감지하여 hex 디코딩합니다 (ASCII hex 문자열 → 바이트 변환)
+- 앱에서 직접 Matter TLV로 보낼 경우 바이너리 octet_string으로 전달 가능
+- LearnedPayload의 ticks hex를 그대로 사용 가능
 
 **Response:** Matter Status Code
 
@@ -277,6 +283,7 @@
 
 | 버전 | 날짜 | 변경 내용 |
 |------|------|-----------|
+| 3.2.3 | 2026-03-31 | IR TX 안정화 (rmt_set_tx_carrier 제거), chip-tool BYTES hex 자동 디코딩, ticks 인코딩 주의사항 추가 |
 | 3.2.2 | 2026-03-31 | Request/Response 인터페이스 명시, SaveSignal(0x02) 제거 |
 | 3.2.1 | 2026-03-31 | DumpNVS(0x0E) 추가, LearnedPayload에 ticks 포함, SyncBuffer 버퍼 비움, 미사용 커맨드/속성 제거 |
 | 3.2 | 2026-03-31 | button_type 슬롯 모델, SendSignalWithRaw 4-param 단순화, SyncBuffer/FactoryReset 추가 |
