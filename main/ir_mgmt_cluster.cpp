@@ -213,14 +213,50 @@ static esp_err_t cmd_send_signal_with_raw(const ConcreteCommandPath &path, TLVRe
         return ESP_ERR_INVALID_ARG;
     }
 
-    size_t tick_count = ticks_bytes_len / 2;
+    // chip-tool BYTES sends hex chars as raw ASCII bytes (not hex-decoded)
+    // Detect and decode: if bytes look like ASCII hex (all 0-9/A-F/a-f), decode pairs to bytes first
+    uint8_t decoded[256];
+    size_t decoded_len = ticks_bytes_len;
+    const uint8_t *tick_src = ticks_bytes;
+
+    bool is_ascii_hex = (ticks_bytes_len > 0) && (ticks_bytes_len % 2 == 0);
+    if (is_ascii_hex) {
+        for (size_t i = 0; i < ticks_bytes_len && is_ascii_hex; ++i) {
+            uint8_t c = ticks_bytes[i];
+            if (!((c >= '0' && c <= '9') || (c >= 'A' && c <= 'F') || (c >= 'a' && c <= 'f'))) {
+                is_ascii_hex = false;
+            }
+        }
+    }
+
+    if (is_ascii_hex && ticks_bytes_len > 0) {
+        decoded_len = 0;
+        for (size_t i = 0; i + 1 < ticks_bytes_len && decoded_len < sizeof(decoded); i += 2) {
+            auto hex_val = [](uint8_t c) -> uint8_t {
+                if (c >= '0' && c <= '9') return c - '0';
+                if (c >= 'A' && c <= 'F') return c - 'A' + 10;
+                if (c >= 'a' && c <= 'f') return c - 'a' + 10;
+                return 0;
+            };
+            decoded[decoded_len++] = (hex_val(ticks_bytes[i]) << 4) | hex_val(ticks_bytes[i + 1]);
+        }
+        tick_src = decoded;
+    }
+
+    if ((decoded_len % 2) != 0) {
+        ESP_LOGW(TAG, "SendSignalWithRaw: odd decoded byte count=%lu", static_cast<unsigned long>(decoded_len));
+        return ESP_ERR_INVALID_ARG;
+    }
+
+    size_t tick_count = decoded_len / 2;
     uint16_t ticks[128];
     if (tick_count > 128) tick_count = 128;
-    memcpy(ticks, ticks_bytes, tick_count * 2);
+    memcpy(ticks, tick_src, tick_count * 2);
 
-    ESP_LOGI(TAG, "SendSignalWithRaw sig=%lu carrier=%lu repeat=%u ticks=%u",
+    ESP_LOGI(TAG, "SendSignalWithRaw sig=%lu carrier=%lu repeat=%u ticks=%u (raw_bytes=%lu decoded=%lu)",
              static_cast<unsigned long>(signal_id),
-             static_cast<unsigned long>(carrier_hz), repeat, (unsigned)tick_count);
+             static_cast<unsigned long>(carrier_hz), repeat, (unsigned)tick_count,
+             static_cast<unsigned long>(ticks_bytes_len), static_cast<unsigned long>(decoded_len));
 
     esp_err_t err = ir_engine_send_raw(signal_id, carrier_hz, repeat, ticks, tick_count);
     if (err != ESP_OK) {
