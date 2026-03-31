@@ -561,7 +561,7 @@ static esp_err_t learn_status_get_handler(httpd_req_t *req)
 
 static esp_err_t nvs_signals_get_handler(httpd_req_t *req)
 {
-    char json[2048];
+    static char json[1024];
     int len = ir_engine_read_all_nvs_signals(json, sizeof(json));
     httpd_resp_set_type(req, "application/json");
     return httpd_resp_send(req, json, len);
@@ -636,6 +636,7 @@ esp_err_t app_web_server_start()
     config.lru_purge_enable = true;
     config.uri_match_fn = httpd_uri_match_wildcard;
     config.max_uri_handlers = 20;
+    config.stack_size = 8192;
 
     esp_err_t err = httpd_start(&s_server, &config);
     if (err != ESP_OK) {
