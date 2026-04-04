@@ -1,8 +1,0 @@
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/blemesh_platform does not contain a CMakeLists.txt file. No component will be added
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/cmake_common does not contain a CMakeLists.txt file. No component will be added
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/external_platform does not contain a CMakeLists.txt file. No component will be added
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/manufacturing_data_provider does not contain a CMakeLists.txt file. No component will be added
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/relinker does not contain a CMakeLists.txt file. No component will be added
--- Component directory /Users/hanjunkim/esp/esp-matter/examples/common/utils does not contain a CMakeLists.txt file. No component will be added
--- Building ESP-IDF components for target esp32s3
--- Configuring incomplete, errors occurred!

@@ -199,3 +199,4 @@
 | 웹 Unlock 무반응 | JS SyntaxError + tryAutoUnlock 위치 | 괄호 수정 + 스크립트 끝으로 이동 | b17c1d9 |
 | ref_count 반영 안 됨 | 버퍼 저장 시 ref_count 미설정 | buffer 제거, 직접 NVS 저장 | 4d13124 |
 | last_seen_at 1970년 | SNTP 미동기화 상태에서 time() | SNTP sync 콜백 추가 | 4d13124 |
+| mDNS .local 간헐 실패 | SK WiFiGIGA ISP DNS가 .local 질의에 218.38.137.27 하이재킹 응답 | 공유기 DNS를 8.8.8.8로 변경 (코드 문제 아님) | — |

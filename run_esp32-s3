@@ -11,7 +11,14 @@ PORT="${1:-/dev/cu.usbserial-0001}"
 PROJECT_DIR="$(cd "$(dirname "$SCRIPT_PATH")" && pwd)"
 TERMINAL_REF_FILE="$PROJECT_DIR/.monitor.terminal_ref"
 
-CMD="source \"$HOME/esp/esp-idf/export.sh\" && source \"$HOME/esp/esp-matter/export.sh\" && export ESP_MATTER_DEVICE_PATH=\"\$ESP_MATTER_PATH/device_hal/device/esp32s3_devkit_c\" && cd \"$PROJECT_DIR\" && idf.py --build-dir build2 -p \"$PORT\" flash monitor"
+IDF_PATH="${IDF_PATH:-$HOME/esp/esp-idf}"
+ESP_MATTER_PATH="${ESP_MATTER_PATH:-$HOME/esp/esp-matter}"
+ESP_MATTER_DEVICE="${ESP_MATTER_DEVICE:-esp32s3_devkit_c}"
+BUILD_DIR="${BUILD_DIR:-build2}"
+
+IDF_PYTHON_ENV="${IDF_PYTHON_ENV:-$HOME/.espressif/python_env/idf5.2_py3.9_env}"
+
+CMD="source \"$IDF_PYTHON_ENV/bin/activate\" && source \"$IDF_PATH/export.sh\" && source \"$ESP_MATTER_PATH/export.sh\" && export ESP_MATTER_DEVICE_PATH=\"\$ESP_MATTER_PATH/device_hal/device/$ESP_MATTER_DEVICE\" && cd \"$PROJECT_DIR\" && idf.py --build-dir $BUILD_DIR -p \"$PORT\" flash monitor"
 CMD="${CMD//\\/\\\\}"
 CMD="${CMD//\"/\\\"}"
 

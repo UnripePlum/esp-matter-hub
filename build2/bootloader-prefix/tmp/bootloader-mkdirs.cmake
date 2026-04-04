@@ -10,18 +10,18 @@ if(NOT EXISTS "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/bootloader/subpr
   file(MAKE_DIRECTORY "/Volumes/Gold-P31-SSD-2TB/esp/esp-idf/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader"
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix"
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/tmp"
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp"
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src"
-  "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/tmp"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/src"
+  "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

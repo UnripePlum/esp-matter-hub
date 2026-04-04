@@ -34,18 +34,18 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/Users/hanjunkim/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump")
+  set(CMAKE_OBJDUMP "/Users/unripeplum/.espressif/tools/xtensa-esp-elf/esp-13.2.0_20230928/xtensa-esp-elf/bin/xtensa-esp32s3-elf-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader/esp-idf/cmake_install.cmake")
+  include("/Users/unripeplum/projects/esp-matter-hub/build2/bootloader/esp-idf/cmake_install.cmake")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
 if(CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader/install_local_manifest.txt"
+  file(WRITE "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader/install_local_manifest.txt"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
 if(CMAKE_INSTALL_COMPONENT)
@@ -61,6 +61,6 @@ else()
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  file(WRITE "/Users/hanjunkim/IdeaProjects/esp-matter-hub/build2/bootloader/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/Users/unripeplum/projects/esp-matter-hub/build2/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()
