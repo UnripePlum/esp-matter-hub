@@ -221,7 +221,6 @@ pair_auto() {
   local disc="${2:-3840}"
   local wifi_env="$PROJECT_DIR/.wifi_credentials"
 
-  # .wifi_credentials에서 크레덴셜 읽기
   local ssid="" password=""
   if [[ -f "$wifi_env" ]]; then
     ssid="$(grep '^WIFI_SSID=' "$wifi_env" | cut -d= -f2-)"
@@ -231,7 +230,6 @@ pair_auto() {
     fi
   fi
 
-  # 크레덴셜이 없으면 입력받고 저장
   if [[ -z "$ssid" || -z "$password" ]]; then
     read -r -p "WiFi SSID: " ssid
     if [[ -z "$ssid" ]]; then

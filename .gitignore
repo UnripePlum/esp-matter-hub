@@ -36,3 +36,6 @@ __pycache__/
 
 # Credentials (never commit)
 .wifi_credentials
+
+# Test environment (contains local paths/keys)
+.hub_api_test_env.sh
