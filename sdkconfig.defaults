@@ -55,6 +55,10 @@ CONFIG_ENABLE_OTA_REQUESTOR=y
 # Enable HKDF in mbedtls
 CONFIG_MBEDTLS_HKDF_C=y
 
+# mbedTLS TLS 버퍼 축소 — OTA/HTTP용 힙 확보 (GitHub API 응답은 4KB 이내)
+CONFIG_MBEDTLS_SSL_IN_CONTENT_LEN=4096
+CONFIG_MBEDTLS_SSL_OUT_CONTENT_LEN=4096
+
 # Increase LwIP IPv6 address number to 6 (MAX_FABRIC + 1)
 # unique local addresses for fabrics(MAX_FABRIC), a link local address(1)
 CONFIG_LWIP_IPV6_NUM_ADDRESSES=6
