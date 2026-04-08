@@ -8,6 +8,9 @@
 
 #include <esp_err.h>
 #include <esp_event.h>
+#include <esp_crt_bundle.h>
+#include <esp_http_client.h>
+#include <esp_https_ota.h>
 #include <esp_log.h>
 #include <esp_netif_ip_addr.h>
 #include <esp_sntp.h>
@@ -68,6 +71,155 @@ constexpr uint32_t k_mdns_retry_max_attempts = 60;
 static TaskHandle_t s_mdns_retry_task = nullptr;
 static bool s_mdns_retry_running = false;
 static portMUX_TYPE s_mdns_retry_lock = portMUX_INITIALIZER_UNLOCKED;
+
+/* OTA -------------------------------------------------------------------- */
+#define FIRMWARE_VERSION      "v0.1.0"
+#define GITHUB_REPO           "muinlab/esp-matter-hub"
+#define GITHUB_API_LATEST_URL "https://api.github.com/repos/" GITHUB_REPO "/releases/latest"
+#define OTA_DEFAULT_URL       "https://github.com/" GITHUB_REPO "/releases/latest/download/esp-matter-hub.bin"
+
+static volatile bool s_ota_running = false;
+
+static void ota_task(void *arg)
+{
+    char *url = static_cast<char *>(arg);
+
+    esp_http_client_config_t http_cfg = {};
+    http_cfg.url               = url ? url : OTA_DEFAULT_URL;
+    http_cfg.timeout_ms        = 60000;
+    http_cfg.max_redirection_count = 10;
+    http_cfg.buffer_size       = 4096;
+    http_cfg.buffer_size_tx    = 2048;
+    http_cfg.crt_bundle_attach = esp_crt_bundle_attach;
+    http_cfg.keep_alive_enable = true;
+
+    esp_https_ota_config_t ota_cfg = {};
+    ota_cfg.http_config = &http_cfg;
+
+    ESP_LOGI(TAG, "OTA 시작: %s", http_cfg.url);
+    esp_err_t err = esp_https_ota(&ota_cfg);
+
+    free(url);
+
+    if (err == ESP_OK) {
+        ESP_LOGI(TAG, "OTA 완료, 재부팅...");
+        esp_restart();
+    } else {
+        ESP_LOGE(TAG, "OTA 실패: %s", esp_err_to_name(err));
+        s_ota_running = false;
+    }
+    vTaskDelete(nullptr);
+}
+
+extern "C" esp_err_t app_trigger_ota(const char *url)
+{
+    if (s_ota_running) {
+        return ESP_ERR_INVALID_STATE;
+    }
+    char *url_copy = url ? strdup(url) : nullptr;
+    s_ota_running = true;
+    if (xTaskCreate(ota_task, "ota_task", 8192, url_copy, 5, nullptr) != pdPASS) {
+        s_ota_running = false;
+        free(url_copy);
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+extern "C" bool app_ota_is_running()
+{
+    return s_ota_running;
+}
+
+extern "C" const char *app_firmware_version()
+{
+    return FIRMWARE_VERSION;
+}
+
+static bool fetch_latest_version(char *out, size_t max_len)
+{
+    char buf[512] = {};
+    esp_http_client_config_t cfg = {};
+    cfg.url               = GITHUB_API_LATEST_URL;
+    cfg.timeout_ms        = 10000;
+    cfg.buffer_size       = 4096;
+    cfg.crt_bundle_attach = esp_crt_bundle_attach;
+
+    esp_http_client_handle_t client = esp_http_client_init(&cfg);
+    if (!client) return false;
+
+    esp_http_client_set_header(client, "User-Agent", "esp-matter-hub");
+
+    bool ok = false;
+    if (esp_http_client_open(client, 0) == ESP_OK) {
+        esp_http_client_fetch_headers(client);
+        int len = esp_http_client_read(client, buf, sizeof(buf) - 1);
+        if (len > 0) {
+            buf[len] = '\0';
+            const char *pos = strstr(buf, "\"tag_name\"");
+            if (pos) {
+                pos = strchr(pos, ':');
+                if (pos) pos = strchr(pos, '"');
+                if (pos) {
+                    pos++;
+                    const char *end = strchr(pos, '"');
+                    if (end) {
+                        size_t tag_len = (size_t)(end - pos);
+                        if (tag_len < max_len) {
+                            memcpy(out, pos, tag_len);
+                            out[tag_len] = '\0';
+                            ok = true;
+                        }
+                    }
+                }
+            }
+        }
+        esp_http_client_close(client);
+    }
+    esp_http_client_cleanup(client);
+    return ok;
+}
+
+// "vX.Y.Z" → {major, minor, patch}. 파싱 실패 시 false 반환.
+static bool parse_semver(const char *s, int *major, int *minor, int *patch)
+{
+    if (s && s[0] == 'v') s++;
+    return s && sscanf(s, "%d.%d.%d", major, minor, patch) == 3;
+}
+
+// candidate가 current보다 높은 버전이면 true (다운그레이드 방지).
+static bool semver_is_newer(const char *candidate, const char *current)
+{
+    int ca = 0, cb = 0, cc = 0;
+    int ra = 0, rb = 0, rc = 0;
+    if (!parse_semver(candidate, &ca, &cb, &cc)) return false;
+    if (!parse_semver(current,   &ra, &rb, &rc)) return false;
+    if (ca != ra) return ca > ra;
+    if (cb != rb) return cb > rb;
+    return cc > rc;
+}
+
+static void auto_ota_task(void *arg)
+{
+    vTaskDelay(pdMS_TO_TICKS(15000)); // Matter 안정화 대기
+
+    while (true) {
+        char latest[32] = {};
+        if (fetch_latest_version(latest, sizeof(latest))) {
+            ESP_LOGI(TAG, "최신 버전: %s / 현재: %s", latest, FIRMWARE_VERSION);
+            if (semver_is_newer(latest, FIRMWARE_VERSION)) {
+                ESP_LOGI(TAG, "업그레이드 버전 발견, OTA 시작");
+                app_trigger_ota(nullptr);
+            } else {
+                ESP_LOGI(TAG, "현재 버전이 최신이거나 더 높음, OTA 건너뜀");
+            }
+        } else {
+            ESP_LOGW(TAG, "최신 버전 확인 실패");
+        }
+        vTaskDelay(pdMS_TO_TICKS(3600000)); // 1시간마다 확인
+    }
+}
+/* OTA end ---------------------------------------------------------------- */
 
 #ifdef CONFIG_ENABLE_SET_CERT_DECLARATION_API
 extern const uint8_t cd_start[] asm("_binary_certification_declaration_der_start");
@@ -507,6 +659,8 @@ extern "C" void app_main()
 
     err = app_web_server_start();
     ABORT_APP_ON_FAILURE(err == ESP_OK, ESP_LOGE(TAG, "Failed to start web server, err:%d", err));
+
+    xTaskCreate(auto_ota_task, "auto_ota", 8192, nullptr, 3, nullptr);
 
     status_led_set_system_ready(true);
 

@@ -4,14 +4,21 @@
 #include <esp_err.h>
 #include <esp_log.h>
 #include <esp_matter.h>
+#include <esp_system.h>
+#include <esp_timer.h>
 #include <platform/CHIPDeviceLayer.h>
 
 #include "ir_mgmt_cluster.h"
 #include "ir_engine.h"
 #include "bridge_action.h"
+#include "local_discovery.h"
+#include "status_led.h"
 #include "app_priv.h"
 #include "activity_log.h"
 #include "test_signals.h"
+
+extern "C" bool app_ota_is_running();
+extern "C" const char *app_firmware_version();
 
 static const char *TAG = "ir_mgmt";
 
@@ -30,10 +37,38 @@ extern int8_t    bridge_action_get_slot_for_device(uint32_t device_id);
 // ── JSON buffer sizes (single-threaded Matter stack → static is safe) ───
 
 static constexpr size_t kJsonBufPayload = 1280;
+static constexpr size_t kJsonBufHealth  = 256;
 
 static char s_payload_json[kJsonBufPayload];
+static char s_health_json[kJsonBufHealth];
 
 // ── JSON serialization ──────────────────────────────────────────────────
+
+static int serialize_health_json(char *buf, size_t cap)
+{
+    size_t slot_count = 0;
+    bridge_action_get_slots(&slot_count);
+
+    const char *mdns  = app_local_discovery_ready() ? "ready" : "disabled";
+    const char *led   = status_led_get_state_str();
+    const char *fw    = app_firmware_version();
+    bool ota          = app_ota_is_running();
+    uint32_t heap_free = esp_get_free_heap_size();
+    uint32_t heap_min  = esp_get_minimum_free_heap_size();
+    uint32_t uptime_s  = static_cast<uint32_t>(esp_timer_get_time() / 1000000ULL);
+
+    return snprintf(buf, cap,
+        "{\"firmware\":\"%s\",\"heap_free\":%lu,\"heap_min\":%lu,"
+        "\"uptime_s\":%lu,\"slots\":%u,\"mdns\":\"%s\","
+        "\"led\":\"%s\",\"ota_running\":%s}",
+        fw,
+        static_cast<unsigned long>(heap_free),
+        static_cast<unsigned long>(heap_min),
+        static_cast<unsigned long>(uptime_s),
+        static_cast<unsigned>(slot_count),
+        mdns, led,
+        ota ? "true" : "false");
+}
 
 static int serialize_learned_payload_json(char *buf, size_t cap)
 {
@@ -93,6 +128,11 @@ static void refresh_all_attributes()
     esp_matter_attr_val_t v_payload = esp_matter_long_char_str(s_payload_json, static_cast<uint16_t>(len));
     attribute::set_val(s_ir_mgmt_endpoint_id, IR_MGMT_CLUSTER_ID,
                        IR_MGMT_ATTR_LEARNED_PAYLOAD, &v_payload);
+
+    int hlen = serialize_health_json(s_health_json, sizeof(s_health_json));
+    esp_matter_attr_val_t v_health = esp_matter_long_char_str(s_health_json, static_cast<uint16_t>(hlen));
+    attribute::set_val(s_ir_mgmt_endpoint_id, IR_MGMT_CLUSTER_ID,
+                       IR_MGMT_ATTR_HEALTH, &v_health);
 }
 
 // ── TLV helpers ─────────────────────────────────────────────────────────
@@ -276,6 +316,15 @@ static esp_err_t cmd_send_signal_with_raw(const ConcreteCommandPath &path, TLVRe
     return ESP_OK;
 }
 
+static esp_err_t cmd_get_health(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque)
+{
+    int hlen = serialize_health_json(s_health_json, sizeof(s_health_json));
+    esp_matter_attr_val_t v = esp_matter_long_char_str(s_health_json, static_cast<uint16_t>(hlen));
+    esp_matter::attribute::set_val(s_ir_mgmt_endpoint_id, IR_MGMT_CLUSTER_ID, IR_MGMT_ATTR_HEALTH, &v);
+    ESP_LOGI(TAG, "GetHealth: %.*s", hlen, s_health_json);
+    return ESP_OK;
+}
+
 static esp_err_t cmd_dump_nvs(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque);
 
 static esp_err_t cmd_sync_buffer(const ConcreteCommandPath &path, TLVReader &tlv, void *opaque)
@@ -357,6 +406,11 @@ esp_err_t ir_mgmt_cluster_init(esp_matter::node_t *node)
 
     if (!attribute::create(cl, IR_MGMT_ATTR_BUFFER_SNAPSHOT, ATTRIBUTE_FLAG_NONE, val_empty_arr, 2048)) { return ESP_FAIL; }
 
+    // Health: pre-populated at init so it's readable immediately
+    int hlen = serialize_health_json(s_health_json, sizeof(s_health_json));
+    esp_matter_attr_val_t val_health = esp_matter_long_char_str(s_health_json, static_cast<uint16_t>(hlen));
+    if (!attribute::create(cl, IR_MGMT_ATTR_HEALTH, ATTRIBUTE_FLAG_NONE, val_health, kJsonBufHealth)) { return ESP_FAIL; }
+
     // ── Commands (all custom + accepted) ──
 
     constexpr uint8_t kCmdFlags = COMMAND_FLAG_ACCEPTED | COMMAND_FLAG_CUSTOM;
@@ -369,12 +423,13 @@ esp_err_t ir_mgmt_cluster_init(esp_matter::node_t *node)
     if (!command::create(cl, IR_MGMT_CMD_SYNC_BUFFER,          kCmdFlags, cmd_sync_buffer))          { return ESP_FAIL; }
     if (!command::create(cl, IR_MGMT_CMD_FACTORY_RESET,       kCmdFlags, cmd_factory_reset))       { return ESP_FAIL; }
     if (!command::create(cl, IR_MGMT_CMD_DUMP_NVS,            kCmdFlags, cmd_dump_nvs))            { return ESP_FAIL; }
+    if (!command::create(cl, IR_MGMT_CMD_GET_HEALTH,          kCmdFlags, cmd_get_health))          { return ESP_FAIL; }
 
     // ── Events ──
 
     if (!event::create(cl, IR_MGMT_EVT_LEARNING_COMPLETED)) { return ESP_FAIL; }
 
-    ESP_LOGI(TAG, "Cluster 0x%08lX on endpoint %u: 5 attrs, 7 cmds, 1 event",
+    ESP_LOGI(TAG, "Cluster 0x%08lX on endpoint %u: 6 attrs, 8 cmds, 1 event",
              static_cast<unsigned long>(IR_MGMT_CLUSTER_ID), s_ir_mgmt_endpoint_id);
 
     ESP_LOGI(TAG, "SyncBuffer command (0x0C) registered, BufferSnapshot attribute (0x0007) created");

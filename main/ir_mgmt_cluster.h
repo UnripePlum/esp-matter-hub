@@ -16,6 +16,7 @@ static constexpr uint32_t IR_MGMT_CLUSTER_ID = 0x1337FC01;
 static constexpr uint32_t IR_MGMT_ATTR_LEARN_STATE          = 0x0000;
 static constexpr uint32_t IR_MGMT_ATTR_LEARNED_PAYLOAD      = 0x0001;
 static constexpr uint32_t IR_MGMT_ATTR_BUFFER_SNAPSHOT      = 0x0007;
+static constexpr uint32_t IR_MGMT_ATTR_HEALTH               = 0x0008;
 
 /* ── Command IDs (client → server, i.e. "accepted") ────────────────────── */
 static constexpr uint32_t IR_MGMT_CMD_START_LEARNING        = 0x00;
@@ -25,6 +26,7 @@ static constexpr uint32_t IR_MGMT_CMD_SEND_SIGNAL_WITH_RAW  = 0x0B;
 static constexpr uint32_t IR_MGMT_CMD_SYNC_BUFFER           = 0x0C;
 static constexpr uint32_t IR_MGMT_CMD_FACTORY_RESET         = 0x0D;
 static constexpr uint32_t IR_MGMT_CMD_DUMP_NVS              = 0x0E;
+static constexpr uint32_t IR_MGMT_CMD_GET_HEALTH            = 0x0F;
 
 /* ── Event IDs ──────────────────────────────────────────────────────────── */
 static constexpr uint32_t IR_MGMT_EVT_LEARNING_COMPLETED    = 0x00;

@@ -21,6 +21,8 @@ static const char *TAG = "web_server";
 static httpd_handle_t s_server = nullptr;
 static char s_api_key[17] = {};
 extern "C" esp_err_t app_open_commissioning_window(uint16_t timeout_seconds);
+extern "C" esp_err_t app_trigger_ota(const char *url);
+extern "C" bool app_ota_is_running();
 
 static const char *kNvsNamespaceWeb = "web_config";
 static const char *kNvsKeyApiKey = "api_key";
@@ -912,6 +914,61 @@ static esp_err_t test_signals_test_handler(httpd_req_t *req)
     return send_json(req, "{\"status\":\"ok\",\"tested\":true}");
 }
 
+static esp_err_t ota_trigger_post_handler(httpd_req_t *req)
+{
+    if (!check_api_key(req)) return ESP_OK;
+
+    if (app_ota_is_running()) {
+        httpd_resp_set_status(req, "409 Conflict");
+        return send_json(req, "{\"error\":\"OTA already in progress\"}");
+    }
+
+    char *url = nullptr;
+    if (req->content_len > 0 && req->content_len < 512) {
+        char body[512] = {};
+        int received = httpd_req_recv(req, body, req->content_len);
+        if (received > 0) {
+            const char *pos = strstr(body, "\"url\"");
+            if (pos) {
+                pos = strchr(pos, ':');
+                if (pos) pos = strchr(pos, '"');
+                if (pos) {
+                    pos++;
+                    const char *end = strchr(pos, '"');
+                    if (end) {
+                        size_t len = (size_t)(end - pos);
+                        url = static_cast<char *>(malloc(len + 1));
+                        if (url) {
+                            memcpy(url, pos, len);
+                            url[len] = '\0';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    esp_err_t err = app_trigger_ota(url);
+    free(url);
+
+    if (err == ESP_OK) {
+        return send_json(req, "{\"status\":\"ok\",\"message\":\"OTA started\"}");
+    }
+    if (err == ESP_ERR_INVALID_STATE) {
+        httpd_resp_set_status(req, "409 Conflict");
+        return send_json(req, "{\"error\":\"OTA already in progress\"}");
+    }
+    return httpd_resp_send_err(req, HTTPD_500_INTERNAL_SERVER_ERROR, "failed to start OTA");
+}
+
+static esp_err_t ota_status_get_handler(httpd_req_t *req)
+{
+    if (!check_api_key(req)) return ESP_OK;
+    char resp[48];
+    snprintf(resp, sizeof(resp), "{\"running\":%s}", app_ota_is_running() ? "true" : "false");
+    return send_json(req, resp);
+}
+
 esp_err_t app_web_server_start()
 {
     if (s_server) {
@@ -927,7 +984,7 @@ esp_err_t app_web_server_start()
     config.server_port = 80;
     config.lru_purge_enable = true;
     config.uri_match_fn = httpd_uri_match_wildcard;
-    config.max_uri_handlers = 24;
+    config.max_uri_handlers = 26;
     config.stack_size = 8192;
 
     esp_err_t err = httpd_start(&s_server, &config);
@@ -1119,6 +1176,28 @@ esp_err_t app_web_server_start()
         .user_ctx = nullptr,
     };
     err = register_uri_handler_checked(s_server, &test_signals_test_uri);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    const httpd_uri_t ota_trigger_uri = {
+        .uri = "/api/ota/trigger",
+        .method = HTTP_POST,
+        .handler = ota_trigger_post_handler,
+        .user_ctx = nullptr,
+    };
+    err = register_uri_handler_checked(s_server, &ota_trigger_uri);
+    if (err != ESP_OK) {
+        return err;
+    }
+
+    const httpd_uri_t ota_status_uri = {
+        .uri = "/api/ota/status",
+        .method = HTTP_GET,
+        .handler = ota_status_get_handler,
+        .user_ctx = nullptr,
+    };
+    err = register_uri_handler_checked(s_server, &ota_status_uri);
     if (err != ESP_OK) {
         return err;
     }
