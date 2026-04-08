@@ -87,6 +87,7 @@ ls -lh "$STAGE_DIR/"
 echo "▶ git tag $VERSION 생성..."
 git tag "$VERSION"
 git push origin "$VERSION"
+git push muinlab main "$VERSION" 2>/dev/null || git push muinlab "$VERSION" 2>/dev/null || true
 
 # ── 7. GitHub 릴리즈 생성 ──────────────────────────────────────────────────
 echo "▶ GitHub 릴리즈 생성 중..."
