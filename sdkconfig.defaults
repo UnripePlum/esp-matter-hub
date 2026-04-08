@@ -6,10 +6,20 @@ CONFIG_SPIRAM=y
 CONFIG_SPIRAM_MODE_OCT=y
 CONFIG_SPIRAM_SPEED_80M=y
 
-# Use PSRAM for Matter/NimBLE/CHIP allocations to avoid internal heap pressure during commissioning
+# Use PSRAM for Matter/NimBLE/CHIP/mbedTLS allocations to avoid internal heap pressure during commissioning
 CONFIG_ESP_MATTER_MEM_ALLOC_MODE_EXTERNAL=y
 CONFIG_BT_NIMBLE_MEM_ALLOC_MODE_EXTERNAL=y
 CONFIG_CHIP_MEM_ALLOC_MODE_EXTERNAL=y
+CONFIG_MBEDTLS_MEM_ALLOC_MODE_EXTERNAL=y
+
+# Allow Wi-Fi + LwIP to spill to PSRAM when internal SRAM is low (prevents wifi:mem fail during CASE)
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+
+# Reduce Wi-Fi DMA buffer count to free internal SRAM for Matter CASE crypto (BIGNUM)
+# IR hub only needs low-bandwidth Matter traffic — large buffers waste internal SRAM
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=4
+CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM=12
+CONFIG_ESP_WIFI_STATIC_TX_BUFFER_NUM=8
 
 #enable BT
 CONFIG_BT_ENABLED=y

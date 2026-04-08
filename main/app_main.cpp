@@ -73,12 +73,13 @@ static bool s_mdns_retry_running = false;
 static portMUX_TYPE s_mdns_retry_lock = portMUX_INITIALIZER_UNLOCKED;
 
 /* OTA -------------------------------------------------------------------- */
-#define FIRMWARE_VERSION      "v0.1.5"
+#define FIRMWARE_VERSION      "v0.1.6"
 #define GITHUB_REPO           "muinlab/esp-matter-hub"
 #define GITHUB_API_LATEST_URL "https://api.github.com/repos/" GITHUB_REPO "/releases/latest"
 #define OTA_DEFAULT_URL       "https://github.com/" GITHUB_REPO "/releases/latest/download/esp-matter-hub.bin"
 
-static volatile bool s_ota_running = false;
+static volatile bool s_ota_running  = false;
+static volatile bool s_network_ready = false;
 
 static void ota_task(void *arg)
 {
@@ -140,7 +141,7 @@ extern "C" const char *app_firmware_version()
 
 static bool fetch_latest_version(char *out, size_t max_len)
 {
-    char buf[512] = {};
+    char buf[1536] = {};
     esp_http_client_config_t cfg = {};
     cfg.url               = GITHUB_API_LATEST_URL;
     cfg.timeout_ms        = 10000;
@@ -154,9 +155,11 @@ static bool fetch_latest_version(char *out, size_t max_len)
 
     bool ok = false;
     if (esp_http_client_open(client, 0) == ESP_OK) {
-        esp_http_client_fetch_headers(client);
+        int content_len = esp_http_client_fetch_headers(client);
+        int status = esp_http_client_get_status_code(client);
         int len = esp_http_client_read(client, buf, sizeof(buf) - 1);
-        if (len > 0) {
+        ESP_LOGI(TAG, "GitHub API: status=%d content_len=%d read=%d", status, content_len, len);
+        if (status == 200 && len > 0) {
             buf[len] = '\0';
             const char *pos = strstr(buf, "\"tag_name\"");
             if (pos) {
@@ -175,8 +178,16 @@ static bool fetch_latest_version(char *out, size_t max_len)
                     }
                 }
             }
+            if (!ok) {
+                ESP_LOGW(TAG, "GitHub API: tag_name 파싱 실패 (첫 128B: %.128s)", buf);
+            }
+        } else if (len > 0) {
+            buf[len] = '\0';
+            ESP_LOGW(TAG, "GitHub API: HTTP %d: %.128s", status, buf);
         }
         esp_http_client_close(client);
+    } else {
+        ESP_LOGW(TAG, "GitHub API: 연결 실패");
     }
     esp_http_client_cleanup(client);
     return ok;
@@ -203,9 +214,14 @@ static bool semver_is_newer(const char *candidate, const char *current)
 
 static void auto_ota_task(void *arg)
 {
-    vTaskDelay(pdMS_TO_TICKS(60000)); // Matter + TLS 힙 안정화 대기
+    // Wi-Fi IP 취득까지 대기
+    while (!s_network_ready) {
+        vTaskDelay(pdMS_TO_TICKS(5000));
+    }
+    vTaskDelay(pdMS_TO_TICKS(30000)); // IP 취득 후 힙 안정화 대기
 
     while (true) {
+
         char latest[32] = {};
         if (fetch_latest_version(latest, sizeof(latest))) {
             ESP_LOGI(TAG, "최신 버전: %s / 현재: %s", latest, FIRMWARE_VERSION);
@@ -322,6 +338,8 @@ static void on_ip_event(void *arg, esp_event_base_t event_base, int32_t event_id
     if (event_base != IP_EVENT || event_id != IP_EVENT_STA_GOT_IP || !event_data) {
         return;
     }
+
+    s_network_ready = true;
 
     if (app_local_discovery_ready()) {
         return;
