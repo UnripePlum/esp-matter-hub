@@ -97,6 +97,7 @@ static void ota_task(void *arg)
     ota_cfg.http_config = &http_cfg;
 
     ESP_LOGI(TAG, "OTA 시작: %s", http_cfg.url);
+    status_led_set_ota(true);
     esp_err_t err = esp_https_ota(&ota_cfg);
 
     free(url);
@@ -106,6 +107,7 @@ static void ota_task(void *arg)
         esp_restart();
     } else {
         ESP_LOGE(TAG, "OTA 실패: %s", esp_err_to_name(err));
+        status_led_set_ota(false);
         s_ota_running = false;
     }
     vTaskDelete(nullptr);

@@ -22,6 +22,7 @@ static constexpr uint16_t kHueRed = 0;
 static constexpr uint16_t kHueGreen = 120;
 static constexpr uint16_t kHueBlue = 240;
 static constexpr uint16_t kHueYellow = 50;
+static constexpr uint16_t kHuePurple = 280;
 
 static constexpr uint8_t kSatColor = 100;
 static constexpr uint8_t kSatWhite = 0;
@@ -37,6 +38,7 @@ enum class visual_state_t : uint8_t {
     LEARNING_SUCCESS,
     LEARNING_FAILED,
     IR_TX_PULSE,
+    OTA,
 };
 
 enum class learning_effect_t : uint8_t {
@@ -56,6 +58,7 @@ struct led_frame_t {
 static bool s_initialized = false;
 static bool s_system_ready = false;
 static bool s_commissioning_open = false;
+static bool s_ota_active = false;
 static learning_effect_t s_learning_effect = learning_effect_t::NONE;
 static uint64_t s_learning_effect_until_us = 0;
 static uint64_t s_ir_tx_pulse_until_us = 0;
@@ -106,6 +109,8 @@ static led_frame_t frame_for_state(visual_state_t state, uint64_t now_us)
         return { blink_phase_on(kLearnBlinkMs, now_us), kHueRed, kSatColor, kBrightStrong };
     case visual_state_t::IR_TX_PULSE:
         return { true, 0, kSatWhite, kBrightStrong };
+    case visual_state_t::OTA:
+        return { blink_phase_on(kSlowBlinkMs, now_us), kHuePurple, kSatColor, kBrightStrong };
     default:
         return { false, 0, 0, 0 };
     }
@@ -119,9 +124,11 @@ static visual_state_t resolve_visual_state(uint64_t now_us)
     uint64_t effect_until;
     uint64_t ir_tx_until;
 
+    bool ota_active;
     taskENTER_CRITICAL(&s_lock);
     system_ready = s_system_ready;
     commissioning_open = s_commissioning_open;
+    ota_active = s_ota_active;
     effect = s_learning_effect;
     effect_until = s_learning_effect_until_us;
     ir_tx_until = s_ir_tx_pulse_until_us;
@@ -149,6 +156,9 @@ static visual_state_t resolve_visual_state(uint64_t now_us)
     }
     if (ir_tx_until != 0) {
         return visual_state_t::IR_TX_PULSE;
+    }
+    if (ota_active) {
+        return visual_state_t::OTA;
     }
     if (!system_ready) {
         return visual_state_t::BOOTING;
@@ -248,6 +258,13 @@ void status_led_set_learning(ir_learning_state_t state)
     taskEXIT_CRITICAL(&s_lock);
 }
 
+void status_led_set_ota(bool active)
+{
+    taskENTER_CRITICAL(&s_lock);
+    s_ota_active = active;
+    taskEXIT_CRITICAL(&s_lock);
+}
+
 void status_led_notify_ir_tx()
 {
     const uint64_t now_us = esp_timer_get_time();
@@ -278,6 +295,8 @@ const char *status_led_get_state_str()
         return "learning_failed";
     case visual_state_t::IR_TX_PULSE:
         return "ir_tx";
+    case visual_state_t::OTA:
+        return "ota";
     default:
         return "unknown";
     }
