@@ -8,7 +8,8 @@
   <a href="#supported-hardware"><strong>Hardware</strong></a> ·
   <a href="#getting-started"><strong>Getting Started</strong></a> ·
   <a href="#architecture"><strong>Architecture</strong></a> ·
-  <a href="#ir-management-cluster"><strong>IR Cluster</strong></a>
+  <a href="#ir-management-cluster"><strong>IR Cluster</strong></a> ·
+  <a href="#testing"><strong>Testing</strong></a>
 </p>
 
 <p>
@@ -276,13 +277,33 @@ After flashing, the hub opens a BLE commissioning window and prints QR code onbo
 > [!IMPORTANT]
 > The hub requires a 16 MB flash chip when using the default partition table (`partitions.csv`). For 4 MB boards, use a chip-specific sdkconfig that omits the large SPIFFS partition.
 
+> [!WARNING]
+> **macOS — BLE commissioning fails with `Ble Error 0x00000407: GATT write characteristic operation failed`?**
+> `chip-tool` BLE commissioning on macOS requires Apple's **Bluetooth Central Matter Client Developer Mode** configuration profile. Without it, the BLE link connects and negotiates MTU, but the first PASE write (`PBKDFParamRequest`) is rejected instantly — macOS blocks the Matter BLE service UUID. The device side just shows `BLE GAP connection terminated ... reason 0x213`.
+>
+> This is **not** a firmware, Python, or NimBLE problem — it is a host-side macOS permission. The profile is **silently removed/invalidated by macOS updates** (e.g. a point-release), so re-install it after every OS update.
+>
+> **Fix:**
+> 1. Download `EnableBluetoothCentralMatterClientDeveloperMode.mobileconfig` (Apple Developer login required):
+>    `https://developer.apple.com/services-account/download?path=/iOS/iOS_Logs/EnableBluetoothCentralMatterClientDeveloperMode.mobileconfig`
+> 2. Double-click the file → System Settings → General → VPN & Device Management (or Privacy & Security → Profiles) → **Install**.
+>    *(The "Profiles" entry is hidden when no profile is installed — that's the symptom, not an error.)*
+> 3. **Restart the Mac** (required), then retry commissioning.
+>
+> Alternatively, commission from an iPhone/iPad (Apple Home) or a Linux host (BlueZ), which don't need this profile. See the [connectedhomeip Darwin guide](https://github.com/project-chip/connectedhomeip/blob/master/docs/guides/darwin.md).
+
 ### Web Interface
 
 Once commissioned and connected to Wi-Fi, the hub registers on mDNS and the web UI is accessible at:
 
 ```
-http://esp-matter-hub.local
+http://esp-matter-hub-<xxxxxx>.local
 ```
+
+`<xxxxxx>` is the last 3 bytes of the device MAC address (e.g. `esp-matter-hub-a1b2c3.local`), appended to avoid hostname collisions when several hubs share a network. The exact hostname (`fqdn`) is printed to the serial monitor on boot and returned by `GET /api/health`.
+
+> [!NOTE]
+> The web UI prompts for an **API key** on first load. The key is auto-generated, stored in NVS, and logged once to the serial monitor as `Web API Key: <key>`.
 
 **REST API endpoints** (all require `X-Api-Key` header):
 
@@ -318,11 +339,11 @@ During download the onboard LED blinks **purple**. The device reboots automatica
 ### Manual OTA
 
 ```bash
-curl -X POST http://esp-matter-hub.local/api/ota/trigger \
+curl -X POST http://esp-matter-hub-<xxxxxx>.local/api/ota/trigger \
   -H 'X-Api-Key: <key>'
 
 # Custom firmware URL
-curl -X POST http://esp-matter-hub.local/api/ota/trigger \
+curl -X POST http://esp-matter-hub-<xxxxxx>.local/api/ota/trigger \
   -H 'X-Api-Key: <key>' \
   -H 'Content-Type: application/json' \
   -d '{"url":"https://example.com/firmware.bin"}'
@@ -347,6 +368,71 @@ gh release download --repo muinlab/esp-matter-hub --dir .
 ./flash_remote.sh                     # auto-detect port
 ./flash_remote.sh /dev/cu.usbserial-0001
 ```
+
+---
+
+## Testing
+
+Three tools cover the two control paths (Matter custom cluster and Web REST API) plus a build-system sanity check. All but the build check require a **running, commissioned hub on the same network**.
+
+| Tool | Path under test | Mode |
+|------|-----------------|------|
+| `./hub_api_test` | Matter `IrManagement` cluster (via `chip-tool`) | Interactive REPL |
+| `./hw_selftest.sh` | Web REST API (`/api/*`) | Automated PASS/FAIL report |
+| `./test_empty_app.sh` | ESP-IDF toolchain / build | Build-only (no board) |
+
+### Prerequisites — test env file
+
+`hub_api_test` and `hw_selftest.sh` read settings from `.hub_api_test_env.sh` (git-ignored). Bootstrap it from the redacted template and fill in your board's values:
+
+```bash
+cp .hub_api_test_env.sh.example .hub_api_test_env.sh
+# Edit DEVICE_IP, WEB_API_KEY (the "Web API Key" printed to the serial monitor),
+# and HUB_HOST (esp-matter-hub-<xxxxxx>.local) to match your device.
+```
+
+### Interactive REPL — `hub_api_test`
+
+Opens a new terminal with a prompt that drives the custom Matter cluster through `chip-tool` (requires `chip-tool` on `PATH`):
+
+```bash
+./hub_api_test           # defaults: NODE_ID=1, ENDPOINT_ID=10
+./hub_api_test 1 10      # explicit node / endpoint
+```
+
+At the `hub_api_test>` prompt:
+
+| Command | Action |
+|---------|--------|
+| `/smoke` | Quick end-to-end sanity pass |
+| `/learn 10000` / `/learn_state` / `/learned_payload` | IR learning + state/payload reads |
+| `/send_raw <dev> <ticks_hex> <carrier> <repeat>` | Transmit a raw signal |
+| `/pair`, `/pair_auto`, `/unpair` | Commissioning helpers |
+| `/dump_nvs`, `/buffer_snapshot`, `/factory_reset` | Storage inspection / reset |
+| `/set_ip <ip>`, `/set_key <key>` | Override device IP / API key for the session |
+| `/help`, `/exit` | List all commands / quit |
+
+### Hardware self-test — `hw_selftest.sh`
+
+Walks the REST API end to end (health → slots → IR RX capture → TX bind → delete / cascade-unbind → NVS export) and prints `[PASS]`/`[FAIL]` per check. Some items (LED, button, TX emission) are manual visual confirmations. `WEB_API_KEY` must be set or requests fail authentication.
+
+```bash
+./hw_selftest.sh                                # uses default HUB_HOST
+./hw_selftest.sh esp-matter-hub-<xxxxxx>.local  # explicit host
+```
+
+### Build sanity — `test_empty_app.sh`
+
+Builds an empty app to verify the ESP-IDF toolchain alone. It **overwrites `CMakeLists.txt` and `main/` in the current directory**, so run it from a throwaway folder, never the project root:
+
+```bash
+mkdir -p /tmp/idf-sanity && cp test_empty_app.sh /tmp/idf-sanity/
+cd /tmp/idf-sanity && ./test_empty_app.sh
+```
+
+### Detailed scenarios
+
+Step-by-step test cases and expected results live in [`docs/test-plan-v3.2.md`](docs/test-plan-v3.2.md) (numbered TC-XX cases) and [`docs/test-methodology.md`](docs/test-methodology.md) (raw `chip-tool` command reference).
 
 ---
 

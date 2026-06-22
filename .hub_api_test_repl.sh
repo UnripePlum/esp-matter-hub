@@ -48,11 +48,16 @@ run_cmd() {
     /pair)             pair ;;
     /unpair)           unpair ;;
     *)
-      if [[ "$input" == /* ]]; then
-        local raw="${input#/}"
-        eval "$raw"
-      else
-        eval "$input"
+      local cmd_line="$input"
+      if [[ "$cmd_line" == /* ]]; then
+        cmd_line="${cmd_line#/}"
+      fi
+      # 인자를 단어 단위로 안전하게 분리해 함수로 직접 전달한다.
+      # eval을 쓰지 않으므로 비밀번호의 & ? * 등 특수문자가 셸에 해석되지 않는다.
+      local -a parts=()
+      IFS=$' \t' read -ra parts <<< "$cmd_line"
+      if [[ ${#parts[@]} -gt 0 ]]; then
+        "${parts[@]}"
       fi
       ;;
   esac

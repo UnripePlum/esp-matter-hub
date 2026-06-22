@@ -222,14 +222,24 @@ pair_auto() {
   local wifi_env="$PROJECT_DIR/.wifi_credentials"
 
   local ssid="" password=""
+
+  # 저장된 크레덴셜이 있으면 그대로 쓸지/새로 업데이트할지 물어본다
   if [[ -f "$wifi_env" ]]; then
-    ssid="$(grep '^WIFI_SSID=' "$wifi_env" | cut -d= -f2-)"
-    password="$(grep '^WIFI_PASSWORD=' "$wifi_env" | cut -d= -f2-)"
-    if [[ -n "$ssid" && -n "$password" ]]; then
-      echo "저장된 크레덴셜 사용: $ssid"
+    local saved_ssid saved_password
+    saved_ssid="$(grep '^WIFI_SSID=' "$wifi_env" | cut -d= -f2-)"
+    saved_password="$(grep '^WIFI_PASSWORD=' "$wifi_env" | cut -d= -f2-)"
+    if [[ -n "$saved_ssid" && -n "$saved_password" ]]; then
+      printf '저장된 WiFi 크레덴셜: %s\n' "$saved_ssid"
+      read -r -p "이 크레덴셜을 [u]사용 / [e]업데이트? (U/e): " wifi_choice
+      if [[ ! "$wifi_choice" =~ ^[eE] ]]; then
+        ssid="$saved_ssid"
+        password="$saved_password"
+        echo "저장된 크레덴셜 사용: $ssid"
+      fi
     fi
   fi
 
+  # 저장된 게 없거나 업데이트를 선택한 경우 새로 입력받는다
   if [[ -z "$ssid" || -z "$password" ]]; then
     read -r -p "WiFi SSID: " ssid
     if [[ -z "$ssid" ]]; then
@@ -242,7 +252,7 @@ pair_auto() {
       echo "비밀번호가 비어있습니다."
       return 1
     fi
-    read -r -p "이 크레덴셜을 저장할까요? (y/N): " save_yn
+    read -r -p "이 크레덴셜을 저장(업데이트)할까요? (y/N): " save_yn
     if [[ "$save_yn" =~ ^[yY] ]]; then
       printf 'WIFI_SSID=%s\nWIFI_PASSWORD=%s\n' "$ssid" "$password" > "$wifi_env"
       chmod 600 "$wifi_env"
